@@ -283,7 +283,7 @@ export const PhoneButton = forwardRef(({
             <a
                 href={`tel:${phoneNumber}`}
                 className="flex items-center space-x-2 text-inherit no-underline"
-                aria-label={`Call Saajavat at ${phoneNumber} for balloon decoration consultation`}
+                aria-label={`Call Sajaavat Events at ${phoneNumber} for balloon decoration consultation`}
             >
                 {children}
             </a>

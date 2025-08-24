@@ -8,10 +8,10 @@ const inter = Inter({
 });
 
 export const metadata = {
-    metadataBase: new URL('https://saajavat.com'),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
     title: {
-        default: 'Saajavat - Premium Balloon Arch Decorations for Asian Weddings | London UK',
-        template: '%s | Saajavat'
+        default: 'Sajaavat Events - Premium Balloon Arch Decorations for Asian Weddings | London UK',
+        template: '%s | Sajaavat Events'
     },
     description: 'Transform your special day with stunning balloon artistry. Specializing in Asian wedding decorations, baby showers, corporate events and balloon arch installations across London and UK. Professional setup and cleanup included.',
     keywords: [
@@ -45,53 +45,53 @@ export const metadata = {
         'Asian wedding event styling',
         'premium balloon decorations UK'
     ],
-    authors: [{name: 'Saajavat', url: 'https://saajavat.com'}],
-    creator: 'Saajavat',
-    publisher: 'Saajavat',
+    authors: [{name: 'Sajaavat Events', url: process.env.NEXT_PUBLIC_SITE_URL}],
+    creator: 'Sajaavat Events',
+    publisher: 'Sajaavat Events',
     alternates: {
         canonical: '/',
     },
     openGraph: {
         type: 'website',
         locale: 'en_GB',
-        url: 'https://saajavat.com',
-        title: 'Saajavat - Premium Balloon Arch Decorations for Asian Weddings',
+        url: process.env.NEXT_PUBLIC_SITE_URL,
+        title: 'Sajaavat Events - Premium Balloon Arch Decorations for Asian Weddings',
         description: 'Transform your special day with stunning balloon artistry. Specializing in Asian wedding decorations, baby showers, and event styling across London and UK.',
-        siteName: 'Saajavat',
+        siteName: 'Sajaavat Events',
         images: [
             {
                 url: '/images/hero/balloon-arch-og.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'Beautiful pink and gold balloon arch decoration for Asian wedding by Saajavat',
+                alt: 'Beautiful pink and gold balloon arch decoration for Asian wedding by Sajaavat Events',
                 type: 'image/jpeg',
             },
             {
                 url: '/images/hero/baby-shower-og.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'Elegant baby shower balloon decorations in pastel colors by Saajavat',
+                alt: 'Elegant baby shower balloon decorations in pastel colors by Sajaavat Events',
                 type: 'image/jpeg',
             },
             {
                 url: '/images/hero/corporate-og.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'Professional corporate event balloon styling by Saajavat',
+                alt: 'Professional corporate event balloon styling by Sajaavat Events',
                 type: 'image/jpeg',
             }
         ],
     },
     twitter: {
         card: 'summary_large_image',
-        site: '@saajavat',
-        creator: '@saajavat',
-        title: 'Saajavat - Premium Balloon Arch Decorations',
+        site: '@sajaavat-events',
+        creator: '@sajaavat-events',
+        title: 'Sajaavat Events - Premium Balloon Arch Decorations',
         description: 'Transform your special day with stunning balloon artistry. Specializing in Asian wedding decorations, baby showers, and event styling.',
         images: [
             {
                 url: '/images/hero/balloon-arch-og.jpg',
-                alt: 'Beautiful balloon arch decoration for Asian wedding by Saajavat',
+                alt: 'Beautiful balloon arch decoration for Asian wedding by Sajaavat Events',
             }
         ],
     },
@@ -133,8 +133,8 @@ export const metadata = {
         'mobile-web-app-capable': 'yes',
         'apple-mobile-web-app-capable': 'yes',
         'apple-mobile-web-app-status-bar-style': 'default',
-        'apple-mobile-web-app-title': 'Saajavat',
-        'application-name': 'Saajavat',
+        'apple-mobile-web-app-title': 'Sajaavat Events',
+        'application-name': 'Sajaavat Events',
         'msapplication-TileColor': '#171717',
         'msapplication-config': '/images/icons/browserconfig.xml',
         'theme-color': '#171717',
@@ -158,7 +158,7 @@ export default function RootLayout({children}) {
             <meta name="business:contact_data:postal_code" content="Greater London"/>
             <meta name="business:contact_data:country_name" content="United Kingdom"/>
             <meta name="business:contact_data:phone_number" content="+44-712-345-6789"/>
-            <meta name="business:contact_data:website" content="https://saajavat.com"/>
+            <meta name="business:contact_data:website" content={`${process.env.NEXT_PUBLIC_SITE_URL}`}/>
 
             {/* Service Area Meta */}
             <meta name="service-area" content="London, Birmingham, Manchester, Leeds, Leicester, UK"/>
@@ -178,11 +178,11 @@ export default function RootLayout({children}) {
             <link rel="dns-prefetch" href="//www.googletagmanager.com"/>
 
             {/* Canonical URL */}
-            <link rel="canonical" href="https://saajavat.com"/>
+            <link rel="canonical" href={`${process.env.NEXT_PUBLIC_SITE_URL}`}/>
 
             {/* Hreflang for International SEO */}
-            <link rel="alternate" href="https://saajavat.com" hrefLang="en-GB"/>
-            <link rel="alternate" href="https://saajavat.com" hrefLang="en"/>
+            <link rel="alternate" href={`${process.env.NEXT_PUBLIC_SITE_URL}`} hrefLang="en-GB"/>
+            <link rel="alternate" href={`${process.env.NEXT_PUBLIC_SITE_URL}`} hrefLang="en"/>
         </head>
         <body className={`${inter.variable} antialiased`}>
         {children}

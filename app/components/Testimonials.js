@@ -16,7 +16,7 @@ export default function Testimonials() {
             location: 'Gurdwara, London',
             rating: 5,
             image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-            review: 'Saajavat transformed our wedding mandap into something absolutely magical. The pink and gold balloon arch perfectly complemented our traditional ceremony, and every guest was amazed by the beautiful setup. The team understood our cultural requirements perfectly and delivered beyond our expectations.',
+            review: 'Sajaavat Events transformed our wedding mandap into something absolutely magical. The pink and gold balloon arch perfectly complemented our traditional ceremony, and every guest was amazed by the beautiful setup. The team understood our cultural requirements perfectly and delivered beyond our expectations.',
             eventType: 'wedding',
             date: 'September 2024'
         },
@@ -27,7 +27,7 @@ export default function Testimonials() {
             location: 'Private Venue, Birmingham',
             rating: 5,
             image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
-            review: 'The team at Saajavat created the most adorable baby shower setup for our little princess. The pastel pink and gold theme was exactly what we dreamed of, and the balloon arch became the perfect backdrop for our photos. Professional, punctual, and absolutely wonderful to work with!',
+            review: 'The team at Sajaavat Events created the most adorable baby shower setup for our little princess. The pastel pink and gold theme was exactly what we dreamed of, and the balloon arch became the perfect backdrop for our photos. Professional, punctual, and absolutely wonderful to work with!',
             eventType: 'baby-shower',
             date: 'October 2024'
         },
@@ -38,7 +38,7 @@ export default function Testimonials() {
             location: 'Manchester Conference Centre',
             rating: 5,
             image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-            review: 'For our company\'s 10th anniversary celebration, Saajavat delivered exceptional corporate styling that perfectly matched our brand colors. The balloon installations added elegance to our event without being overwhelming. Highly professional service and outstanding attention to detail.',
+            review: 'For our company\'s 10th anniversary celebration, Sajaavat Events delivered exceptional corporate styling that perfectly matched our brand colors. The balloon installations added elegance to our event without being overwhelming. Highly professional service and outstanding attention to detail.',
             eventType: 'corporate',
             date: 'November 2024'
         },
@@ -49,7 +49,7 @@ export default function Testimonials() {
             location: 'Community Hall, Bradford',
             rating: 5,
             image: 'https://images.unsplash.com/photo-1567532900872-f4e906cbf06a?w=150&h=150&fit=crop&crop=face',
-            review: 'We wanted something that honored our Pakistani traditions while being modern and elegant. Saajavat delivered exactly that! The burgundy and gold balloon arch was stunning, and they even incorporated some traditional patterns. Our families were so impressed, and the photos turned out beautifully.',
+            review: 'We wanted something that honored our Pakistani traditions while being modern and elegant. Sajaavat Events delivered exactly that! The burgundy and gold balloon arch was stunning, and they even incorporated some traditional patterns. Our families were so impressed, and the photos turned out beautifully.',
             eventType: 'wedding',
             date: 'August 2024'
         },
@@ -60,7 +60,7 @@ export default function Testimonials() {
             location: 'Garden Party, Oxford',
             rating: 5,
             image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
-            review: 'The surprise gender reveal setup was absolutely perfect! Saajavat created a beautiful neutral backdrop that transformed into the most amazing pink explosion when we popped the balloon. The whole family was in tears of joy. Thank you for making our moment so special!',
+            review: 'The surprise gender reveal setup was absolutely perfect! Sajaavat Events created a beautiful neutral backdrop that transformed into the most amazing pink explosion when we popped the balloon. The whole family was in tears of joy. Thank you for making our moment so special!',
             eventType: 'baby-shower',
             date: 'December 2024'
         },
@@ -71,7 +71,7 @@ export default function Testimonials() {
             location: 'Banquet Hall, Leicester',
             rating: 5,
             image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
-            review: 'The golden balloon arch for our Tamil wedding reception was absolutely breathtaking. Saajavat understood the significance of our traditions and created decorations that perfectly honored our heritage. The setup was elegant, sophisticated, and photographed beautifully.',
+            review: 'The golden balloon arch for our Tamil wedding reception was absolutely breathtaking. Sajaavat Events understood the significance of our traditions and created decorations that perfectly honored our heritage. The setup was elegant, sophisticated, and photographed beautifully.',
             eventType: 'wedding',
             date: 'July 2024'
         }
@@ -137,7 +137,7 @@ export default function Testimonials() {
                     <h2 className="text-3xl lg:text-5xl font-bold text-neutral-900 mb-6">What Our Clients Say</h2>
                     <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
                         Don't just take our word for it. Here's what families and businesses across the UK
-                        have to say about their Saajavat experience.
+                        have to say about their Sajaavat Events experience.
                     </p>
                 </div>
 

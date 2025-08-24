@@ -154,11 +154,11 @@ const nextConfig = {
         return config
     },
 
-    // Environment variables for SEO tracking
     env: {
         NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || '',
         NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID || '',
         NEXT_PUBLIC_GTM_ID: process.env.NEXT_PUBLIC_GTM_ID || '',
+        NEXT_PUBLIC_EMAIL_ADDRESS: process.env.NEXT_PUBLIC_EMAIL_ADDRESS || '',
     },
 
     // Output settings for better SEO

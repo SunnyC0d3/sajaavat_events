@@ -7,7 +7,7 @@ import Footer from '@/app/components/Footer'
 import StructuredData from '@/app/components/StructuredData'
 
 export const metadata = {
-    title: 'Saajavat - Premium Balloon Arch Decorations for Asian Weddings | London UK',
+    title: 'Sajaavat Events - Premium Balloon Arch Decorations for Asian Weddings | London UK',
     description: 'Transform your special day with stunning balloon artistry. Specializing in Asian wedding decorations, baby showers, corporate events and balloon arch installations across London and UK. Professional setup and cleanup included. Free consultations available.',
     keywords: [
         'balloon arch decorations London',
@@ -25,7 +25,7 @@ export const metadata = {
         'Indian wedding balloon decorations'
     ],
     openGraph: {
-        title: 'Saajavat - Premium Balloon Arch Decorations for Asian Weddings',
+        title: 'Sajaavat Events - Premium Balloon Arch Decorations for Asian Weddings',
         description: 'Transform your special day with stunning balloon artistry. Specializing in Asian wedding decorations, baby showers, and event styling across London and UK.',
         url: process.env.NEXT_PUBLIC_SITE_URL,
         images: [
@@ -33,7 +33,7 @@ export const metadata = {
                 url: '/images/hero/balloon-arch-main.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'Beautiful pink and gold balloon arch decoration for Asian wedding ceremony by Saajavat'
+                alt: 'Beautiful pink and gold balloon arch decoration for Asian wedding ceremony by Sajaavat Events'
             }
         ],
         locale: 'en_GB',
@@ -41,12 +41,12 @@ export const metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Saajavat - Premium Balloon Arch Decorations',
+        title: 'Sajaavat Events - Premium Balloon Arch Decorations',
         description: 'Specializing in Asian wedding decorations, baby showers, and event styling across London and UK.',
         images: ['/images/hero/balloon-arch-main.jpg'],
     },
     alternates: {
-        canonical: 'https://saajavat.com',
+        canonical: process.env.NEXT_PUBLIC_SITE_URL,
     },
     other: {
         // Local Business Meta
@@ -78,7 +78,7 @@ export default function Home() {
 
             <main role="main">
                 <h1 className="sr-only">
-                    Saajavat - Premium Balloon Arch Decorations for Asian Weddings, Baby Showers, and Corporate Events in London UK
+                    Sajaavat Events - Premium Balloon Arch Decorations for Asian Weddings, Baby Showers, and Corporate Events in London UK
                 </h1>
 
                 <Hero/>

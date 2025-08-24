@@ -21,7 +21,7 @@ Disallow: /.well-known/
 Crawl-delay: 1
 
 # Sitemaps - single page focus
-Sitemap: https://saajavat.com/sitemap.xml
+Sitemap: https://sajaavat-events.com/sitemap.xml
 
 # Special instructions for major search engines
 User-agent: Googlebot

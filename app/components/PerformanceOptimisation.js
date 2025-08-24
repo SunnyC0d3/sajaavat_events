@@ -67,7 +67,7 @@ export function AnalyticsScripts() {
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', '${GA_ID}', {
-                page_title: 'Saajavat - Asian Wedding Balloon Decorations',
+                page_title: 'Sajaavat Events - Asian Wedding Balloon Decorations',
                 custom_map: {'dimension1': 'balloon_decorations'},
                 content_group1: 'Wedding Services',
                 content_group2: 'Asian Wedding Specialists'
@@ -110,18 +110,18 @@ export function AnalyticsScripts() {
           {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "@id": "https://saajavat.com/#business",
-            "name": "Saajavat",
-            "alternateName": "Saajavat Balloon Decorations",
+            "@id": "${process.env.NEXT_PUBLIC_SITE_URL}/#business",
+            "name": "Sajaavat Events",
+            "alternateName": "Sajaavat Events Balloon Decorations",
             "description": "Professional balloon decoration services specializing in Asian weddings, baby showers, and corporate events across London and UK",
-            "url": "https://saajavat.com",
+            "url": ${process.env.NEXT_PUBLIC_SITE_URL},
             "telephone": "+44-712-345-6789",
-            "email": "hello@saajavat.com",
+            "email": ${process.env.NEXT_PUBLIC_EMAIL_ADDRESS},
             "priceRange": "££-£££",
             "image": [
-              "https://saajavat.com/images/hero/asian-wedding-balloon-arch.jpg",
-              "https://saajavat.com/images/services/sikh-wedding-mandap.jpg",
-              "https://saajavat.com/images/gallery/balloon-decoration-portfolio.jpg"
+              "${process.env.NEXT_PUBLIC_SITE_URL}/images/hero/asian-wedding-balloon-arch.jpg",
+              "${process.env.NEXT_PUBLIC_SITE_URL}/images/services/sikh-wedding-mandap.jpg",
+              "${process.env.NEXT_PUBLIC_SITE_URL}/images/gallery/balloon-decoration-portfolio.jpg"
             ],
             "address": {
               "@type": "PostalAddress",
@@ -215,9 +215,9 @@ export function AnalyticsScripts() {
               }
             ],
             "sameAs": [
-              "https://instagram.com/saajavat",
-              "https://facebook.com/saajavat",
-              "https://twitter.com/saajavat"
+              "https://instagram.com/sajaavat-events",
+              "https://facebook.com/sajaavat-events",
+              "https://twitter.com/sajaavat-events"
             ]
           }
         `}
@@ -238,25 +238,25 @@ export function AnalyticsScripts() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://saajavat.com"
+                "item": ${process.env.NEXT_PUBLIC_SITE_URL}
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Asian Wedding Decorations",
-                "item": "https://saajavat.com/#services"
+                "item": "${process.env.NEXT_PUBLIC_SITE_URL}/#services"
               },
               {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "Portfolio Gallery",
-                "item": "https://saajavat.com/#gallery"
+                "item": "${process.env.NEXT_PUBLIC_SITE_URL}/#gallery"
               },
               {
                 "@type": "ListItem",
                 "position": 4,
                 "name": "Contact",
-                "item": "https://saajavat.com/#contact"
+                "item": "${process.env.NEXT_PUBLIC_SITE_URL}/#contact"
               }
             ]
           }

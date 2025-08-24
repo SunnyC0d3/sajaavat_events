@@ -213,9 +213,6 @@ export default function Terms() {
                                 </p>
                             </div>
                         </section>
-
-                        {/* Continue with remaining sections... */}
-
                     </div>
 
                     <div className="text-center mt-12">

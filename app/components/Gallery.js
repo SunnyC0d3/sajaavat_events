@@ -13,7 +13,7 @@ export default function Gallery() {
         {
             id: 1,
             src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
-            alt: 'Elegant pink and gold balloon arch decoration for Sikh wedding ceremony with traditional mandap styling at London gurdwara by Saajavat',
+            alt: 'Elegant pink and gold balloon arch decoration for Sikh wedding ceremony with traditional mandap styling at London gurdwara by Sajaavat Events',
             category: 'wedding',
             title: 'Romantic Pink & Gold Sikh Wedding Arch',
             description: 'Beautiful mandap backdrop with traditional Punjabi colors honoring Sikh wedding traditions',
@@ -25,7 +25,7 @@ export default function Gallery() {
         {
             id: 2,
             src: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop',
-            alt: 'Pastel blue baby shower balloon decorations with gender reveal theme and professional styling by Saajavat London',
+            alt: 'Pastel blue baby shower balloon decorations with gender reveal theme and professional styling by Sajaavat Events London',
             category: 'baby-shower',
             title: 'Sweet Blue Baby Boy Shower',
             description: 'Soft pastel theme for baby boy celebration with modern balloon styling',
@@ -37,7 +37,7 @@ export default function Gallery() {
         {
             id: 3,
             src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop',
-            alt: 'Professional corporate event balloon styling with sophisticated design and company branding by Saajavat Manchester',
+            alt: 'Professional corporate event balloon styling with sophisticated design and company branding by Sajaavat Events Manchester',
             category: 'corporate',
             title: 'Corporate Achievement Awards Ceremony',
             description: 'Sophisticated balloon styling for company milestone celebration with professional aesthetic',
@@ -49,7 +49,7 @@ export default function Gallery() {
         {
             id: 4,
             src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop',
-            alt: 'Traditional red and white balloon arch for Hindu wedding ceremony with authentic cultural colors and mandap styling by Saajavat',
+            alt: 'Traditional red and white balloon arch for Hindu wedding ceremony with authentic cultural colors and mandap styling by Sajaavat Events',
             category: 'wedding',
             title: 'Traditional Red & White Hindu Mandap',
             description: 'Classic Hindu wedding colors honoring traditional ceremonies with authentic cultural elements',
@@ -85,7 +85,7 @@ export default function Gallery() {
         {
             id: 7,
             src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop',
-            alt: 'Blue and silver corporate event balloon styling with modern design for tech company product launch by Saajavat',
+            alt: 'Blue and silver corporate event balloon styling with modern design for tech company product launch by Sajaavat Events',
             category: 'corporate',
             title: 'Tech Company Product Launch Event',
             description: 'Modern balloon styling for high-tech product unveiling with corporate sophistication',

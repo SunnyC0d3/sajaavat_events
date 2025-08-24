@@ -123,7 +123,7 @@ export default function Services() {
             images: [
                 {
                     src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop',
-                    alt: 'Corporate awards ceremony balloon decoration with professional styling and branding by Saajavat'
+                    alt: 'Corporate awards ceremony balloon decoration with professional styling and branding by Sajavaat Events'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop',
@@ -194,7 +194,7 @@ export default function Services() {
                                 <div className="aspect-w-3 aspect-h-2 bg-neutral-200">
                                     <img
                                         src={service.image}
-                                        alt={`${service.title} - Professional balloon decoration services by Saajavat London`}
+                                        alt={`${service.title} - Professional balloon decoration services by Sajaavat Events London`}
                                         className="w-full h-48 object-cover"
                                         loading="lazy"
                                         itemProp="image"
@@ -369,7 +369,7 @@ export default function Services() {
 
                             <span className="sr-only" itemProp="provider" itemScope
                                   itemType="https://schema.org/Organization">
-                                <span itemProp="name">Saajavat</span>
+                                <span itemProp="name">Sajaavat Events</span>
                             </span>
                             <span className="sr-only" itemProp="areaServed">London, Birmingham, Manchester, Leeds, Leicester, UK</span>
                         </div>

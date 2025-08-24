@@ -1,5 +1,5 @@
 export async function GET() {
-    const baseUrl = 'https://saajavat.com'
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
     const currentDate = new Date().toISOString()
 
     // Image data with SEO-optimized information
@@ -8,8 +8,8 @@ export async function GET() {
         {
             loc: `${baseUrl}/`,
             imageUrl: `${baseUrl}/images/hero/asian-wedding-balloon-arch.jpg`,
-            caption: 'Beautiful pink and gold balloon arch decoration for Asian wedding ceremony by Saajavat London',
-            title: 'Asian Wedding Balloon Arch - Saajavat',
+            caption: 'Beautiful pink and gold balloon arch decoration for Asian wedding ceremony by Sajaavat Events London',
+            title: 'Asian Wedding Balloon Arch - Sajaavat Events',
             license: `${baseUrl}/terms`,
             geoLocation: 'London, UK'
         },
@@ -17,7 +17,7 @@ export async function GET() {
             loc: `${baseUrl}/`,
             imageUrl: `${baseUrl}/images/hero/baby-shower-decorations.jpg`,
             caption: 'Elegant baby shower balloon decorations in pastel colors for celebration in London',
-            title: 'Baby Shower Balloon Decorations - Saajavat',
+            title: 'Baby Shower Balloon Decorations - Sajaavat Events',
             license: `${baseUrl}/terms`,
             geoLocation: 'London, UK'
         },
@@ -25,7 +25,7 @@ export async function GET() {
             loc: `${baseUrl}/`,
             imageUrl: `${baseUrl}/images/hero/corporate-event-balloons.jpg`,
             caption: 'Professional corporate event balloon styling with sophisticated design',
-            title: 'Corporate Event Balloon Styling - Saajavat',
+            title: 'Corporate Event Balloon Styling - Sajaavat Events',
             license: `${baseUrl}/terms`,
             geoLocation: 'London, UK'
         },
@@ -123,7 +123,7 @@ export async function GET() {
             loc: `${baseUrl}/`,
             imageUrl: `${baseUrl}/images/team/balloon-installation-team.jpg`,
             caption: 'Professional balloon decoration installation team setting up Asian wedding arch',
-            title: 'Professional Balloon Installation Team - Saajavat',
+            title: 'Professional Balloon Installation Team - Sajaavat Events',
             license: `${baseUrl}/terms`,
             geoLocation: 'London, UK'
         }

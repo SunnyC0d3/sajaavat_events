@@ -4,10 +4,10 @@ import Footer from "@/app/components/Footer";
 import { ArrowLeft, Shield, Eye, Lock, FileText, Users, Calendar } from 'lucide-react'
 
 export const metadata = {
-    title: 'Privacy Policy - How Saajavat Protects Your Personal Information | Balloon Decorations London',
-    description: 'Learn how Saajavat, London\'s premier Asian wedding balloon decoration specialists, collects, uses, and protects your personal information. GDPR compliant privacy policy for our balloon decoration services.',
+    title: 'Privacy Policy - How Sajaavat Events Protects Your Personal Information | Balloon Decorations London',
+    description: 'Learn how Sajaavat Events, London\'s premier Asian wedding balloon decoration specialists, collects, uses, and protects your personal information. GDPR compliant privacy policy for our balloon decoration services.',
     keywords: [
-        'Saajavat privacy policy',
+        'Sajaavat Events privacy policy',
         'balloon decoration data protection',
         'Asian wedding decorator privacy',
         'GDPR compliance balloon services',
@@ -17,13 +17,13 @@ export const metadata = {
         'customer information protection'
     ],
     openGraph: {
-        title: 'Privacy Policy - Saajavat Balloon Decorations Data Protection',
+        title: 'Privacy Policy - Sajaavat Events Balloon Decorations Data Protection',
         description: 'How we protect your personal information when booking Asian wedding and event balloon decoration services.',
-        url: 'https://saajavat.com/privacy',
+        url: process.env.NEXT_PUBLIC_SITE_URL + '/privacy',
         type: 'website',
     },
     alternates: {
-        canonical: 'https://saajavat.com/privacy',
+        canonical: process.env.NEXT_PUBLIC_SITE_URL + '/privacy',
     },
     robots: {
         index: true,
@@ -36,20 +36,20 @@ export const metadata = {
 const privacySchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://saajavat.com/privacy",
-    "name": "Privacy Policy - Saajavat Balloon Decorations",
-    "description": "Privacy policy detailing how Saajavat collects, uses, and protects customer personal information for balloon decoration services",
-    "url": "https://saajavat.com/privacy",
+    "@id": process.env.NEXT_PUBLIC_SITE_URL + '/privacy',
+    "name": "Privacy Policy - Sajaavat Events Balloon Decorations",
+    "description": "Privacy policy detailing how Sajaavat Events collects, uses, and protects customer personal information for balloon decoration services",
+    "url": process.env.NEXT_PUBLIC_SITE_URL + '/privacy',
     "isPartOf": {
         "@type": "WebSite",
-        "name": "Saajavat",
-        "url": "https://saajavat.com"
+        "name": "Sajaavat Events",
+        "url": process.env.NEXT_PUBLIC_SITE_URL
     },
     "about": {
         "@type": "Organization",
-        "name": "Saajavat",
+        "name": "Sajaavat Events",
         "description": "Asian wedding balloon decoration specialists",
-        "url": "https://saajavat.com"
+        "url": process.env.NEXT_PUBLIC_SITE_URL
     },
     "dateModified": "2025-01-01",
     "inLanguage": "en-GB"
@@ -61,7 +61,7 @@ export default function Privacy() {
             id: 'introduction',
             title: '1. Introduction',
             icon: Shield,
-            content: `At Saajavat ("we," "our," or "us"), we are committed to protecting your privacy and personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our balloon decoration services for Asian weddings, baby showers, and special events.`
+            content: `At Sajaavat Events ("we," "our," or "us"), we are committed to protecting your privacy and personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our balloon decoration services for Asian weddings, baby showers, and special events.`
         },
         {
             id: 'information-collected',
@@ -121,7 +121,7 @@ export default function Privacy() {
                             Privacy Policy & Data Protection
                         </h1>
                         <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-                            How Saajavat, London's premier Asian wedding balloon decoration specialists,
+                            How Sajaavat Events, London's premier Asian wedding balloon decoration specialists,
                             protects your personal information and respects your privacy.
                         </p>
                         <p className="text-sm text-neutral-500 mt-4">
@@ -137,7 +137,7 @@ export default function Privacy() {
                                 <h2 className="text-2xl font-bold text-neutral-900">1. Introduction</h2>
                             </div>
                             <p className="text-neutral-600 leading-relaxed mb-4">
-                                At Saajavat ("we," "our," or "us"), we are committed to protecting your privacy and
+                                At Sajaavat Events ("we," "our," or "us"), we are committed to protecting your privacy and
                                 personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your
                                 information when you use our professional balloon decoration services for Asian weddings, Sikh ceremonies,
                                 Hindu celebrations, Pakistani weddings, baby showers, and corporate events across London and UK.
@@ -294,8 +294,8 @@ export default function Privacy() {
                                     For questions about this Privacy Policy, to exercise your data rights, or to report a privacy concern:
                                 </p>
                                 <div className="space-y-2 text-neutral-800">
-                                    <p><strong>Data Controller:</strong> Saajavat Balloon Decorations</p>
-                                    <p><strong>Email:</strong> <a href="mailto:privacy@saajavat.com" className="text-primary-600 hover:text-primary-700">privacy@saajavat.com</a></p>
+                                    <p><strong>Data Controller:</strong> Sajaavat Events Balloon Decorations</p>
+                                    <p><strong>Email:</strong> <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL_ADDRESS}`} className="text-primary-600 hover:text-primary-700">{process.env.NEXT_PUBLIC_EMAIL_ADDRESS}</a></p>
                                     <p><strong>Phone:</strong> <a href="tel:+447123456789" className="text-primary-600 hover:text-primary-700">+44 712 345 6789</a></p>
                                     <p><strong>Address:</strong> London, United Kingdom</p>
                                     <p><strong>Response Time:</strong> Within 30 days of receiving your request</p>
@@ -316,7 +316,7 @@ export default function Privacy() {
                                 or prominent website notice. Continued use of our services constitutes acceptance of any updates.
                             </p>
                             <p className="text-sm text-neutral-500 mt-4">
-                                This privacy policy applies specifically to Saajavat's balloon decoration services for Asian weddings,
+                                This privacy policy applies specifically to Sajaavat Events balloon decoration services for Asian weddings,
                                 baby showers, and special events across London, Birmingham, Manchester, Leeds, and throughout the UK.
                             </p>
                         </section>
@@ -327,7 +327,7 @@ export default function Privacy() {
                             <Link
                                 href="/"
                                 className="inline-flex items-center px-8 py-4 text-base h-12 min-w-[120px] rounded-lg border-2 border-neutral-900 text-neutral-900 hover:bg-neutral-900 hover:text-neutral-50 transition-all"
-                                aria-label="Return to Saajavat homepage"
+                                aria-label="Return to Sajaavat Events homepage"
                             >
                                 <ArrowLeft className="w-4 h-4 mr-2 flex-shrink-0" />
                                 <span className="truncate">Back to Home</span>

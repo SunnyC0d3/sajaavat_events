@@ -39,7 +39,7 @@ export default function Header() {
                             href="tel:+447123456789"
                             className="underline hover:no-underline font-semibold"
                             itemProp="telephone"
-                            aria-label="Call Saajavat for free balloon decoration consultation"
+                            aria-label="Call Sajaavat Events for free balloon decoration consultation"
                         >
                             +44 712 345 6789
                         </a>
@@ -63,19 +63,19 @@ export default function Header() {
                             <a
                                 href="/"
                                 className="flex items-center"
-                                aria-label="Saajavat - Premium balloon decoration services for Asian weddings and events"
+                                aria-label="Sajaavat Events - Premium balloon decoration services for Asian weddings and events"
                                 itemProp="url"
                             >
                                 <Image
                                     src={logo}
-                                    alt="Saajavat logo - Premium balloon arch decorations for Asian weddings, baby showers and corporate events in London UK"
+                                    alt="Sajaavat Events logo - Premium balloon arch decorations for Asian weddings, baby showers and corporate events in London UK"
                                     width={200}
                                     height={50}
                                     itemProp="logo"
                                     priority
                                 />
                                 <span className="sr-only" itemProp="name">
-                                    Saajavat - Balloon Decoration Services London
+                                    Sajaavat Events - Balloon Decoration Services London
                                 </span>
                             </a>
                         </div>
@@ -106,7 +106,7 @@ export default function Header() {
                             <a
                                 href="tel:+447123456789"
                                 className="flex items-center space-x-2 text-neutral-700 hover:text-neutral-900 transition-colors"
-                                aria-label="Call Saajavat balloon decorations London"
+                                aria-label="Call Sajaavat Events balloon decorations London"
                                 itemProp="telephone"
                             >
                                 <Phone className="w-4 h-4" aria-hidden="true"/>
@@ -129,7 +129,7 @@ export default function Header() {
                                 size="md"
                                 icon={Phone}
                                 onClick={() => window.location.href = 'tel:+447123456789'}
-                                aria-label="Call Saajavat balloon decorations"
+                                aria-label="Call Sajaavat Events balloon decorations"
                             />
                             <IconButton
                                 variant="ghost"
@@ -168,7 +168,7 @@ export default function Header() {
                                     <a
                                         href="tel:+447123456789"
                                         className="flex items-center space-x-3 py-3 px-3 text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 transition-colors duration-200 rounded-lg"
-                                        aria-label="Call Saajavat for balloon decoration consultation"
+                                        aria-label="Call Sajaavat Events for balloon decoration consultation"
                                     >
                                         <Phone className="w-5 h-5" aria-hidden="true"/>
                                         <span className="font-medium">Call: +44 712 345 6789</span>
@@ -179,7 +179,7 @@ export default function Header() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center space-x-3 py-3 px-3 text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 transition-colors duration-200 rounded-lg"
-                                        aria-label="WhatsApp Saajavat for quick response"
+                                        aria-label="WhatsApp Sajaavat Events for quick response"
                                     >
                                         <MessageCircle className="w-5 h-5" aria-hidden="true"/>
                                         <span className="font-medium">WhatsApp Us</span>
@@ -204,7 +204,7 @@ export default function Header() {
 
                 {/* Hidden structured data for organization */}
                 <div className="sr-only">
-                    <span itemProp="name">Saajavat</span>
+                    <span itemProp="name">Sajaavat Events</span>
                     <span itemProp="description">Premium balloon arch decorations for Asian weddings, baby showers and corporate events</span>
                     <span itemProp="areaServed">London, Birmingham, Manchester, Leeds, UK</span>
                     <span itemProp="priceRange">££-£££</span>

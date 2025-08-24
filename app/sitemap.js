@@ -1,5 +1,5 @@
 export default function sitemap() {
-    const baseUrl = 'https://saajavat.com'
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
     const currentDate = new Date().toISOString()
 
     const pages = [

@@ -121,7 +121,7 @@ export default function NotFoundPage() {
                             icon={Home}
                             iconPosition="left"
                             onClick={handleGoHome}
-                            aria-label="Go to Saajavat homepage"
+                            aria-label="Go to Sajaavat Events homepage"
                         >
                             Go to Homepage
                         </Button>

@@ -1,6 +1,6 @@
 {
-  "name": "Saajavat - Premium Balloon Arch Decorations",
-  "short_name": "Saajavat",
+  "name": "Sajavaat Events - Premium Balloon Arch Decorations",
+  "short_name": "Sajavaat Events",
   "description": "Transform your special day with stunning balloon artistry. Specializing in Asian wedding decorations, baby showers, and event styling in London.",
   "start_url": "/",
   "display": "standalone",
@@ -72,7 +72,7 @@
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Saajavat homepage showing beautiful balloon arch decorations"
+      "label": "Sajavaat Events homepage showing beautiful balloon arch decorations"
     },
     {
       "src": "/images/screenshots/mobile-services.png",
