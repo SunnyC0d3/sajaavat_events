@@ -1,103 +1,124 @@
-import Image from "next/image";
+import Header from '@/app/components/Header'
+import Hero from '@/app/components/Hero'
+import Services from '@/app/components/Services'
+import Gallery from '@/app/components/Gallery'
+import Testimonials from '@/app/components/Testimonials'
+import Footer from '@/app/components/Footer'
+import StructuredData from '@/app/components/StructuredData'
+
+export const metadata = {
+    title: 'Saajavat - Premium Balloon Arch Decorations for Asian Weddings | London UK',
+    description: 'Transform your special day with stunning balloon artistry. Specializing in Asian wedding decorations, baby showers, corporate events and balloon arch installations across London and UK. Professional setup and cleanup included. Free consultations available.',
+    keywords: [
+        'balloon arch decorations London',
+        'Asian wedding balloon decorations',
+        'Sikh wedding decorations London',
+        'Hindu wedding balloon arch',
+        'baby shower decorations UK',
+        'corporate event decorations London',
+        'balloon installation services',
+        'wedding balloon arch Birmingham',
+        'event decorations Manchester',
+        'professional balloon decorations',
+        'custom balloon arch installation',
+        'Pakistani wedding decorations',
+        'Indian wedding balloon decorations'
+    ],
+    openGraph: {
+        title: 'Saajavat - Premium Balloon Arch Decorations for Asian Weddings',
+        description: 'Transform your special day with stunning balloon artistry. Specializing in Asian wedding decorations, baby showers, and event styling across London and UK.',
+        url: process.env.NEXT_PUBLIC_SITE_URL,
+        images: [
+            {
+                url: '/images/hero/balloon-arch-main.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Beautiful pink and gold balloon arch decoration for Asian wedding ceremony by Saajavat'
+            }
+        ],
+        locale: 'en_GB',
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Saajavat - Premium Balloon Arch Decorations',
+        description: 'Specializing in Asian wedding decorations, baby showers, and event styling across London and UK.',
+        images: ['/images/hero/balloon-arch-main.jpg'],
+    },
+    alternates: {
+        canonical: 'https://saajavat.com',
+    },
+    other: {
+        // Local Business Meta
+        'geo.region': 'GB-LND',
+        'geo.placename': 'London',
+        'geo.position': '51.5074;-0.1278',
+        'ICBM': '51.5074, -0.1278',
+
+        // Service Specific
+        'service-area': 'London, Birmingham, Manchester, Leeds, Leicester, Bradford, UK',
+        'service-type': 'Balloon Decorations, Event Styling, Wedding Decorations',
+        'business-hours': 'Mon-Fri 9AM-7PM, Sat 10AM-6PM, Sun 12PM-5PM',
+        'price-range': '££-£££',
+        'payment-accepted': 'Cash, Card, Bank Transfer',
+
+        // Cultural Keywords
+        'cultural-specialties': 'Asian Weddings, Sikh Ceremonies, Hindu Weddings, Pakistani Celebrations',
+        'languages-spoken': 'English, Hindi, Punjabi',
+    }
+}
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    return (
+        <div className="min-h-screen">
+            {/* Structured Data for Rich Snippets */}
+            <StructuredData />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <Header/>
+
+            <main role="main">
+                <h1 className="sr-only">
+                    Saajavat - Premium Balloon Arch Decorations for Asian Weddings, Baby Showers, and Corporate Events in London UK
+                </h1>
+
+                <Hero/>
+                <Services/>
+                <Gallery/>
+                <Testimonials/>
+            </main>
+
+            <Footer/>
+
+            {/* Additional SEO Content - Hidden but crawlable */}
+            <div className="sr-only" aria-hidden="true">
+                <h2>Service Areas</h2>
+                <p>
+                    We provide professional balloon decoration services across London and surrounding areas including
+                    Birmingham, Manchester, Leeds, Bradford, Leicester, Southall, Slough, Reading, Oxford, Cambridge,
+                    Luton, Watford, Croydon, Kingston, Richmond, and throughout Greater London and the Home Counties.
+                </p>
+
+                <h2>Cultural Expertise</h2>
+                <p>
+                    Specializing in Asian wedding traditions including Sikh wedding ceremonies, Hindu wedding celebrations,
+                    Pakistani wedding festivities, Indian wedding decorations, Bengali wedding styling, Tamil wedding decor,
+                    Punjabi wedding celebrations, and modern fusion wedding styles.
+                </p>
+
+                <h2>Event Types</h2>
+                <p>
+                    Asian weddings, Sikh wedding ceremonies, Hindu wedding celebrations, Muslim wedding receptions,
+                    baby shower decorations, gender reveal parties, birthday party styling, corporate event decorations,
+                    product launch events, anniversary celebrations, engagement parties, and special occasion styling.
+                </p>
+
+                <h2>Services</h2>
+                <p>
+                    Balloon arch installations, mandap backdrop decorations, entrance styling, photo booth backdrops,
+                    table centerpieces, ceiling installations, organic balloon garlands, balloon columns,
+                    custom color matching, professional setup and cleanup, consultation services, and event planning support.
+                </p>
+            </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    )
 }

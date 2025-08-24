@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer theme {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Primary colors - Based on #6a2929 (deep burgundy) */
+    --color-primary-50: #fdf2f2;
+    --color-primary-100: #fce7e7;
+    --color-primary-200: #f9dddd;
+    --color-primary-300: #f4c2c2;
+    --color-primary-400: #ee9999;
+    --color-primary-500: #e66666;
+    --color-primary-600: #d63333;
+    --color-primary-700: #b82a2a;
+    --color-primary-800: #6a2929;
+    --color-primary-900: #4a1d1d;
+
+    /* Accent colors - Based on #f4ebf2 (soft blush) */
+    --color-accent-50: #fdf9fc;
+    --color-accent-100: #f4ebf2;
+    --color-accent-200: #f0e0eb;
+    --color-accent-300: #e8d0de;
+    --color-accent-400: #ddb8ce;
+    --color-accent-500: #d19fb7;
+    --color-accent-600: #c285a0;
+
+    /* Rose colors - Based on #f9dddd (light rose) */
+    --color-rose-50: #fefcfc;
+    --color-rose-100: #fdf8f8;
+    --color-rose-200: #f9dddd;
+    --color-rose-300: #f4c2c2;
+    --color-rose-400: #ee9999;
+    --color-rose-500: #e66666;
+    --color-rose-600: #d63333;
+
+    /* Neutral colors - Harmonized with the palette */
+    --color-neutral-50: #fdfcfc;
+    --color-neutral-100: #f9f7f7;
+    --color-neutral-200: #f4f0f0;
+    --color-neutral-300: #e8e1e1;
+    --color-neutral-400: #d1c4c4;
+    --color-neutral-500: #a89696;
+    --color-neutral-600: #7a6666;
+    --color-neutral-700: #5c4a4a;
+    --color-neutral-800: #3d3232;
+    /*--color-neutral-900: #2b2020;*/
+    --color-neutral-900: #6a2929;
+
+    /* Additional brand colors for versatility */
+    --color-blush-50: #fdf9fc;
+    --color-blush-100: #f4ebf2;
+    --color-blush-200: #f0e0eb;
+    --color-blush-300: #e8d0de;
+    --color-blush-400: #ddb8ce;
+    --color-blush-500: #d19fb7;
+
+    --color-burgundy-50: #fdf2f2;
+    --color-burgundy-100: #fce7e7;
+    --color-burgundy-200: #f9dddd;
+    --color-burgundy-300: #f4c2c2;
+    --color-burgundy-400: #b82a2a;
+    --color-burgundy-500: #6a2929;
+    --color-burgundy-600: #4a1d1d;
+
+    /* Text colors optimized for readability */
+    --color-text-primary: #2b2020;
+    --color-text-secondary: #5c4a4a;
+    --color-text-muted: #7a6666;
+    --color-text-inverse: #fdfcfc;
+
+    /* Background colors */
+    --color-bg-primary: #fdfcfc;
+    --color-bg-secondary: #f9f7f7;
+    --color-bg-accent: #f4ebf2;
+    --color-bg-rose: #f9dddd;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+  }
 }
