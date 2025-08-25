@@ -110,7 +110,7 @@ export default function Privacy() {
                     {/* Breadcrumb */}
                     <nav className="mb-8" aria-label="Breadcrumb">
                         <ol className="flex items-center space-x-2 text-sm text-neutral-600">
-                            <li><a href="/" className="hover:text-primary-600">Home</a></li>
+                            <li><Link href="/" className="hover:text-primary-600">Home</Link></li>
                             <li>/</li>
                             <li className="text-neutral-900 font-medium">Privacy Policy</li>
                         </ol>
@@ -121,7 +121,7 @@ export default function Privacy() {
                             Privacy Policy & Data Protection
                         </h1>
                         <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-                            How Sajaavat Events, London's premier Asian wedding balloon decoration specialists,
+                            How Sajaavat Events, London&apos;s premier Asian wedding balloon decoration specialists,
                             protects your personal information and respects your privacy.
                         </p>
                         <p className="text-sm text-neutral-500 mt-4">
@@ -137,7 +137,7 @@ export default function Privacy() {
                                 <h2 className="text-2xl font-bold text-neutral-900">1. Introduction</h2>
                             </div>
                             <p className="text-neutral-600 leading-relaxed mb-4">
-                                At Sajaavat Events ("we," "our," or "us"), we are committed to protecting your privacy and
+                                At Sajaavat Events (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), we are committed to protecting your privacy and
                                 personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your
                                 information when you use our professional balloon decoration services for Asian weddings, Sikh ceremonies,
                                 Hindu celebrations, Pakistani weddings, baby showers, and corporate events across London and UK.
@@ -302,8 +302,8 @@ export default function Privacy() {
                                 </div>
                                 <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded">
                                     <p className="text-yellow-800 text-sm">
-                                        <strong>Complaint Rights:</strong> If you're not satisfied with our response, you can lodge a complaint with the
-                                        Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" className="underline">ico.org.uk</a>
+                                        <strong>Complaint Rights:</strong> If you&apos;re not satisfied with our response, you can lodge a complaint with the
+                                        Information Commissioner&apos;s Office (ICO) at <a href="https://ico.org.uk" className="underline">ico.org.uk</a>
                                     </p>
                                 </div>
                             </div>

@@ -1,13 +1,15 @@
 'use client'
 
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useMemo} from 'react'
 import {ArrowRight, Play, Star, Calendar, Users, Award} from 'lucide-react'
 import {Button} from '@/app/components/Button'
+import Image from 'next/image'
 
 export default function Hero() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
-    const heroImages = [
+    // Memoize heroImages to prevent recreation on every render
+    const heroImages = useMemo(() => [
         {
             url: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1200&h=800&fit=crop',
             alt: 'Elegant pink and gold balloon arch decoration for Asian wedding ceremony with traditional mandap styling by Sajaavat Events London'
@@ -20,14 +22,14 @@ export default function Hero() {
             url: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1200&h=800&fit=crop',
             alt: 'Professional corporate event balloon styling with sophisticated design for business celebration by Sajaavat Events'
         }
-    ]
+    ], [])
 
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex((prev) => (prev + 1) % heroImages.length)
         }, 5000)
         return () => clearInterval(interval)
-    }, [])
+    }, [heroImages.length])
 
     const trustStats = [
         {icon: Calendar, number: '3+', label: 'Years Experience', description: '3+ years creating beautiful balloon decorations'},
@@ -54,7 +56,7 @@ export default function Hero() {
                                     role="banner"
                                 >
                                     <Star className="w-4 h-4 fill-current" aria-hidden="true"/>
-                                    <span>London's Premier Asian Wedding Balloon Specialists</span>
+                                    <span>London&apos;s Premier Asian Wedding Balloon Specialists</span>
                                 </div>
 
                                 <h1
@@ -137,9 +139,11 @@ export default function Hero() {
                                             index === currentImageIndex ? 'opacity-100' : 'opacity-0'
                                         }`}
                                     >
-                                        <img
+                                        <Image
                                             src={image.url}
                                             alt={image.alt}
+                                            width={1200}
+                                            height={800}
                                             className="w-full h-full object-cover"
                                             loading={index === 0 ? "eager" : "lazy"}
                                             itemProp={index === currentImageIndex ? "image" : undefined}
@@ -186,8 +190,8 @@ export default function Hero() {
                                     </span>
                                 </div>
                                 <p className="text-sm text-neutral-600 leading-relaxed" itemProp="reviewBody">
-                                    "Finally found a decoration service that understands Asian wedding traditions.
-                                    Everything else feels basic now."
+                                    &quot;Finally found a decoration service that understands Asian wedding traditions.
+                                    Everything else feels basic now.&quot;
                                 </p>
                                 <div className="text-xs text-neutral-500 mt-2">
                                     Based on <span itemProp="reviewCount">200+</span> customer reviews

@@ -108,8 +108,8 @@ export default function NotFoundPage() {
                                 Oops! This Page Has Floated Away
                             </h2>
                             <p className="text-lg text-neutral-600 max-w-2xl mx-auto leading-relaxed">
-                                It looks like the page you're looking for has floated away like a balloon!
-                                Don't worry, we'll help you find what you need for your Asian wedding celebration or special event.
+                                It looks like the page you&apos;re looking for has floated away like a balloon!
+                                Don&apos;t worry, we&apos;ll help you find what you need for your Asian wedding celebration or special event.
                             </p>
                         </div>
                     </div>

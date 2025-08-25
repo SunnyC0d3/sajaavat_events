@@ -113,7 +113,7 @@ export default function Terms() {
                     {/* Breadcrumb */}
                     <nav className="mb-8" aria-label="Breadcrumb">
                         <ol className="flex items-center space-x-2 text-sm text-neutral-600">
-                            <li><a href="/" className="hover:text-primary-600">Home</a></li>
+                            <li><Link href="/" className="hover:text-primary-600">Home</Link></li>
                             <li>/</li>
                             <li className="text-neutral-900 font-medium">Terms & Conditions</li>
                         </ol>
@@ -160,8 +160,8 @@ export default function Terms() {
                                 <h2 className="text-2xl font-bold text-neutral-900">1. Introduction</h2>
                             </div>
                             <p className="text-neutral-600 leading-relaxed mb-4">
-                                Welcome to Sajaavat Events ("we," "our," or "us"), London's premier balloon decoration specialists
-                                for Asian weddings, baby showers, and special events. These Terms and Conditions ("Terms") govern
+                                Welcome to Sajaavat Events (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;), London&apos;s premier balloon decoration specialists
+                                for Asian weddings, baby showers, and special events. These Terms and Conditions (&quot;Terms&quot;) govern
                                 your use of our professional balloon decoration and event styling services across London,
                                 Birmingham, Manchester, Leeds, and throughout the UK.
                             </p>

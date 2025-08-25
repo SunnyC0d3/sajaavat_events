@@ -3,6 +3,7 @@
 import {useState, useEffect} from 'react'
 import {Star, ChevronLeft, ChevronRight, Heart, Baby, Building2, Calendar, Quote} from 'lucide-react'
 import {Button} from '@/app/components/Button'
+import Image from 'next/image'
 
 export default function Testimonials() {
     const [currentTestimonial, setCurrentTestimonial] = useState(0)
@@ -136,7 +137,7 @@ export default function Testimonials() {
                 <div className="text-center mb-16">
                     <h2 className="text-3xl lg:text-5xl font-bold text-neutral-900 mb-6">What Our Clients Say</h2>
                     <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-                        Don't just take our word for it. Here's what families and businesses across the UK
+                        Don&apos;t just take our word for it. Here&apos;s what families and businesses across the UK
                         have to say about their Sajaavat Events experience.
                     </p>
                 </div>
@@ -170,14 +171,16 @@ export default function Testimonials() {
 
                             <blockquote
                                 className="text-lg lg:text-xl text-neutral-700 leading-relaxed text-center mb-8 font-medium">
-                                "{current.review}"
+                                &quot;{current.review}&quot;
                             </blockquote>
 
                             <div className="flex items-center justify-center space-x-4">
-                                <img
+                                <Image
                                     src={current.image}
                                     alt={current.name}
                                     className="w-16 h-16 rounded-full object-cover"
+                                    width={1200}
+                                    height={800}
                                 />
                                 <div className="text-center">
                                     <h4 className="font-bold text-neutral-900 text-lg">{current.name}</h4>
@@ -235,13 +238,15 @@ export default function Testimonials() {
                                 {renderStars(testimonial.rating)}
                             </div>
                             <p className="text-neutral-700 leading-relaxed mb-4 text-sm line-clamp-3">
-                                "{testimonial.review.substring(0, 120)}..."
+                                &quot;{testimonial.review.substring(0, 120)}...&quot;
                             </p>
                             <div className="flex items-center space-x-3">
-                                <img
+                                <Image
                                     src={testimonial.image}
                                     alt={testimonial.name}
                                     className="w-10 h-10 rounded-full object-cover"
+                                    width={1200}
+                                    height={800}
                                 />
                                 <div>
                                     <div className="font-medium text-neutral-900 text-sm">{testimonial.name}</div>
@@ -255,7 +260,7 @@ export default function Testimonials() {
                 <div className="text-center bg-neutral-50 rounded-lg p-12">
                     <h3 className="text-2xl lg:text-3xl font-bold text-neutral-900 mb-4">Join Our Happy Clients</h3>
                     <p className="text-neutral-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-                        Ready to create your own unforgettable celebration? Let's make your event as special
+                        Ready to create your own unforgettable celebration? Let&apos;s make your event as special
                         as the ones our clients are raving about.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">

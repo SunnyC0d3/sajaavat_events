@@ -2,7 +2,6 @@
 const nextConfig = {
     // Enable experimental features for better SEO
     experimental: {
-        optimizeCss: true,
         scrollRestoration: true,
     },
 
@@ -14,7 +13,8 @@ const nextConfig = {
         minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year
         domains: [
             'images.unsplash.com',
-            process.env.NEXT_PUBLIC_SITE_URL,
+            'sajaavat-events.com',
+            'www.sajaavat-events.com'
         ],
         remotePatterns: [
             {
@@ -35,6 +35,7 @@ const nextConfig = {
     // SEO-friendly redirects
     async redirects() {
         return [
+            // Redirect common variations to main pages
             {
                 source: '/home',
                 destination: '/',
@@ -55,6 +56,27 @@ const nextConfig = {
                 destination: '/#contact',
                 permanent: true,
             },
+            // SEO-friendly service redirects
+            {
+                source: '/asian-weddings',
+                destination: '/#services',
+                permanent: true,
+            },
+            {
+                source: '/wedding-decorations',
+                destination: '/#services',
+                permanent: true,
+            },
+            {
+                source: '/balloon-arch',
+                destination: '/#services',
+                permanent: true,
+            },
+            {
+                source: '/baby-shower',
+                destination: '/#services',
+                permanent: true,
+            }
         ]
     },
 
@@ -84,11 +106,6 @@ const nextConfig = {
                     {
                         key: 'Referrer-Policy',
                         value: 'origin-when-cross-origin'
-                    },
-                    // Performance headers
-                    {
-                        key: 'X-DNS-Prefetch-Control',
-                        value: 'on'
                     },
                 ]
             },
@@ -140,25 +157,14 @@ const nextConfig = {
             }
         }
 
-        // Add bundle analyzer for performance monitoring
-        if (!dev && !isServer && process.env.ANALYZE === 'true') {
-            const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
-            config.plugins.push(
-                new BundleAnalyzerPlugin({
-                    analyzerMode: 'static',
-                    reportFilename: './analyze/client.html'
-                })
-            )
-        }
-
         return config
     },
 
+    // Environment variables for SEO tracking
     env: {
-        NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || '',
+        NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://sajaavat-events.com',
         NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID || '',
         NEXT_PUBLIC_GTM_ID: process.env.NEXT_PUBLIC_GTM_ID || '',
-        NEXT_PUBLIC_EMAIL_ADDRESS: process.env.NEXT_PUBLIC_EMAIL_ADDRESS || '',
     },
 
     // Output settings for better SEO
@@ -166,13 +172,6 @@ const nextConfig = {
 
     // Trailing slashes for consistent URLs
     trailingSlash: false,
-
-    // Generate static files
-    async exportPathMap() {
-        return {
-            '/': { page: '/' },
-            '/terms': { page: '/terms' },
-            '/privacy': { page: '/privacy' },
-        }
-    },
 }
+
+export default nextConfig

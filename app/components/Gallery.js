@@ -1,15 +1,17 @@
 'use client'
 
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useMemo, useCallback} from 'react'
 import {X, ChevronLeft, ChevronRight, Heart, Baby, Building2, Grid3X3, Calendar} from 'lucide-react'
 import {Button} from '@/app/components/Button'
+import Image from 'next/image'
 
 export default function Gallery() {
     const [activeFilter, setActiveFilter] = useState('all')
     const [selectedImage, setSelectedImage] = useState(null)
     const [filteredImages, setFilteredImages] = useState([])
 
-    const galleryImages = [
+    // Memoize galleryImages to prevent recreation on every render
+    const galleryImages = useMemo(() => [
         {
             id: 1,
             src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
@@ -118,10 +120,10 @@ export default function Gallery() {
             culturalElements: 'Tamil traditions, South Indian cultural elements',
             keywords: 'Tamil wedding decorations, golden balloon arch, South Indian wedding'
         }
-    ]
+    ], [])
 
     // Filter categories with SEO-optimized descriptions
-    const filterCategories = [
+    const filterCategories = useMemo(() => [
         {
             id: 'all',
             label: 'All Decorations',
@@ -154,7 +156,7 @@ export default function Gallery() {
             description: 'Professional corporate event balloon styling',
             keywords: 'corporate event decorations, business celebration styling'
         }
-    ]
+    ], [galleryImages])
 
     useEffect(() => {
         if (activeFilter === 'all') {
@@ -162,9 +164,9 @@ export default function Gallery() {
         } else {
             setFilteredImages(galleryImages.filter(img => img.category === activeFilter))
         }
-    }, [activeFilter])
+    }, [activeFilter, galleryImages])
 
-    const openLightbox = (image) => {
+    const openLightbox = useCallback((image) => {
         setSelectedImage(image)
         document.body.style.overflow = 'hidden'
 
@@ -177,14 +179,15 @@ export default function Gallery() {
                 custom_map: {'dimension4': image.category}
             })
         }
-    }
+    }, [])
 
-    const closeLightbox = () => {
+    const closeLightbox = useCallback(() => {
         setSelectedImage(null)
         document.body.style.overflow = 'unset'
-    }
+    }, [])
 
-    const navigateImage = (direction) => {
+    // Memoize navigateImage function to prevent recreation on every render
+    const navigateImage = useCallback((direction) => {
         const currentIndex = filteredImages.findIndex(img => img.id === selectedImage.id)
         let newIndex
 
@@ -204,7 +207,7 @@ export default function Gallery() {
                 value: 1
             })
         }
-    }
+    }, [filteredImages, selectedImage])
 
     useEffect(() => {
         const handleKeyPress = (e) => {
@@ -217,7 +220,7 @@ export default function Gallery() {
 
         window.addEventListener('keydown', handleKeyPress)
         return () => window.removeEventListener('keydown', handleKeyPress)
-    }, [selectedImage, filteredImages])
+    }, [selectedImage, closeLightbox, navigateImage])
 
     return (
         <section
@@ -233,7 +236,7 @@ export default function Gallery() {
                         Our Asian Wedding & Event Decoration Portfolio
                     </h2>
                     <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed" itemProp="description">
-                        Discover the beautiful moments we've helped create across London and UK. From traditional Sikh and Hindu wedding ceremonies
+                        Discover the beautiful moments we&apos;ve helped create across London and UK. From traditional Sikh and Hindu wedding ceremonies
                         to modern baby celebrations and corporate events, each decoration tells a unique story of cultural celebration and joy.
                     </p>
                 </div>
@@ -286,12 +289,14 @@ export default function Gallery() {
                         >
                             <div className="relative bg-neutral-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
                                 <div className="aspect-w-4 aspect-h-3">
-                                    <img
+                                    <Image
                                         src={image.src}
                                         alt={image.alt}
                                         className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
                                         loading={index < 6 ? 'eager' : 'lazy'}
                                         itemProp="image"
+                                        width={1200}
+                                        height={800}
                                     />
                                 </div>
 
@@ -330,7 +335,7 @@ export default function Gallery() {
                         Ready to Create Your Perfect Asian Wedding or Event?
                     </h3>
                     <p className="text-neutral-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-                        Let's bring your cultural vision to life with beautiful balloon decorations that perfectly capture
+                        Let&apos;s bring your cultural vision to life with beautiful balloon decorations that perfectly capture
                         the essence of your Sikh, Hindu, Pakistani, or other special celebration.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -400,12 +405,14 @@ export default function Gallery() {
 
                     <div className="max-w-4xl max-h-[90vh] flex flex-col lg:flex-row bg-neutral-50 rounded-lg overflow-hidden">
                         <div className="flex-1 relative">
-                            <img
+                            <Image
                                 src={selectedImage.src}
                                 alt={selectedImage.alt}
                                 className="w-full h-64 lg:h-96 object-cover"
                                 itemScope
                                 itemType="https://schema.org/Photograph"
+                                width={1200}
+                                height={800}
                             />
                         </div>
 

@@ -3,6 +3,7 @@
 import {useState, useEffect} from 'react'
 import {Menu, X, Phone, MessageCircle} from 'lucide-react'
 import {Button, IconButton} from '@/app/components/Button'
+import Link from 'next/link'
 import Image from 'next/image'
 import logo from '@/public/images/logo.svg'
 
@@ -60,7 +61,7 @@ export default function Header() {
                     <div className="flex items-center justify-between h-16 overflow-hidden">
                         {/* Logo */}
                         <div className="flex-shrink-0 w-[65px]">
-                            <a
+                            <Link
                                 href="/"
                                 className="flex items-center"
                                 aria-label="Sajaavat Events - Premium balloon decoration services for Asian weddings and events"
@@ -77,7 +78,7 @@ export default function Header() {
                                 <span className="sr-only" itemProp="name">
                                     Sajaavat Events - Balloon Decoration Services London
                                 </span>
-                            </a>
+                            </Link>
                         </div>
 
                         {/* Desktop Navigation */}

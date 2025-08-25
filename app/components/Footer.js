@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import {useState} from 'react'
 import {
     Phone,
@@ -19,8 +20,8 @@ import {
     PartyPopper
 } from 'lucide-react'
 import {Button} from '@/app/components/Button'
-import Image from "next/image";
-import logo from "@/public/images/logo-3.svg";
+import Image from 'next/image'
+import logo from '@/public/images/logo-3.svg'
 
 export default function Footer({hasHeader = true}) {
     const [isSubmitting, setIsSubmitting] = useState(false)
@@ -176,9 +177,9 @@ export default function Footer({hasHeader = true}) {
                                 Get Your Free Balloon Decoration Quote
                             </h2>
                             <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-                                Ready to transform your Asian wedding or special celebration? Let's discuss your
+                                Ready to transform your Asian wedding or special celebration? Let&apos;s discuss your
                                 cultural vision and create something
-                                beautiful together that honors your traditions. We're here to make your London event
+                                beautiful together that honors your traditions. We&apos;re here to make your London event
                                 unforgettable.
                             </p>
                         </div>
@@ -356,7 +357,7 @@ export default function Footer({hasHeader = true}) {
                                         aria-live="polite"
                                     >
                                         <CheckCircle className="w-5 h-5" aria-hidden="true"/>
-                                        <span>Thank you! We'll get back to you within 24 hours with your free balloon decoration quote.</span>
+                                        <span>Thank you! We&apos;ll get back to you within 24 hours with your free balloon decoration quote.</span>
                                     </div>
                                 )}
 
@@ -449,7 +450,7 @@ export default function Footer({hasHeader = true}) {
                                     Work</h4>
                                 <div className="flex space-x-4">
                                     {socialLinks.map((social) => (
-                                        <a
+                                        <Link
                                             key={social.name}
                                             href={social.url}
                                             target="_blank"
@@ -459,7 +460,7 @@ export default function Footer({hasHeader = true}) {
                                             title={social.description}
                                         >
                                             <social.icon className="w-6 h-6" aria-hidden="true"/>
-                                        </a>
+                                        </Link>
                                     ))}
                                 </div>
                                 <p className="text-sm text-neutral-600 mt-2">
@@ -476,7 +477,7 @@ export default function Footer({hasHeader = true}) {
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div className="lg:col-span-2">
                             <div className="flex-shrink-0 w-[100px] flex items-center space-x-3 mb-4">
-                                <a
+                                <Link
                                     href="/"
                                     className="flex items-center"
                                     aria-label="Sajaavat Events - Return to homepage"
@@ -489,7 +490,7 @@ export default function Footer({hasHeader = true}) {
                                         height={50}
                                         itemProp="logo"
                                     />
-                                </a>
+                                </Link>
                             </div>
                             <p className="text-neutral-300 leading-relaxed mb-6 max-w-md" itemProp="description">
                                 Creating memorable Asian wedding celebrations and special events with stunning balloon

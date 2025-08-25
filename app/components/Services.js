@@ -1,6 +1,6 @@
 'use client'
 
-import {useState, useRef, useEffect} from 'react'
+import {useState, useRef, useEffect, useMemo, useCallback} from 'react'
 import {
     Heart,
     Baby,
@@ -15,6 +15,7 @@ import {
     ChevronRight
 } from 'lucide-react'
 import {Button} from '@/app/components/Button'
+import Image from 'next/image'
 
 export default function Services() {
     const [selectedService, setSelectedService] = useState(0)
@@ -23,67 +24,8 @@ export default function Services() {
     const detailSectionRef = useRef(null)
     const autoPlayRef = useRef(null)
 
-    const handleServiceClick = (index) => {
-        setSelectedService(index)
-        setCurrentImageIndex(0)
-
-        setTimeout(() => {
-            if (detailSectionRef.current) {
-                const elementPosition = detailSectionRef.current.offsetTop
-                const offsetPosition = elementPosition - 100
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                })
-            }
-        }, 100)
-    }
-
-    const nextImage = () => {
-        const currentService = services[selectedService]
-        setCurrentImageIndex((prev) =>
-            prev === currentService.images.length - 1 ? 0 : prev + 1
-        )
-    }
-
-    const previousImage = () => {
-        const currentService = services[selectedService]
-        setCurrentImageIndex((prev) =>
-            prev === 0 ? currentService.images.length - 1 : prev - 1
-        )
-    }
-
-    const goToImage = (index) => {
-        setCurrentImageIndex(index)
-    }
-
-    useEffect(() => {
-        if (isAutoPlaying && services[selectedService].images.length > 1) {
-            autoPlayRef.current = setInterval(() => {
-                nextImage()
-            }, 4000)
-        }
-
-        return () => {
-            if (autoPlayRef.current) {
-                clearInterval(autoPlayRef.current)
-            }
-        }
-    }, [selectedService, currentImageIndex, isAutoPlaying])
-
-    const handleMouseEnter = () => {
-        setIsAutoPlaying(false)
-        if (autoPlayRef.current) {
-            clearInterval(autoPlayRef.current)
-        }
-    }
-
-    const handleMouseLeave = () => {
-        setIsAutoPlaying(true)
-    }
-
-    const services = [
+    // Memoize services array to prevent recreation on every render
+    const services = useMemo(() => [
         {
             id: 'asian-weddings',
             title: 'Asian Wedding Balloon Decorations',
@@ -138,7 +80,68 @@ export default function Services() {
             popular: false,
             keywords: 'corporate event decorations, business celebration styling, product launch balloons, professional event decorations'
         }
-    ]
+    ], [])
+
+    const handleServiceClick = useCallback((index) => {
+        setSelectedService(index)
+        setCurrentImageIndex(0)
+
+        setTimeout(() => {
+            if (detailSectionRef.current) {
+                const elementPosition = detailSectionRef.current.offsetTop
+                const offsetPosition = elementPosition - 100
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                })
+            }
+        }, 100)
+    }, [])
+
+    // Memoize nextImage function to prevent recreation on every render
+    const nextImage = useCallback(() => {
+        const currentService = services[selectedService]
+        setCurrentImageIndex((prev) =>
+            prev === currentService.images.length - 1 ? 0 : prev + 1
+        )
+    }, [services, selectedService])
+
+    const previousImage = useCallback(() => {
+        const currentService = services[selectedService]
+        setCurrentImageIndex((prev) =>
+            prev === 0 ? currentService.images.length - 1 : prev - 1
+        )
+    }, [services, selectedService])
+
+    const goToImage = useCallback((index) => {
+        setCurrentImageIndex(index)
+    }, [])
+
+    useEffect(() => {
+        if (isAutoPlaying && services[selectedService].images.length > 1) {
+            autoPlayRef.current = setInterval(() => {
+                nextImage()
+            }, 4000)
+        }
+
+        return () => {
+            if (autoPlayRef.current) {
+                clearInterval(autoPlayRef.current)
+            }
+        }
+    }, [selectedService, currentImageIndex, isAutoPlaying, nextImage, services])
+
+    const handleMouseEnter = useCallback(() => {
+        setIsAutoPlaying(false)
+        if (autoPlayRef.current) {
+            clearInterval(autoPlayRef.current)
+        }
+    }, [])
+
+    const handleMouseLeave = useCallback(() => {
+        setIsAutoPlaying(true)
+    }, [])
 
     return (
         <section
@@ -192,12 +195,14 @@ export default function Services() {
                                 }`}
                             >
                                 <div className="aspect-w-3 aspect-h-2 bg-neutral-200">
-                                    <img
+                                    <Image
                                         src={service.image}
                                         alt={`${service.title} - Professional balloon decoration services by Sajaavat Events London`}
                                         className="w-full h-48 object-cover"
                                         loading="lazy"
                                         itemProp="image"
+                                        width={1200}
+                                        height={800}
                                     />
                                 </div>
 
@@ -250,11 +255,13 @@ export default function Services() {
                             role="img"
                             aria-label={`${services[selectedService].title} gallery images`}
                         >
-                            <img
+                            <Image
                                 src={services[selectedService].images[currentImageIndex].src}
                                 alt={services[selectedService].images[currentImageIndex].alt}
                                 className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
                                 itemProp="image"
+                                width={1200}
+                                height={800}
                             />
 
                             {services[selectedService].images.length > 1 && (
