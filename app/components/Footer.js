@@ -406,7 +406,7 @@ export default function Footer({hasHeader = true}) {
                                                     <a
                                                         href={info.action}
                                                         onClick={() => gtag.event({
-                                                            action: 'click',
+                                                            action: 'phone_click',
                                                             category: 'contact',
                                                             label: 'phone_footer_contact'
                                                         })}
@@ -534,7 +534,7 @@ export default function Footer({hasHeader = true}) {
                                     aria-label="Call Sajaavat Events for balloon decoration consultation"
                                     itemProp="telephone"
                                     onClick={() => gtag.event({
-                                        action: 'click',
+                                        action: 'phone_click',
                                         category: 'contact',
                                         label: 'phone_footer_bottom'
                                     })}

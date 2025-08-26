@@ -40,7 +40,7 @@ export default function Header() {
                         <a
                             href="tel:+447123456789"
                             onClick={() => gtag.event({
-                                action: 'click',
+                                action: 'phone_click',
                                 category: 'contact',
                                 label: 'phone_top_header_desktop'
                             })}
@@ -116,7 +116,7 @@ export default function Header() {
                                 aria-label="Call Sajaavat Events balloon decorations London"
                                 itemProp="telephone"
                                 onClick={() => gtag.event({
-                                    action: 'click',
+                                    action: 'phone_click',
                                     category: 'contact',
                                     label: 'phone_header_desktop'
                                 })}
@@ -142,7 +142,7 @@ export default function Header() {
                                 icon={Phone}
                                 onClick={() => {
                                     gtag.event({
-                                        action: 'click',
+                                        action: 'phone_click',
                                         category: 'contact',
                                         label: 'phone_header_mobile'
                                     })
@@ -189,7 +189,7 @@ export default function Header() {
                                         className="flex items-center space-x-3 py-3 px-3 text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 transition-colors duration-200 rounded-lg"
                                         aria-label="Call Sajaavat Events for balloon decoration consultation"
                                         onClick={() => gtag.event({
-                                            action: 'click',
+                                            action: 'phone_click',
                                             category: 'contact',
                                             label: 'phone_mobile_menu'
                                         })}
