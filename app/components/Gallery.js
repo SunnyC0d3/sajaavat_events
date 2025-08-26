@@ -241,14 +241,14 @@ export default function Gallery() {
                     </p>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-3 mb-12" role="tablist" aria-label="Gallery category filters">
+                <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12" role="tablist" aria-label="Gallery category filters">
                     {filterCategories.map((category) => {
                         const IconComponent = category.icon
                         return (
                             <button
                                 key={category.id}
                                 onClick={() => setActiveFilter(category.id)}
-                                className={`cursor-pointer flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all duration-200 ${
+                                className={`cursor-pointer flex items-center space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-all duration-200 text-sm sm:text-base ${
                                     activeFilter === category.id
                                         ? 'bg-neutral-900 text-neutral-50'
                                         : 'bg-neutral-200 text-neutral-700 hover:bg-neutral-300'
@@ -259,9 +259,10 @@ export default function Gallery() {
                                 aria-label={`${category.description} - ${category.count} items`}
                                 title={category.keywords}
                             >
-                                <IconComponent className="w-4 h-4" aria-hidden="true"/>
-                                <span>{category.label}</span>
-                                <span className={`text-xs px-2 py-1 rounded-full ${
+                                <IconComponent className="w-3 h-3 sm:w-4 sm:h-4" aria-hidden="true"/>
+                                <span className="hidden xs:inline">{category.label}</span>
+                                <span className="xs:hidden">{category.label.split(' ')[0]}</span>
+                                <span className={`text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full ${
                                     activeFilter === category.id
                                         ? 'bg-white/20 text-neutral-50'
                                         : 'bg-neutral-300 text-neutral-500'
@@ -330,8 +331,8 @@ export default function Gallery() {
                     ))}
                 </div>
 
-                <div className="text-center bg-neutral-100 rounded-lg p-12">
-                    <h3 className="text-2xl lg:text-3xl font-bold text-neutral-900 mb-4">
+                <div className="text-center bg-neutral-100 rounded-lg p-8 sm:p-12">
+                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-neutral-900 mb-4">
                         Ready to Create Your Perfect Asian Wedding or Event?
                     </h3>
                     <p className="text-neutral-600 mb-8 max-w-2xl mx-auto leading-relaxed">
@@ -344,7 +345,7 @@ export default function Gallery() {
                             size="lg"
                             icon={Calendar}
                             iconPosition="left"
-                            onClick={() => window.location.href = '#contact'}
+                            onClick={() => window.location.href = '/#contact'}
                             aria-label="Book free consultation for balloon decoration services"
                         >
                             Book Free Consultation
@@ -352,7 +353,7 @@ export default function Gallery() {
                         <Button
                             variant="outline"
                             size="lg"
-                            onClick={() => window.location.href = '#services'}
+                            onClick={() => window.location.href = '/#services'}
                             aria-label="Learn more about our Asian wedding decoration services"
                         >
                             View More Services
@@ -361,90 +362,122 @@ export default function Gallery() {
                 </div>
             </div>
 
-            {/* Lightbox Modal */}
+            {/* Mobile-Friendly Lightbox Modal */}
             {selectedImage && (
                 <div
-                    className="fixed inset-0 z-50 bg-neutral-900/90 flex items-center justify-center p-4"
+                    className="fixed inset-0 z-50 bg-neutral-900/90 flex items-center justify-center p-2 sm:p-4"
                     role="dialog"
                     aria-modal="true"
                     aria-labelledby="lightbox-title"
                     aria-describedby="lightbox-description"
+                    onClick={closeLightbox}
                 >
-                    <Button
-                        variant="ghost"
-                        size="md"
-                        icon={X}
-                        onClick={closeLightbox}
-                        className="absolute top-4 right-4 z-60 p-3 bg-white/10 backdrop-blur-sm rounded-full text-neutral-50 hover:bg-white/20"
+                    {/* Close button - improved mobile positioning */}
+                    <button
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            closeLightbox();
+                        }}
+                        className="cursor-pointer absolute top-2 right-2 sm:top-4 sm:right-4 z-60 p-2 sm:p-3 bg-white/10 backdrop-blur-sm rounded-full text-neutral-50 hover:bg-white/20 transition-colors duration-200"
                         aria-label="Close image viewer"
-                    />
+                    >
+                        <X className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </button>
 
-                    <Button
-                        variant="ghost"
-                        size="md"
-                        icon={ChevronLeft}
+                    {/* Navigation buttons - hidden on very small screens, repositioned on mobile */}
+                    <button
                         onClick={(e) => {
                             e.stopPropagation();
                             navigateImage('prev');
                         }}
-                        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-60 p-3 bg-white/10 backdrop-blur-sm rounded-full text-neutral-50 hover:bg-white/20"
+                        className="hidden sm:block absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-60 p-2 sm:p-3 bg-white/10 backdrop-blur-sm rounded-full text-neutral-50 hover:bg-white/20 transition-colors duration-200"
                         aria-label="Previous image"
-                    />
+                    >
+                        <ChevronLeft className="cursor-pointer w-5 h-5 sm:w-6 sm:h-6" />
+                    </button>
 
-                    <Button
-                        variant="ghost"
-                        size="md"
-                        icon={ChevronRight}
+                    <button
                         onClick={(e) => {
                             e.stopPropagation();
                             navigateImage('next');
                         }}
-                        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-60 p-3 bg-white/10 backdrop-blur-sm rounded-full text-neutral-50 hover:bg-white/20"
+                        className="hidden sm:block absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-60 p-2 sm:p-3 bg-white/10 backdrop-blur-sm rounded-full text-neutral-50 hover:bg-white/20 transition-colors duration-200"
                         aria-label="Next image"
-                    />
+                    >
+                        <ChevronRight className="cursor-pointer w-5 h-5 sm:w-6 sm:h-6" />
+                    </button>
 
-                    <div className="max-w-4xl max-h-[90vh] flex flex-col lg:flex-row bg-neutral-50 rounded-lg overflow-hidden">
-                        <div className="flex-1 relative">
-                            <Image
-                                src={selectedImage.src}
-                                alt={selectedImage.alt}
-                                className="w-full h-64 lg:h-96 object-cover"
-                                itemScope
-                                itemType="https://schema.org/Photograph"
-                                width={1200}
-                                height={800}
-                            />
+                    {/* Modal content - improved mobile layout */}
+                    <div
+                        className="w-full max-w-4xl h-full flex flex-col bg-neutral-50 rounded-lg overflow-y-auto mx-2 sm:mx-0"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {/* Image container */}
+                        <div className="relative flex-shrink-0 w-full">
+                            <div className="aspect-w-16 aspect-h-9 sm:aspect-w-4 sm:aspect-h-3">
+                                <Image
+                                    src={selectedImage.src}
+                                    alt={selectedImage.alt}
+                                    className="w-full h-full object-contain sm:object-cover bg-neutral-100"
+                                    itemScope
+                                    itemType="https://schema.org/Photograph"
+                                    width={1200}
+                                    height={800}
+                                />
+                            </div>
                         </div>
 
-                        <div className="lg:w-80 p-6 lg:p-8">
-                            <h3 id="lightbox-title" className="text-2xl font-bold text-neutral-900 mb-4">
+                        {/* Content section - scrollable on mobile */}
+                        <div className="flex-1 p-4 sm:p-6 lg:p-8">
+                            <h3 id="lightbox-title" className="text-xl sm:text-2xl font-bold text-neutral-900 mb-3 sm:mb-4">
                                 {selectedImage.title}
                             </h3>
-                            <p id="lightbox-description" className="text-neutral-600 mb-6 leading-relaxed">
+                            <p id="lightbox-description" className="text-neutral-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                                 {selectedImage.description}
                             </p>
 
-                            <div className="space-y-4 mb-8">
+                            <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                                 <div>
                                     <span className="text-sm text-neutral-500 block">Event Type</span>
-                                    <span className="font-medium text-neutral-900">{selectedImage.event}</span>
+                                    <span className="font-medium text-neutral-900 text-sm sm:text-base">{selectedImage.event}</span>
                                 </div>
                                 <div>
                                     <span className="text-sm text-neutral-500 block">Location</span>
-                                    <span className="font-medium text-neutral-900">{selectedImage.location}</span>
+                                    <span className="font-medium text-neutral-900 text-sm sm:text-base">{selectedImage.location}</span>
                                 </div>
                                 <div>
                                     <span className="text-sm text-neutral-500 block">Cultural Elements</span>
-                                    <span className="font-medium text-neutral-900">{selectedImage.culturalElements}</span>
+                                    <span className="font-medium text-neutral-900 text-sm sm:text-base">{selectedImage.culturalElements}</span>
                                 </div>
+                            </div>
+
+                            {/* Mobile navigation buttons */}
+                            <div className="flex sm:hidden gap-2 mb-4">
+                                <button
+                                    onClick={() => navigateImage('prev')}
+                                    className="flex-1 flex items-center justify-center p-3 bg-neutral-100 hover:bg-neutral-200 rounded-lg transition-colors duration-200"
+                                    aria-label="Previous image"
+                                >
+                                    <ChevronLeft className="w-5 h-5 mr-2" />
+                                    Previous
+                                </button>
+                                <button
+                                    onClick={() => navigateImage('next')}
+                                    className="flex-1 flex items-center justify-center p-3 bg-neutral-100 hover:bg-neutral-200 rounded-lg transition-colors duration-200"
+                                    aria-label="Next image"
+                                >
+                                    Next
+                                    <ChevronRight className="w-5 h-5 ml-2" />
+                                </button>
                             </div>
 
                             <Button
                                 variant="primary"
                                 size="md"
                                 fullWidth
-                                onClick={() => window.location.href = '#contact'}
+                                onClick={() => window.location.href = '/#contact'}
                                 aria-label={`Book similar decoration style for ${selectedImage.event.toLowerCase()}`}
+                                className="text-sm sm:text-base"
                             >
                                 Book Similar Style
                             </Button>

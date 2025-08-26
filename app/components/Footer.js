@@ -188,6 +188,29 @@ export default function Footer({hasHeader = true}) {
         {value: 'other', label: 'Other Special Celebration', icon: PartyPopper}
     ]
 
+    const navigationLinks = [
+        {
+            label: 'Asian Wedding Services',
+            href: '/#services',
+            description: 'Balloon decorations for Sikh, Hindu, Pakistani weddings'
+        },
+        {
+            label: 'Portfolio Gallery',
+            href: '/#gallery',
+            description: 'Browse our balloon decoration portfolio'
+        },
+        {
+            label: 'Customer Reviews',
+            href: '/#testimonials',
+            description: 'Read testimonials from satisfied clients'
+        },
+        {
+            label: 'Free Consultation',
+            href: '/#contact',
+            description: 'Get a free quote for your event'
+        }
+    ]
+
     return (
         <>
             <section
@@ -578,37 +601,16 @@ export default function Footer({hasHeader = true}) {
                         <nav className="space-y-4" aria-labelledby="footer-navigation">
                             <h4 id="footer-navigation" className="font-semibold text-neutral-50 mb-4">Quick Links</h4>
                             <ul className="space-y-2" role="list">
-                                {[
-                                    {
-                                        label: 'Asian Wedding Services',
-                                        href: '#services',
-                                        description: 'Balloon decorations for Sikh, Hindu, Pakistani weddings'
-                                    },
-                                    {
-                                        label: 'Portfolio Gallery',
-                                        href: '#gallery',
-                                        description: 'Browse our balloon decoration portfolio'
-                                    },
-                                    {
-                                        label: 'Customer Reviews',
-                                        href: '#testimonials',
-                                        description: 'Read testimonials from satisfied clients'
-                                    },
-                                    {
-                                        label: 'Free Consultation',
-                                        href: '#contact',
-                                        description: 'Get a free quote for your event'
-                                    }
-                                ].map((link) => (
+                                {navigationLinks.map((link) => (
                                     <li key={link.label}>
-                                        <a
+                                        <Link
                                             href={link.href}
                                             className="text-neutral-300 hover:text-neutral-50 transition-colors"
                                             aria-label={link.description}
                                             title={link.description}
                                         >
                                             {link.label}
-                                        </a>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
