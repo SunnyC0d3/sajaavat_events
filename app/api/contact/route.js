@@ -2,10 +2,12 @@ import {NextResponse} from 'next/server'
 import nodemailer from 'nodemailer'
 
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp-mail.outlook.com',
+    port: 587,
+    secure: false,
     auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_APP_PASSWORD
+        user: process.env.OUTLOOK_USER,
+        pass: process.env.OUTLOOK_PASSWORD
     }
 })
 
@@ -38,7 +40,7 @@ export async function POST(request) {
 
         try {
             const notificationEmail = {
-                from: process.env.GMAIL_USER,
+                from: process.env.OUTLOOK_USER,
                 to: process.env.NEXT_PUBLIC_EMAIL_ADDRESS,
                 subject: `New Balloon Decoration Enquiry - ${eventTypeMap[eventType] || eventType}`,
                 html: `
@@ -56,7 +58,7 @@ export async function POST(request) {
             }
 
             const customerReply = {
-                from: process.env.GMAIL_USER,
+                from: process.env.OUTLOOK_USER,
                 to: email,
                 subject: 'Thank you for your balloon decoration enquiry - Sajaavat Events',
                 html: `

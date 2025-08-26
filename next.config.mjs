@@ -167,8 +167,8 @@ const nextConfig = {
         NEXT_PUBLIC_GTM_ID: process.env.NEXT_PUBLIC_GTM_ID || '',
         NEXT_PUBLIC_NO_REPLY_EMAIL_ADDRESS: process.env.NEXT_PUBLIC_NO_REPLY_EMAIL_ADDRESS || '',
         NEXT_PUBLIC_EMAIL_ADDRESS: process.env.NEXT_PUBLIC_EMAIL_ADDRESS || '',
-        GMAIL_USER: process.env.GMAIL_USER || '',
-        GMAIL_APP_PASSWORD: process.env.GMAIL_PASSWORD || '',
+        OUTLOOK_USER: process.env.OUTLOOK_USER || '',
+        OUTLOOK_PASSWORD: process.env.OUTLOOK_PASSWORD || '',
     },
 
     // Output settings for better SEO
