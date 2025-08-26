@@ -22,17 +22,6 @@ export default function Testimonials() {
             date: 'September 2024'
         },
         {
-            id: 2,
-            name: 'Sarah & James Wilson',
-            event: 'Baby Shower Celebration',
-            location: 'Private Venue, Birmingham',
-            rating: 5,
-            image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
-            review: 'The team at Sajaavat Events created the most adorable baby shower setup for our little princess. The pastel pink and gold theme was exactly what we dreamed of, and the balloon arch became the perfect backdrop for our photos. Professional, punctual, and absolutely wonderful to work with!',
-            eventType: 'baby-shower',
-            date: 'October 2024'
-        },
-        {
             id: 3,
             name: 'David Chen',
             event: 'Annual Awards Ceremony',
