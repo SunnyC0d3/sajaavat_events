@@ -32,54 +32,6 @@ const nextConfig = {
     compress: true,
     poweredByHeader: false,
 
-    // SEO-friendly redirects
-    async redirects() {
-        return [
-            // Redirect common variations to main pages
-            {
-                source: '/home',
-                destination: '/',
-                permanent: true,
-            },
-            {
-                source: '/services',
-                destination: '/#services',
-                permanent: true,
-            },
-            {
-                source: '/gallery',
-                destination: '/#gallery',
-                permanent: true,
-            },
-            {
-                source: '/contact',
-                destination: '/#contact',
-                permanent: true,
-            },
-            // SEO-friendly service redirects
-            {
-                source: '/asian-weddings',
-                destination: '/#services',
-                permanent: true,
-            },
-            {
-                source: '/wedding-decorations',
-                destination: '/#services',
-                permanent: true,
-            },
-            {
-                source: '/balloon-arch',
-                destination: '/#services',
-                permanent: true,
-            },
-            {
-                source: '/baby-shower',
-                destination: '/#services',
-                permanent: true,
-            }
-        ]
-    },
-
     // Headers for SEO and security
     async headers() {
         return [
