@@ -1,4 +1,5 @@
 import {Inter} from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 
 const inter = Inter({
@@ -183,6 +184,27 @@ export default function RootLayout({children}) {
             {/* Hreflang for International SEO */}
             <link rel="alternate" href={`${process.env.NEXT_PUBLIC_SITE_URL}`} hrefLang="en-GB"/>
             <link rel="alternate" href={`${process.env.NEXT_PUBLIC_SITE_URL}`} hrefLang="en"/>
+
+            <Script
+                strategy="afterInteractive"
+                src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+            />
+
+            <Script
+                id="gtag-init"
+                strategy="afterInteractive"
+                dangerouslySetInnerHTML={{
+                    __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+                    page_location: window.location.href,
+                    page_title: document.title,
+                  });
+                `,
+                }}
+            />
         </head>
         <body className={`${inter.variable} antialiased`}>
         {children}

@@ -6,6 +6,7 @@ import {Button, IconButton} from '@/app/components/Button'
 import Link from 'next/link'
 import Image from 'next/image'
 import logo from '@/public/images/logo.svg'
+import * as gtag from '@/lib/gtag'
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -38,6 +39,11 @@ export default function Header() {
                         Free consultation for events over £500 • Call{' '}
                         <a
                             href="tel:+447123456789"
+                            onClick={() => gtag.event({
+                                action: 'click',
+                                category: 'contact',
+                                label: 'phone_top_header_desktop'
+                            })}
                             className="underline hover:no-underline font-semibold"
                             itemProp="telephone"
                             aria-label="Call Sajaavat Events for free balloon decoration consultation"
@@ -109,6 +115,11 @@ export default function Header() {
                                 className="flex items-center space-x-2 text-neutral-700 hover:text-neutral-900 transition-colors"
                                 aria-label="Call Sajaavat Events balloon decorations London"
                                 itemProp="telephone"
+                                onClick={() => gtag.event({
+                                    action: 'click',
+                                    category: 'contact',
+                                    label: 'phone_header_desktop'
+                                })}
                             >
                                 <Phone className="w-4 h-4" aria-hidden="true"/>
                                 <span className="text-sm font-medium">+44 712 345 6789</span>
@@ -129,7 +140,14 @@ export default function Header() {
                                 variant="ghost"
                                 size="md"
                                 icon={Phone}
-                                onClick={() => window.location.href = 'tel:+447123456789'}
+                                onClick={() => {
+                                    gtag.event({
+                                        action: 'click',
+                                        category: 'contact',
+                                        label: 'phone_header_mobile'
+                                    })
+                                    window.location.href = 'tel:+447123456789'
+                                }}
                                 aria-label="Call Sajaavat Events balloon decorations"
                             />
                             <IconButton
@@ -170,6 +188,11 @@ export default function Header() {
                                         href="tel:+447123456789"
                                         className="flex items-center space-x-3 py-3 px-3 text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 transition-colors duration-200 rounded-lg"
                                         aria-label="Call Sajaavat Events for balloon decoration consultation"
+                                        onClick={() => gtag.event({
+                                            action: 'click',
+                                            category: 'contact',
+                                            label: 'phone_mobile_menu'
+                                        })}
                                     >
                                         <Phone className="w-5 h-5" aria-hidden="true"/>
                                         <span className="font-medium">Call: +44 712 345 6789</span>

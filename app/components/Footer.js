@@ -22,6 +22,7 @@ import {
 import {Button} from '@/app/components/Button'
 import Image from 'next/image'
 import logo from '@/public/images/logo-3.svg'
+import * as gtag from '@/lib/gtag'
 
 export default function Footer({hasHeader = true}) {
     const [isSubmitting, setIsSubmitting] = useState(false)
@@ -67,6 +68,14 @@ export default function Footer({hasHeader = true}) {
         try {
             await new Promise(resolve => setTimeout(resolve, 2000))
             console.log('Form data:', formData)
+
+            gtag.event({
+                action: 'form_submit',
+                category: 'contact',
+                label: 'contact_form_success',
+                value: 1
+            })
+
             setSubmitStatus('success')
             setFormData({
                 name: '',
@@ -77,6 +86,12 @@ export default function Footer({hasHeader = true}) {
                 message: ''
             })
         } catch (error) {
+            gtag.event({
+                action: 'form_submit',
+                category: 'contact',
+                label: 'contact_form_error'
+            })
+
             setSubmitStatus('error')
         } finally {
             setIsSubmitting(false)
@@ -387,7 +402,20 @@ export default function Footer({hasHeader = true}) {
                                             </div>
                                             <div>
                                                 <h4 className="font-semibold text-neutral-900">{info.title}</h4>
-                                                {info.action ? (
+                                                {info.action && info.action.startsWith('tel:') ? (
+                                                    <a
+                                                        href={info.action}
+                                                        onClick={() => gtag.event({
+                                                            action: 'click',
+                                                            category: 'contact',
+                                                            label: 'phone_footer_contact'
+                                                        })}
+                                                        className="text-primary-600 hover:text-primary-700 font-medium"
+                                                        aria-label={`${info.title}: ${info.details}`}
+                                                    >
+                                                        {info.details}
+                                                    </a>
+                                                ) : info.action ? (
                                                     <a
                                                         href={info.action}
                                                         className="text-primary-600 hover:text-primary-700 font-medium"
@@ -505,6 +533,11 @@ export default function Footer({hasHeader = true}) {
                                     className="flex items-center space-x-2 text-neutral-300 hover:text-neutral-50 transition-colors"
                                     aria-label="Call Sajaavat Events for balloon decoration consultation"
                                     itemProp="telephone"
+                                    onClick={() => gtag.event({
+                                        action: 'click',
+                                        category: 'contact',
+                                        label: 'phone_footer_bottom'
+                                    })}
                                 >
                                     <Phone className="w-4 h-4" aria-hidden="true"/>
                                     <span>+44 712 345 6789</span>
