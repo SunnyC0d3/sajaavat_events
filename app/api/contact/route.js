@@ -1,7 +1,7 @@
 import {NextResponse} from 'next/server'
 import nodemailer from 'nodemailer'
 
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: process.env.GMAIL_USER,
