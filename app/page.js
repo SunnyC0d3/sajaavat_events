@@ -46,7 +46,7 @@ export default function ComingSoon() {
     }
 
     const handleEmailClick = () => {
-        window.location.href = 'mailto:info@sajaavat-events.co.uk?subject=Inquiry about Balloon Decoration Services'
+        window.location.href = `mailto:${process.env.NEXT_PUBLIC_EMAIL_ADDRESS}?subject=Inquiry about Balloon Decoration Services`
     }
 
     return (
@@ -55,12 +55,12 @@ export default function ComingSoon() {
             <div className="bg-neutral-900 text-neutral-50 text-center py-2 text-sm font-medium">
                 <div className="max-w-7xl mx-auto px-4 py-2">
                     <span>
-                        Free consultation for events over £500 • Call{' '}
+                        Free consultation for events over £500 • Email{' '}
                         <button
                             onClick={handlePhoneClick}
                             className="underline hover:no-underline font-semibold cursor-pointer bg-transparent border-none text-inherit"
                         >
-                            +44 712 345 6789
+                            {process.env.NEXT_PUBLIC_EMAIL_ADDRESS}
                         </button>
                     </span>
                 </div>
@@ -178,36 +178,10 @@ export default function ComingSoon() {
                             </p>
                         </div>
 
-                        <div className="grid sm:grid-cols-3 gap-6 mb-8">
-                            <button
-                                onClick={handlePhoneClick}
-                                className="flex flex-col items-center space-y-3 p-6 rounded-xl border-2 border-neutral-200 hover:border-blue-300 hover:bg-blue-50 transition-all duration-300 group"
-                            >
-                                <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                    <Phone className="w-6 h-6 text-white" />
-                                </div>
-                                <div className="text-center">
-                                    <div className="font-semibold text-neutral-900">Call Us</div>
-                                    <div className="text-sm text-neutral-600">+44 712 345 6789</div>
-                                </div>
-                            </button>
-
-                            <button
-                                onClick={handleWhatsAppClick}
-                                className="flex flex-col items-center space-y-3 p-6 rounded-xl border-2 border-neutral-200 hover:border-green-300 hover:bg-green-50 transition-all duration-300 group"
-                            >
-                                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                    <MessageCircle className="w-6 h-6 text-white" />
-                                </div>
-                                <div className="text-center">
-                                    <div className="font-semibold text-neutral-900">WhatsApp</div>
-                                    <div className="text-sm text-neutral-600">Quick Response</div>
-                                </div>
-                            </button>
-
+                        <div className="flex justify-center items-center mb-8">
                             <button
                                 onClick={handleEmailClick}
-                                className="flex flex-col items-center space-y-3 p-6 rounded-xl border-2 border-neutral-200 hover:border-purple-300 hover:bg-purple-50 transition-all duration-300 group"
+                                className="min-w-[300px] cursor-pointer flex flex-col items-center space-y-3 p-6 rounded-xl border-2 border-neutral-200 hover:border-purple-300 hover:bg-purple-50 transition-all duration-300 group"
                             >
                                 <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                                     <Mail className="w-6 h-6 text-white" />
