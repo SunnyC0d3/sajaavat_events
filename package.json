@@ -13,6 +13,7 @@
     "gtag": "^1.0.1",
     "lucide-react": "^0.539.0",
     "next": "15.4.6",
+    "nodemailer": "^7.0.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hook-form": "^7.62.0"

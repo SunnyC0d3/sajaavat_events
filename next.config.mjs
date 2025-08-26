@@ -165,6 +165,10 @@ const nextConfig = {
         NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || 'https://sajaavat-events.com',
         NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID || '',
         NEXT_PUBLIC_GTM_ID: process.env.NEXT_PUBLIC_GTM_ID || '',
+        NEXT_PUBLIC_NO_REPLY_EMAIL_ADDRESS: process.env.NEXT_PUBLIC_NO_REPLY_EMAIL_ADDRESS || '',
+        NEXT_PUBLIC_EMAIL_ADDRESS: process.env.NEXT_PUBLIC_EMAIL_ADDRESS || '',
+        GMAIL_USER: process.env.GMAIL_USER || '',
+        GMAIL_APP_PASSWORD: process.env.GMAIL_PASSWORD || '',
     },
 
     // Output settings for better SEO

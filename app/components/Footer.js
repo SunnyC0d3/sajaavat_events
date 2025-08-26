@@ -60,31 +60,43 @@ export default function Footer({hasHeader = true}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
         if (!validateForm()) return
 
         setIsSubmitting(true)
         setSubmitStatus(null)
 
         try {
-            await new Promise(resolve => setTimeout(resolve, 2000))
-            console.log('Form data:', formData)
-
-            gtag.event({
-                action: 'form_submit',
-                category: 'contact',
-                label: 'contact_form_success',
-                value: 1
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
             })
 
-            setSubmitStatus('success')
-            setFormData({
-                name: '',
-                email: '',
-                phone: '',
-                eventType: '',
-                eventDate: '',
-                message: ''
-            })
+            const data = await response.json()
+
+            if (response.ok) {
+                gtag.event({
+                    action: 'form_submit',
+                    category: 'contact',
+                    label: 'contact_form_success',
+                    value: 1
+                })
+
+                setSubmitStatus('success')
+                setFormData({
+                    name: '',
+                    email: '',
+                    phone: '',
+                    eventType: '',
+                    eventDate: '',
+                    message: ''
+                })
+            } else {
+                throw new Error(data.error || 'Something went wrong')
+            }
         } catch (error) {
             gtag.event({
                 action: 'form_submit',
