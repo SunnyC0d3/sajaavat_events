@@ -121,6 +121,8 @@ const nextConfig = {
         RESEND_API_KEY: process.env.RESEND_API_KEY || '',
         NO_REPLY_EMAIL_ADDRESS: process.env.NO_REPLY_EMAIL_ADDRESS || '',
         BUSINESS_EMAIL_ADDRESS: process.env.BUSINESS_EMAIL_ADDRESS || '',
+        MICROSOFT_365_EMAIL: process.env.MICROSOFT_365_EMAIL || '',
+        MICROSOFT_365_PASSWORD: process.env.MICROSOFT_365_PASSWORD || '',
     },
 
     // Output settings for better SEO
