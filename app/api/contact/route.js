@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
 const createTransporter = () => {
-    return nodemailer.createTransporter({
+    return nodemailer.createTransport({
         host: 'smtp.office365.com',
         port: 587,
         secure: false,
