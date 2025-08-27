@@ -1,75 +1,30 @@
 export default function StructuredData() {
-    // Use hardcoded values or pass as props
     const siteUrl = "https://sajaavat-events.com";
-    const emailAddress = "info@sajaavat-events.com";
+    const emailAddress = "hello@sajaavat-events.com";
 
-    const organizationSchema = {
+    // SINGLE LocalBusiness schema with ALL required fields
+    const localBusinessSchema = {
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": "LocalBusiness",
         "name": "Sajaavat Events",
         "alternateName": "Sajaavat Events Balloon Decorations",
-        "description": "Premium balloon arch decorations specializing in Asian weddings, baby showers, and event styling across London and surrounding areas.",
+        "description": "Professional balloon decoration services specializing in Asian weddings, baby showers, and corporate events across London and UK.",
         "url": siteUrl,
         "logo": siteUrl + "/images/logo.svg",
         "image": siteUrl + "/images/hero/balloon-arch-og.jpg",
-        "foundingDate": "2021",
-        "founders": [
-            {
-                "@type": "Person",
-                "name": "Sajaavat Events Team"
-            }
-        ],
-        "contactPoint": [
-            {
-                "@type": "ContactPoint",
-                "telephone": "+44-712-345-6789",
-                "contactType": "customer service",
-                "availableLanguage": ["English", "Hindi", "Punjabi"],
-                "areaServed": "GB",
-                "hoursAvailable": [
-                    {
-                        "@type": "OpeningHoursSpecification",
-                        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                        "opens": "09:00",
-                        "closes": "19:00"
-                    },
-                    {
-                        "@type": "OpeningHoursSpecification",
-                        "dayOfWeek": "Saturday",
-                        "opens": "10:00",
-                        "closes": "18:00"
-                    },
-                    {
-                        "@type": "OpeningHoursSpecification",
-                        "dayOfWeek": "Sunday",
-                        "opens": "12:00",
-                        "closes": "17:00"
-                    }
-                ]
-            }
-        ]
-        // Remove sameAs until you have real social media accounts
-    }
-
-    const localBusinessSchema = {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness", // Changed from "EventDecorator"
-        "name": "Sajaavat Events",
-        "description": "Professional balloon decoration service specializing in Asian wedding ceremonies, baby showers, and corporate events. Premium balloon arch installations across London and UK.",
-        "url": siteUrl,
         "telephone": "+44-712-345-6789",
         "email": emailAddress,
-        "image": siteUrl + "/images/hero/balloon-arch-og.jpg",
         "priceRange": "££-£££",
-        "currenciesAccepted": "GBP",
-        "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
-        // Add proper address
+
+        // REQUIRED: Address field - this was missing!
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "London",
+            "addressRegion": "England",
             "addressCountry": "GB"
-            // Add postalCode when you have one
+            // Add streetAddress and postalCode when you have them
         },
+
         "areaServed": [
             {
                 "@type": "City",
@@ -92,6 +47,7 @@ export default function StructuredData() {
                 "addressCountry": "GB"
             }
         ],
+
         "serviceArea": {
             "@type": "GeoCircle",
             "geoMidpoint": {
@@ -101,7 +57,7 @@ export default function StructuredData() {
             },
             "geoRadius": "80000"
         },
-        // Remove fake reviews - add this when you have real ones
+
         "openingHoursSpecification": [
             {
                 "@type": "OpeningHoursSpecification",
@@ -121,16 +77,25 @@ export default function StructuredData() {
                 "opens": "12:00",
                 "closes": "17:00"
             }
+        ],
+
+        "currenciesAccepted": "GBP",
+        "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
+
+        // Only add social media if accounts actually exist
+        "sameAs": [
+            "https://instagram.com/sajaavat-events",
+            "https://facebook.com/sajaavat-events"
         ]
     }
 
     const serviceSchema = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Balloon Decoration Services",
-        "description": "Professional balloon arch and decoration services for weddings, baby showers, and special events",
+        "name": "Asian Wedding Balloon Decorations",
+        "description": "Professional balloon arch and decoration services for Asian weddings, baby showers, and special events",
         "provider": {
-            "@type": "Organization",
+            "@type": "LocalBusiness",
             "name": "Sajaavat Events"
         },
         "areaServed": "London, UK",
@@ -151,7 +116,7 @@ export default function StructuredData() {
                     "itemOffered": {
                         "@type": "Service",
                         "name": "Baby Shower Decorations",
-                        "description": "Adorable balloon decorations and styling for baby shower celebrations and gender reveals"
+                        "description": "Adorable balloon decorations and styling for baby shower celebrations"
                     }
                 },
                 {
@@ -159,15 +124,7 @@ export default function StructuredData() {
                     "itemOffered": {
                         "@type": "Service",
                         "name": "Corporate Event Styling",
-                        "description": "Professional balloon decorations for corporate events, product launches, and business celebrations"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Balloon Arch Installations",
-                        "description": "Custom balloon arches for photo opportunities and venue entrances"
+                        "description": "Professional balloon decorations for corporate events and business celebrations"
                     }
                 }
             ]
@@ -177,24 +134,13 @@ export default function StructuredData() {
     const websiteSchema = {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Sajaavat Events - Balloon Decorations",
+        "name": "Sajaavat Events - Asian Wedding Balloon Decorations",
         "url": siteUrl,
-        "description": "Professional balloon decoration services for Asian weddings, baby showers, and special events across London and UK",
-        "mainEntity": {
-            "@type": "Organization",
-            "name": "Sajaavat Events"
-        }
-        // Remove SearchAction unless you implement actual search
+        "description": "Professional balloon decoration services for Asian weddings, baby showers, and special events across London and UK"
     }
 
     return (
         <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(organizationSchema)
-                }}
-            />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
