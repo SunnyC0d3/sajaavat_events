@@ -31,8 +31,8 @@ export async function POST(request) {
 
         try {
             const notificationEmail = await resend.emails.send({
-                from: `Sajaavat Enquiries <${process.env.EMAIL_ADDRESS}>`,
-                to: [process.env.BUSINESS_EMAIL],
+                from: `Sajaavat Enquiries <${process.env.NO_REPLY_EMAIL_ADDRESS}>`,
+                to: [process.env.BUSINESS_EMAIL_ADDRESS],
                 replyTo: email,
                 subject: `New ${eventTypeMap[eventType] || eventType} Enquiry from ${name}`,
                 html: `
@@ -145,7 +145,7 @@ export async function POST(request) {
             })
 
             const customerReply = await resend.emails.send({
-                from: `Sajaavat Events <${process.env.EMAIL_ADDRESS}>`,
+                from: `Sajaavat Events <${process.env.NO_REPLY_EMAIL_ADDRESS}>`,
                 to: [email],
                 subject: 'Thank you for your balloon decoration enquiry - Sajaavat Events',
                 html: `

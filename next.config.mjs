@@ -120,7 +120,7 @@ const nextConfig = {
         NEXT_PUBLIC_EMAIL_ADDRESS: process.env.NEXT_PUBLIC_EMAIL_ADDRESS || '',
         RESEND_API_KEY: process.env.RESEND_API_KEY || '',
         NO_REPLY_EMAIL_ADDRESS: process.env.NO_REPLY_EMAIL_ADDRESS || '',
-        EMAIL_ADDRESS: process.env.EMAIL_ADDRESS || '',
+        BUSINESS_EMAIL_ADDRESS: process.env.BUSINESS_EMAIL_ADDRESS || '',
     },
 
     // Output settings for better SEO
