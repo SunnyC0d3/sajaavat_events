@@ -32,7 +32,7 @@ export async function POST(request) {
         try {
             const notificationEmail = await resend.emails.send({
                 from: `Sajaavat Enquiries <${process.env.NO_REPLY_EMAIL_ADDRESS}>`,
-                to: [process.env.BUSINESS_EMAIL_ADDRESS],
+                to: process.env.BUSINESS_EMAIL_ADDRESS,
                 replyTo: email,
                 subject: `New ${eventTypeMap[eventType] || eventType} Enquiry from ${name}`,
                 html: `
