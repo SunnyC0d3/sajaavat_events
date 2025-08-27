@@ -132,21 +132,21 @@ export default function Testimonials() {
                 </div>
 
                 <div className="relative max-w-4xl mx-auto mb-16">
-                    <Button
-                        variant="ghost"
-                        size="sm"
-                        icon={ChevronLeft}
+                    <button
                         onClick={goToPrev}
-                        className="absolute left-0 lg:-left-16 top-1/2 transform -translate-y-1/2 z-10 p-3 bg-neutral-50 shadow-lg rounded-full text-neutral-600 hover:text-neutral-900 hover:shadow-xl"
-                    />
+                        className="hidden sm:block absolute left-0 lg:-left-16 top-1/2 transform -translate-y-1/2 z-10 p-2 sm:p-3 shadow-lg backdrop-blur-sm rounded-full bg-neutral-50 hover:text-neutral-900 text-neutral-600 transition-colors duration-200"
+                        aria-label="Previous image"
+                    >
+                        <ChevronLeft className="cursor-pointer w-5 h-5 sm:w-6 sm:h-6" />
+                    </button>
 
-                    <Button
-                        variant="ghost"
-                        size="sm"
-                        icon={ChevronRight}
+                    <button
                         onClick={goToNext}
-                        className="absolute right-0 lg:-right-16 top-1/2 transform -translate-y-1/2 z-10 p-3 bg-neutral-50 shadow-lg rounded-full text-neutral-600 hover:text-neutral-900 hover:shadow-xl"
-                    />
+                        className="hidden sm:block absolute right-0 lg:-right-16 top-1/2 transform -translate-y-1/2 z-10 p-2 sm:p-3 shadow-lg backdrop-blur-sm rounded-full bg-neutral-50 hover:text-neutral-900 text-neutral-600 transition-colors duration-200"
+                        aria-label="Next image"
+                    >
+                        <ChevronRight className="cursor-pointer w-5 h-5 sm:w-6 sm:h-6" />
+                    </button>
 
                     <div className="bg-neutral-50 rounded-lg shadow-lg overflow-hidden">
                         <div className="p-8 lg:p-12">

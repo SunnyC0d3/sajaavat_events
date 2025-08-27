@@ -214,7 +214,10 @@ export default function Header() {
                                             variant="primary"
                                             size="md"
                                             fullWidth
-                                            onClick={handleLinkClick}
+                                            onClick={() => {
+                                                setIsMenuOpen(false);
+                                                window.location.href = '#contact';
+                                            }}
                                             aria-label="Get free balloon decoration quote"
                                         >
                                             Get Free Quote

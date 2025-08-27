@@ -266,23 +266,21 @@ export default function Services() {
 
                             {services[selectedService].images.length > 1 && (
                                 <>
-                                    <Button
-                                        variant="ghost"
-                                        size="sm"
-                                        icon={ChevronLeft}
+                                    <button
                                         onClick={previousImage}
-                                        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-neutral-50 hover:text-neutral-900 text-neutral-600 rounded-full"
+                                        className="hidden sm:block absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-10 p-2 sm:p-3 shadow-lg backdrop-blur-sm rounded-full bg-neutral-50 hover:text-neutral-900 text-neutral-600 transition-colors duration-200"
                                         aria-label="Previous image"
-                                    />
+                                    >
+                                        <ChevronLeft className="cursor-pointer w-5 h-5 sm:w-6 sm:h-6" />
+                                    </button>
 
-                                    <Button
-                                        variant="ghost"
-                                        size="sm"
-                                        icon={ChevronRight}
+                                    <button
                                         onClick={nextImage}
-                                        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-neutral-50 hover:text-neutral-900 text-neutral-600 rounded-full"
+                                        className="hidden sm:block absolute right-4 top-1/2 transform -translate-y-1/2 z-10 p-2 sm:p-3 shadow-lg backdrop-blur-sm rounded-full bg-neutral-50 hover:text-neutral-900 text-neutral-600 transition-colors duration-200"
                                         aria-label="Next image"
-                                    />
+                                    >
+                                        <ChevronRight className="cursor-pointer w-5 h-5 sm:w-6 sm:h-6" />
+                                    </button>
                                 </>
                             )}
 

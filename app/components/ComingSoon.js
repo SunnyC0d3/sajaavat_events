@@ -41,10 +41,6 @@ export default function ComingSoon() {
         window.location.href = 'tel:+447123456789'
     }
 
-    const handleWhatsAppClick = () => {
-        window.open('https://wa.me/447123456789?text=Hello! I\'d like to inquire about your balloon decoration services.', '_blank')
-    }
-
     const handleEmailClick = () => {
         window.location.href = `mailto:${process.env.NEXT_PUBLIC_EMAIL_ADDRESS}?subject=Inquiry about Balloon Decoration Services`
     }
@@ -52,19 +48,7 @@ export default function ComingSoon() {
     return (
         <div className="min-h-screen bg-neutral-50">
             {/* Top Banner */}
-            <div className="bg-neutral-900 text-neutral-50 text-center py-2 text-sm font-medium">
-                <div className="max-w-7xl mx-auto px-4 py-2">
-                    <span>
-                        Free consultation for events over £500 • Email{' '}
-                        <button
-                            onClick={handlePhoneClick}
-                            className="underline hover:no-underline font-semibold cursor-pointer bg-transparent border-none text-inherit"
-                        >
-                            {process.env.NEXT_PUBLIC_EMAIL_ADDRESS}
-                        </button>
-                    </span>
-                </div>
-            </div>
+            <div className="bg-neutral-900 text-neutral-50 text-center py-2 text-sm font-medium"></div>
 
             {/* Main Content */}
             <div className="relative overflow-hidden">
@@ -163,39 +147,6 @@ export default function ComingSoon() {
                                 <h4 className="text-xl font-semibold text-neutral-900 mb-2">Corporate Events</h4>
                                 <p className="text-neutral-600">Professional balloon styling for corporate celebrations and company events</p>
                             </div>
-                        </div>
-                    </div>
-
-                    {/* Contact Section */}
-                    <div className="bg-white rounded-2xl shadow-xl p-8 sm:p-12">
-                        <div className="text-center mb-8">
-                            <h3 className="text-2xl sm:text-3xl font-bold text-neutral-900 mb-4">
-                                Ready to Plan Your Event?
-                            </h3>
-                            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-                                Don&apos;t wait for the website! Contact us now for a free consultation and quote.
-                                We&apos;re already creating magical moments for clients across London and the UK.
-                            </p>
-                        </div>
-
-                        <div className="flex justify-center items-center mb-8">
-                            <button
-                                onClick={handleEmailClick}
-                                className="min-w-[300px] cursor-pointer flex flex-col items-center space-y-3 p-6 rounded-xl border-2 border-neutral-200 hover:border-purple-300 hover:bg-purple-50 transition-all duration-300 group"
-                            >
-                                <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                    <Mail className="w-6 h-6 text-white" />
-                                </div>
-                                <div className="text-center">
-                                    <div className="font-semibold text-neutral-900">Email Us</div>
-                                    <div className="text-sm text-neutral-600">Get Detailed Quote</div>
-                                </div>
-                            </button>
-                        </div>
-
-                        <div className="flex items-center justify-center space-x-2 text-neutral-600">
-                            <MapPin className="w-4 h-4" />
-                            <span className="text-sm">Serving London, Birmingham, Manchester, Leeds & UK</span>
                         </div>
                     </div>
 
