@@ -121,8 +121,9 @@ const nextConfig = {
         RESEND_API_KEY: process.env.RESEND_API_KEY || '',
         NO_REPLY_EMAIL_ADDRESS: process.env.NO_REPLY_EMAIL_ADDRESS || '',
         BUSINESS_EMAIL_ADDRESS: process.env.BUSINESS_EMAIL_ADDRESS || '',
-        MICROSOFT_365_EMAIL: process.env.MICROSOFT_365_EMAIL || '',
-        MICROSOFT_365_PASSWORD: process.env.MICROSOFT_365_PASSWORD || '',
+        AZURE_CLIENT_ID: process.env.AZURE_CLIENT_ID || '',
+        AZURE_CLIENT_SECRET: process.env.AZURE_CLIENT_SECRET || '',
+        AZURE_TENANT_ID: process.env.AZURE_TENANT_ID || '',
     },
 
     // Output settings for better SEO

@@ -1,20 +1,5 @@
 import { NextResponse } from 'next/server'
-import nodemailer from 'nodemailer'
-
-const createTransporter = () => {
-    return nodemailer.createTransport({
-        host: 'smtp.office365.com',
-        port: 587,
-        secure: false,
-        auth: {
-            user: process.env.MICROSOFT_365_EMAIL,
-            pass: process.env.MICROSOFT_365_PASSWORD
-        },
-        tls: {
-            ciphers: 'SSLv3'
-        }
-    })
-}
+import { sendEmail } from '@/lib/email-service'
 
 export async function POST(request) {
     try {
@@ -42,19 +27,9 @@ export async function POST(request) {
             'other': 'Other Special Celebration'
         }
 
-        // Create transporter
-        const transporter = createTransporter()
-
         try {
-            // Verify transporter configuration
-            await transporter.verify()
-            console.log('Server is ready to take our messages')
-
-            // Send notification email to business
-            const notificationEmailOptions = {
-                from: `"Sajaavat Enquiries" <${process.env.NO_REPLY_EMAIL_ADDRESS}>`,
+            const notificationResult = await sendEmail({
                 to: process.env.BUSINESS_EMAIL_ADDRESS,
-                replyTo: email,
                 subject: `New ${eventTypeMap[eventType] || eventType} Enquiry from ${name}`,
                 html: `
                     <!DOCTYPE html>
@@ -162,14 +137,11 @@ export async function POST(request) {
                         </div>
                     </body>
                     </html>
-                `
-            }
+                `,
+                replyTo: email
+            })
 
-            const notificationResult = await transporter.sendMail(notificationEmailOptions)
-
-            // Send customer reply email
-            const customerReplyOptions = {
-                from: `"Sajaavat Events" <${process.env.BUSINESS_EMAIL_ADDRESS}>`,
+            const customerReplyResult = await sendEmail({
                 to: email,
                 subject: 'Thank you for your balloon decoration enquiry - Sajaavat Events',
                 html: `
@@ -341,14 +313,19 @@ export async function POST(request) {
                     </body>
                     </html>
                 `
-            }
-
-            const customerReplyResult = await transporter.sendMail(customerReplyOptions)
+            })
 
             console.log('Emails sent successfully:', {
-                notification: notificationResult.messageId,
-                customerReply: customerReplyResult.messageId
+                notification: notificationResult.success ? 'sent' : 'failed',
+                customerReply: customerReplyResult.success ? 'sent' : 'failed'
             })
+
+            if (!notificationResult.success || !customerReplyResult.success) {
+                console.error('Email sending errors:', {
+                    notification: notificationResult.error,
+                    customerReply: customerReplyResult.error
+                })
+            }
 
         } catch (emailError) {
             console.error('Email sending failed:', emailError)
