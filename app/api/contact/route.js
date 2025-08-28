@@ -27,9 +27,7 @@ export async function POST(request) {
             'other': 'Other Special Celebration'
         }
 
-        // Get the base URL for the logo
-        const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
-        const logoUrl = `${baseUrl}/images/logo.svg`
+        const logoUrl = 'http://localhost:3000/images/logo.svg'
 
         try {
             // Business notification email
