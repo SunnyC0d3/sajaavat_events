@@ -6,45 +6,6 @@ import logo from '@/public/images/logo.svg'
 import Image from 'next/image'
 
 export default function ComingSoon() {
-    const [timeLeft, setTimeLeft] = useState({
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0
-    })
-
-    // Set launch date (you can modify this)
-    const launchDate = new Date('2025-09-15T00:00:00').getTime()
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            const now = new Date().getTime()
-            const distance = launchDate - now
-
-            setTimeLeft({
-                days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-                hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-                minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-                seconds: Math.floor((distance % (1000 * 60)) / 1000)
-            })
-
-            if (distance < 0) {
-                clearInterval(timer)
-                setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
-            }
-        }, 1000)
-
-        return () => clearInterval(timer)
-    }, [launchDate])
-
-    const handlePhoneClick = () => {
-        window.location.href = 'tel:+447123456789'
-    }
-
-    const handleEmailClick = () => {
-        window.location.href = `mailto:${process.env.NEXT_PUBLIC_EMAIL_ADDRESS}?subject=Inquiry about Balloon Decoration Services`
-    }
-
     return (
         <div className="min-h-screen bg-neutral-50">
             {/* Top Banner */}
@@ -92,26 +53,6 @@ export default function ComingSoon() {
                                 We&apos;re crafting a beautiful new experience to showcase our stunning balloon decorations.
                                 Our team is working hard to bring you the perfect platform to plan your dream event.
                             </p>
-
-                            {/* Countdown Timer */}
-                            <div className="grid grid-cols-4 gap-4 sm:gap-8 mb-8">
-                                <div className="bg-gradient-to-br from-pink-500 to-purple-600 text-white rounded-xl p-4 sm:p-6">
-                                    <div className="text-2xl sm:text-4xl font-bold">{timeLeft.days}</div>
-                                    <div className="text-sm sm:text-base opacity-90">Days</div>
-                                </div>
-                                <div className="bg-gradient-to-br from-purple-500 to-blue-600 text-white rounded-xl p-4 sm:p-6">
-                                    <div className="text-2xl sm:text-4xl font-bold">{timeLeft.hours}</div>
-                                    <div className="text-sm sm:text-base opacity-90">Hours</div>
-                                </div>
-                                <div className="bg-gradient-to-br from-blue-500 to-teal-600 text-white rounded-xl p-4 sm:p-6">
-                                    <div className="text-2xl sm:text-4xl font-bold">{timeLeft.minutes}</div>
-                                    <div className="text-sm sm:text-base opacity-90">Minutes</div>
-                                </div>
-                                <div className="bg-gradient-to-br from-teal-500 to-green-600 text-white rounded-xl p-4 sm:p-6">
-                                    <div className="text-2xl sm:text-4xl font-bold">{timeLeft.seconds}</div>
-                                    <div className="text-sm sm:text-base opacity-90">Seconds</div>
-                                </div>
-                            </div>
 
                             <div className="inline-flex items-center space-x-2 text-emerald-600 bg-emerald-50 px-4 py-2 rounded-full text-sm font-medium">
                                 <Clock className="w-4 h-4" />
