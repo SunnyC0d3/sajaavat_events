@@ -92,7 +92,7 @@ export default function Home() {
 //                 </h1>
 //
 //                 <Hero/>
-//                 <Services/>
+//                 {/*<Services/>*/}
 //                 <Gallery/>
 //                 <Testimonials/>
 //             </main>

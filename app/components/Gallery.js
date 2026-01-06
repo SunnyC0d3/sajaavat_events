@@ -9,8 +9,8 @@ export default function Gallery() {
     const [activeFilter, setActiveFilter] = useState('all')
     const [selectedImage, setSelectedImage] = useState(null)
     const [filteredImages, setFilteredImages] = useState([])
+    const [currentCarouselIndex, setCurrentCarouselIndex] = useState(0)
 
-    // Memoize galleryImages to prevent recreation on every render
     const galleryImages = useMemo(() => [
         {
             id: 1,
@@ -22,7 +22,21 @@ export default function Gallery() {
             event: 'Sikh Wedding Ceremony',
             location: 'Gurdwara, London',
             culturalElements: 'Traditional Sikh colors, Mandap styling',
-            keywords: 'Sikh wedding decorations, mandap balloon arch, pink gold wedding'
+            keywords: 'Sikh wedding decorations, mandap balloon arch, pink gold wedding',
+            images: [
+                {
+                    src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
+                    alt: 'Main view of pink and gold balloon arch for Sikh wedding'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&h=600&fit=crop',
+                    alt: 'Close-up detail of mandap balloon decoration'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&h=600&fit=crop',
+                    alt: 'Full venue setup with balloon decorations'
+                }
+            ]
         },
         {
             id: 2,
@@ -34,7 +48,21 @@ export default function Gallery() {
             event: 'Gender Reveal Party',
             location: 'Private Venue, Birmingham',
             culturalElements: 'Contemporary styling, Gender reveal theme',
-            keywords: 'baby shower decorations, gender reveal balloons, blue baby shower'
+            keywords: 'baby shower decorations, gender reveal balloons, blue baby shower',
+            images: [
+                {
+                    src: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop',
+                    alt: 'Main blue baby shower balloon setup'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+                    alt: 'Dessert table with balloon backdrop'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop',
+                    alt: 'Guest area with balloon decorations'
+                }
+            ]
         },
         {
             id: 3,
@@ -46,7 +74,21 @@ export default function Gallery() {
             event: 'Annual Awards Ceremony',
             location: 'Conference Centre, Manchester',
             culturalElements: 'Professional styling, Corporate branding',
-            keywords: 'corporate event decorations, professional balloon styling, awards ceremony'
+            keywords: 'corporate event decorations, professional balloon styling, awards ceremony',
+            images: [
+                {
+                    src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop',
+                    alt: 'Main stage with balloon arch'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop',
+                    alt: 'Awards ceremony backdrop with balloons'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
+                    alt: 'Corporate event entrance decorations'
+                }
+            ]
         },
         {
             id: 4,
@@ -58,7 +100,21 @@ export default function Gallery() {
             event: 'Hindu Wedding Reception',
             location: 'Banquet Hall, Leicester',
             culturalElements: 'Hindu wedding traditions, Sacred color combinations',
-            keywords: 'Hindu wedding decorations, red white balloon arch, traditional Hindu colors'
+            keywords: 'Hindu wedding decorations, red white balloon arch, traditional Hindu colors',
+            images: [
+                {
+                    src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop',
+                    alt: 'Red and white Hindu wedding mandap'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop',
+                    alt: 'Traditional Hindu ceremony decorations'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
+                    alt: 'Reception hall balloon setup'
+                }
+            ]
         },
         {
             id: 5,
@@ -70,7 +126,21 @@ export default function Gallery() {
             event: 'Baby Girl Celebration',
             location: 'Family Home, Leeds',
             culturalElements: 'Princess theme, Luxury styling',
-            keywords: 'baby girl shower decorations, princess theme balloons, pink gold baby shower'
+            keywords: 'baby girl shower decorations, princess theme balloons, pink gold baby shower',
+            images: [
+                {
+                    src: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&h=600&fit=crop',
+                    alt: 'Pink and gold princess theme setup'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop',
+                    alt: 'Baby girl shower gift table'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop',
+                    alt: 'Princess themed photo backdrop'
+                }
+            ]
         },
         {
             id: 6,
@@ -82,7 +152,21 @@ export default function Gallery() {
             event: 'Punjabi Wedding Sangam',
             location: 'Community Centre, Southall London',
             culturalElements: 'Punjabi traditions, Vibrant cultural colors',
-            keywords: 'Punjabi wedding decorations, colorful balloon arch, Southall wedding'
+            keywords: 'Punjabi wedding decorations, colorful balloon arch, Southall wedding',
+            images: [
+                {
+                    src: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&h=600&fit=crop',
+                    alt: 'Vibrant Punjabi wedding colors'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&h=600&fit=crop',
+                    alt: 'Traditional Punjabi celebration setup'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
+                    alt: 'Sangam ceremony balloon decorations'
+                }
+            ]
         },
         {
             id: 7,
@@ -94,7 +178,21 @@ export default function Gallery() {
             event: 'Product Launch Event',
             location: 'London Tech Hub',
             culturalElements: 'Modern tech aesthetic, Corporate sophistication',
-            keywords: 'tech company event decorations, product launch balloons, corporate styling'
+            keywords: 'tech company event decorations, product launch balloons, corporate styling',
+            images: [
+                {
+                    src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop',
+                    alt: 'Tech product launch main stage'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop',
+                    alt: 'Corporate branding with balloons'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
+                    alt: 'Tech hub event space decorations'
+                }
+            ]
         },
         {
             id: 8,
@@ -106,7 +204,21 @@ export default function Gallery() {
             event: 'Gender Neutral Celebration',
             location: 'Garden Venue, Oxford',
             culturalElements: 'Natural theme, Gender neutral styling',
-            keywords: 'gender neutral baby shower, green white decorations, garden theme'
+            keywords: 'gender neutral baby shower, green white decorations, garden theme',
+            images: [
+                {
+                    src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+                    alt: 'Garden themed neutral baby shower'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop',
+                    alt: 'Outdoor garden setup with balloons'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop',
+                    alt: 'Natural themed photo area'
+                }
+            ]
         },
         {
             id: 9,
@@ -118,11 +230,24 @@ export default function Gallery() {
             event: 'Tamil Wedding Ceremony',
             location: 'Temple Hall, Bradford',
             culturalElements: 'Tamil traditions, South Indian cultural elements',
-            keywords: 'Tamil wedding decorations, golden balloon arch, South Indian wedding'
+            keywords: 'Tamil wedding decorations, golden balloon arch, South Indian wedding',
+            images: [
+                {
+                    src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop',
+                    alt: 'Golden Tamil wedding arch'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
+                    alt: 'South Indian ceremony decorations'
+                },
+                {
+                    src: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&h=600&fit=crop',
+                    alt: 'Temple hall balloon setup'
+                }
+            ]
         }
     ], [])
 
-    // Filter categories with SEO-optimized descriptions
     const filterCategories = useMemo(() => [
         {
             id: 'all',
@@ -168,9 +293,9 @@ export default function Gallery() {
 
     const openLightbox = useCallback((image) => {
         setSelectedImage(image)
+        setCurrentCarouselIndex(0)
         document.body.style.overflow = 'hidden'
 
-        // Analytics tracking for image views
         if (typeof window !== 'undefined' && window.gtag) {
             window.gtag('event', 'gallery_image_view', {
                 event_category: 'Gallery Engagement',
@@ -183,10 +308,10 @@ export default function Gallery() {
 
     const closeLightbox = useCallback(() => {
         setSelectedImage(null)
+        setCurrentCarouselIndex(0)
         document.body.style.overflow = 'unset'
     }, [])
 
-    // Memoize navigateImage function to prevent recreation on every render
     const navigateImage = useCallback((direction) => {
         const currentIndex = filteredImages.findIndex(img => img.id === selectedImage.id)
         let newIndex
@@ -198,8 +323,8 @@ export default function Gallery() {
         }
 
         setSelectedImage(filteredImages[newIndex])
+        setCurrentCarouselIndex(0)
 
-        // Track navigation
         if (typeof window !== 'undefined' && window.gtag) {
             window.gtag('event', 'gallery_navigate', {
                 event_category: 'Gallery Engagement',
@@ -209,18 +334,36 @@ export default function Gallery() {
         }
     }, [filteredImages, selectedImage])
 
+    const navigateCarousel = useCallback((direction) => {
+        if (!selectedImage || !selectedImage.images) return
+
+        if (direction === 'prev') {
+            setCurrentCarouselIndex((prev) =>
+                prev === 0 ? selectedImage.images.length - 1 : prev - 1
+            )
+        } else {
+            setCurrentCarouselIndex((prev) =>
+                prev === selectedImage.images.length - 1 ? 0 : prev + 1
+            )
+        }
+    }, [selectedImage])
+
+    const goToCarouselImage = useCallback((index) => {
+        setCurrentCarouselIndex(index)
+    }, [])
+
     useEffect(() => {
         const handleKeyPress = (e) => {
             if (selectedImage) {
                 if (e.key === 'Escape') closeLightbox()
-                if (e.key === 'ArrowLeft') navigateImage('prev')
-                if (e.key === 'ArrowRight') navigateImage('next')
+                if (e.key === 'ArrowLeft') navigateCarousel('prev')
+                if (e.key === 'ArrowRight') navigateCarousel('next')
             }
         }
 
         window.addEventListener('keydown', handleKeyPress)
         return () => window.removeEventListener('keydown', handleKeyPress)
-    }, [selectedImage, closeLightbox, navigateImage])
+    }, [selectedImage, closeLightbox, navigateCarousel])
 
     return (
         <section
@@ -326,6 +469,13 @@ export default function Gallery() {
                                             image.category === 'wedding' ? 'Asian Wedding' : 'Corporate Event'}
                                     </span>
                                 </div>
+
+                                {/* Photo count badge */}
+                                {image.images && image.images.length > 1 && (
+                                    <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm text-white px-2 py-1 rounded-full text-xs font-medium">
+                                        📸 {image.images.length} photos
+                                    </div>
+                                )}
                             </div>
                         </article>
                     ))}
@@ -362,7 +512,7 @@ export default function Gallery() {
                 </div>
             </div>
 
-            {/* Mobile-Friendly Lightbox Modal */}
+            {/* Mobile-Friendly Lightbox Modal with Carousel */}
             {selectedImage && (
                 <div
                     className="fixed inset-0 z-50 bg-neutral-900/90 flex items-center justify-center p-2 sm:p-4"
@@ -372,7 +522,7 @@ export default function Gallery() {
                     aria-describedby="lightbox-description"
                     onClick={closeLightbox}
                 >
-                    {/* Close button - improved mobile positioning */}
+                    {/* Close button */}
                     <button
                         onClick={(e) => {
                             e.stopPropagation();
@@ -384,50 +534,85 @@ export default function Gallery() {
                         <X className="w-5 h-5 sm:w-6 sm:h-6" />
                     </button>
 
-                    {/* Navigation buttons - hidden on very small screens, repositioned on mobile */}
-                    <button
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            navigateImage('prev');
-                        }}
-                        className="hidden sm:block absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-60 p-2 sm:p-3 bg-white/10 backdrop-blur-sm rounded-full text-neutral-50 hover:bg-white/20 transition-colors duration-200"
-                        aria-label="Previous image"
-                    >
-                        <ChevronLeft className="cursor-pointer w-5 h-5 sm:w-6 sm:h-6" />
-                    </button>
-
-                    <button
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            navigateImage('next');
-                        }}
-                        className="hidden sm:block absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-60 p-2 sm:p-3 bg-white/10 backdrop-blur-sm rounded-full text-neutral-50 hover:bg-white/20 transition-colors duration-200"
-                        aria-label="Next image"
-                    >
-                        <ChevronRight className="cursor-pointer w-5 h-5 sm:w-6 sm:h-6" />
-                    </button>
-
-                    {/* Modal content - improved mobile layout */}
+                    {/* Modal content */}
                     <div
-                        className="w-full max-w-4xl h-full flex flex-col bg-neutral-50 rounded-lg overflow-y-auto mx-2 sm:mx-0"
+                        className="w-full max-w-5xl h-full flex flex-col bg-neutral-50 rounded-lg overflow-y-auto mx-2 sm:mx-0"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {/* Image container */}
-                        <div className="relative flex-shrink-0 w-full">
-                            <div className="aspect-w-16 aspect-h-9 sm:aspect-w-4 sm:aspect-h-3">
-                                <Image
-                                    src={selectedImage.src}
-                                    alt={selectedImage.alt}
-                                    className="w-full h-full object-contain sm:object-cover bg-neutral-100"
-                                    itemScope
-                                    itemType="https://schema.org/Photograph"
-                                    width={1200}
-                                    height={800}
-                                />
+                        {/* Carousel Image container */}
+                        <div className="relative flex-shrink-0 w-full bg-neutral-900">
+                            <div className="relative flex-shrink-0 w-full bg-neutral-900 min-h-[400px] sm:min-h-[500px]">
+                                {selectedImage.images && selectedImage.images.map((img, index) => (
+                                    <div
+                                        key={index}
+                                        className={`absolute inset-0 transition-opacity duration-500 ${
+                                            index === currentCarouselIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                                        }`}
+                                    >
+                                        <Image
+                                            src={img.src}
+                                            alt={img.alt}
+                                            className="w-full h-full object-contain"
+                                            width={1200}
+                                            height={800}
+                                        />
+                                    </div>
+                                ))}
                             </div>
+
+                            {/* Carousel Navigation - Desktop */}
+                            {selectedImage.images && selectedImage.images.length > 1 && (
+                                <>
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            navigateCarousel('prev');
+                                        }}
+                                        className="hidden sm:block absolute left-2 top-1/2 transform -translate-y-1/2 p-3 bg-white/20 backdrop-blur-sm rounded-full text-neutral-50 hover:bg-white/30 transition-colors duration-200 z-20 items-center justify-center cursor-pointer"
+                                        aria-label="Previous photo"
+                                    >
+                                        <ChevronLeft className="w-6 h-6" />
+                                    </button>
+
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            navigateCarousel('next');
+                                        }}
+                                        className="hidden sm:block absolute right-2 top-1/2 transform -translate-y-1/2 p-3 bg-white/20 backdrop-blur-sm rounded-full text-neutral-50 hover:bg-white/30 transition-colors duration-200 z-20 items-center justify-center cursor-pointer"
+                                        aria-label="Next photo"
+                                    >
+                                        <ChevronRight className="w-6 h-6" />
+                                    </button>
+
+                                    {/* Carousel Indicators */}
+                                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+                                        {selectedImage.images.map((_, index) => (
+                                            <button
+                                                key={index}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    goToCarouselImage(index);
+                                                }}
+                                                className={`w-2 h-2 rounded-full transition-all duration-200 ${
+                                                    index === currentCarouselIndex
+                                                        ? 'bg-white scale-125 w-8'
+                                                        : 'bg-white/50 hover:bg-white/75'
+                                                }`}
+                                                aria-label={`Go to photo ${index + 1}`}
+                                            />
+                                        ))}
+                                    </div>
+
+                                    {/* Image counter */}
+                                    <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium z-20">
+                                        {currentCarouselIndex + 1} / {selectedImage.images.length}
+                                    </div>
+                                </>
+                            )}
                         </div>
 
-                        {/* Content section - scrollable on mobile */}
+                        {/* Content section */}
                         <div className="flex-1 p-4 sm:p-6 lg:p-8">
                             <h3 id="lightbox-title" className="text-xl sm:text-2xl font-bold text-neutral-900 mb-3 sm:mb-4">
                                 {selectedImage.title}
@@ -451,25 +636,27 @@ export default function Gallery() {
                                 </div>
                             </div>
 
-                            {/* Mobile navigation buttons */}
-                            <div className="flex sm:hidden gap-2 mb-4">
-                                <button
-                                    onClick={() => navigateImage('prev')}
-                                    className="flex-1 flex items-center justify-center p-3 bg-neutral-100 hover:bg-neutral-200 rounded-lg transition-colors duration-200"
-                                    aria-label="Previous image"
-                                >
-                                    <ChevronLeft className="w-5 h-5 mr-2" />
-                                    Previous
-                                </button>
-                                <button
-                                    onClick={() => navigateImage('next')}
-                                    className="flex-1 flex items-center justify-center p-3 bg-neutral-100 hover:bg-neutral-200 rounded-lg transition-colors duration-200"
-                                    aria-label="Next image"
-                                >
-                                    Next
-                                    <ChevronRight className="w-5 h-5 ml-2" />
-                                </button>
-                            </div>
+                            {/* Mobile carousel navigation */}
+                            {selectedImage.images && selectedImage.images.length > 1 && (
+                                <div className="flex sm:hidden gap-2 mb-4">
+                                    <button
+                                        onClick={() => navigateCarousel('prev')}
+                                        className="flex-1 flex items-center justify-center p-3 bg-neutral-100 hover:bg-neutral-200 rounded-lg transition-colors duration-200"
+                                        aria-label="Previous photo"
+                                    >
+                                        <ChevronLeft className="w-5 h-5 mr-2" />
+                                        Previous
+                                    </button>
+                                    <button
+                                        onClick={() => navigateCarousel('next')}
+                                        className="flex-1 flex items-center justify-center p-3 bg-neutral-100 hover:bg-neutral-200 rounded-lg transition-colors duration-200"
+                                        aria-label="Next photo"
+                                    >
+                                        Next
+                                        <ChevronRight className="w-5 h-5 ml-2" />
+                                    </button>
+                                </div>
+                            )}
 
                             <Button
                                 variant="primary"

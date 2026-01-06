@@ -158,7 +158,6 @@ export default function RootLayout({children}) {
             <meta name="business:contact_data:region" content="England"/>
             <meta name="business:contact_data:postal_code" content="Greater London"/>
             <meta name="business:contact_data:country_name" content="United Kingdom"/>
-            <meta name="business:contact_data:phone_number" content="+44-712-345-6789"/>
             <meta name="business:contact_data:website" content={`${process.env.NEXT_PUBLIC_SITE_URL}`}/>
 
             {/* Service Area Meta */}

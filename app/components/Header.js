@@ -25,33 +25,15 @@ export default function Header() {
     }
 
     const navigationLinks = [
-        {href: '#services', label: 'Balloon Decoration Services', ariaLabel: 'View our balloon decoration services for weddings and events'},
-        {href: '#gallery', label: 'Portfolio Gallery', ariaLabel: 'Browse our portfolio of Asian wedding and event decorations'},
-        {href: '#contact', label: 'Get Free Quote', ariaLabel: 'Contact us for a free consultation and quote'},
+        {href: '#gallery', label: 'Gallery', ariaLabel: 'Browse our portfolio of wedding and event decorations'},
+        {href: '#contact', label: 'Contact Us', ariaLabel: 'Contact us for a free consultation and quote'},
     ]
 
     return (
         <>
             {/* Top Banner */}
             <div className="bg-neutral-900 text-neutral-50 text-center py-2 text-sm font-medium" role="banner">
-                <div className="max-w-7xl mx-auto px-4 py-2">
-                    <span itemProp="offers" itemScope itemType="https://schema.org/Offer">
-                        Free consultation for events over £500 • Call{' '}
-                        <a
-                            href="tel:+447123456789"
-                            onClick={() => gtag.event({
-                                action: 'phone_click',
-                                category: 'contact',
-                                label: 'phone_top_header_desktop'
-                            })}
-                            className="underline hover:no-underline font-semibold"
-                            itemProp="telephone"
-                            aria-label="Call Sajaavat Events for free balloon decoration consultation"
-                        >
-                            +44 712 345 6789
-                        </a>
-                    </span>
-                </div>
+                <div className="max-w-7xl mx-auto px-4 py-2"></div>
             </div>
 
             {/* Main Header */}
@@ -65,7 +47,7 @@ export default function Header() {
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16 overflow-hidden h-[90px]">
-                        {/* Logo */}
+                        {/* Logo - Left */}
                         <div className="flex-shrink-0 w-[90px]">
                             <Link
                                 href="/"
@@ -87,9 +69,9 @@ export default function Header() {
                             </Link>
                         </div>
 
-                        {/* Desktop Navigation */}
+                        {/* Desktop Navigation - Center */}
                         <nav
-                            className="hidden lg:flex items-center space-x-8"
+                            className="hidden lg:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2"
                             role="navigation"
                             aria-label="Main navigation"
                             itemScope
@@ -99,7 +81,7 @@ export default function Header() {
                                 <a
                                     key={link.href}
                                     href={link.href}
-                                    className="text-neutral-700 hover:text-neutral-900 font-medium text-sm transition-colors duration-200"
+                                    className="text-neutral-700 hover:text-neutral-900 font-medium text-md transition-colors duration-200"
                                     aria-label={link.ariaLabel}
                                     itemProp="url"
                                 >
@@ -108,33 +90,7 @@ export default function Header() {
                             ))}
                         </nav>
 
-                        {/* Desktop Actions */}
-                        <div className="hidden lg:flex items-center space-x-3">
-                            <a
-                                href="tel:+447123456789"
-                                className="flex items-center space-x-2 text-neutral-700 hover:text-neutral-900 transition-colors"
-                                aria-label="Call Sajaavat Events balloon decorations London"
-                                itemProp="telephone"
-                                onClick={() => gtag.event({
-                                    action: 'phone_click',
-                                    category: 'contact',
-                                    label: 'phone_header_desktop'
-                                })}
-                            >
-                                <Phone className="w-4 h-4" aria-hidden="true"/>
-                                <span className="text-sm font-medium">+44 712 345 6789</span>
-                            </a>
-                            <Button
-                                variant="primary"
-                                size="sm"
-                                onClick={() => window.location.href = '#contact'}
-                                aria-label="Get free quote for balloon decoration services"
-                            >
-                                Get Free Quote
-                            </Button>
-                        </div>
-
-                        {/* Mobile Menu Button */}
+                        {/* Mobile Menu Button - Right */}
                         <div className="lg:hidden flex items-center space-x-2">
                             <IconButton
                                 variant="ghost"
@@ -160,6 +116,9 @@ export default function Header() {
                                 aria-controls="mobile-navigation"
                             />
                         </div>
+
+                        {/* Right side spacer - balances the logo on desktop */}
+                        <div className="hidden lg:block w-[90px]"></div>
                     </div>
 
                     {/* Mobile Menu */}
@@ -184,31 +143,6 @@ export default function Header() {
                                 ))}
 
                                 <div className="pt-4 border-t border-neutral-200 mt-4">
-                                    <a
-                                        href="tel:+447123456789"
-                                        className="flex items-center space-x-3 py-3 px-3 text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 transition-colors duration-200 rounded-lg"
-                                        aria-label="Call Sajaavat Events for balloon decoration consultation"
-                                        onClick={() => gtag.event({
-                                            action: 'phone_click',
-                                            category: 'contact',
-                                            label: 'phone_mobile_menu'
-                                        })}
-                                    >
-                                        <Phone className="w-5 h-5" aria-hidden="true"/>
-                                        <span className="font-medium">Call: +44 712 345 6789</span>
-                                    </a>
-
-                                    <a
-                                        href="https://wa.me/447123456789"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center space-x-3 py-3 px-3 text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 transition-colors duration-200 rounded-lg"
-                                        aria-label="WhatsApp Sajaavat Events for quick response"
-                                    >
-                                        <MessageCircle className="w-5 h-5" aria-hidden="true"/>
-                                        <span className="font-medium">WhatsApp Us</span>
-                                    </a>
-
                                     <div className="px-3 pt-3">
                                         <Button
                                             variant="primary"

@@ -141,7 +141,7 @@ export async function POST(request) {
     } catch (error) {
         console.error('Contact form error:', error)
         return NextResponse.json(
-            {error: 'Something went wrong. Please try again or call us at +44 712 345 6789.'},
+            {error: 'Something went wrong. Please try again.'},
             {status: 500}
         )
     }

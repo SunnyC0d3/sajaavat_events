@@ -27,7 +27,7 @@ export default function Hero() {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex((prev) => (prev + 1) % heroImages.length)
-        }, 5000)
+        }, 7000) // Change every 7 seconds for smoother experience
         return () => clearInterval(interval)
     }, [heroImages.length])
 
@@ -46,157 +46,94 @@ export default function Hero() {
             itemType="https://schema.org/LocalBusiness"
             aria-labelledby="hero-heading"
         >
-            <div className="relative">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid lg:grid-cols-2 gap-0 min-h-[600px]">
-                        <div className="flex items-center px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-                            <div className="w-full max-w-xl">
-                                <div
-                                    className="inline-flex items-center space-x-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-8"
-                                    role="banner"
-                                >
-                                    <Star className="w-4 h-4 fill-current" aria-hidden="true"/>
-                                    <span>London&apos;s Premier Asian Wedding Balloon Specialists</span>
-                                </div>
+            {/* Hero with elegant gradient background */}
+            <div className="relative overflow-hidden">
+                {/* Blurred Photo Carousel Background */}
+                <div className="absolute inset-0 z-0">
+                    {heroImages.map((image, index) => (
+                        <div
+                            key={index}
+                            className={`absolute inset-0 transition-opacity duration-2000 ${
+                                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                            }`}
+                        >
+                            <Image
+                                src={image.url}
+                                alt={image.alt}
+                                className="w-full h-full object-cover scale-110"
+                                style={{
+                                    opacity: 0.5
+                                }}
+                                width={1920}
+                                height={1080}
+                                loading={index === 0 ? "eager" : "lazy"}
+                                priority={index === 0}
+                            />
+                        </div>
+                    ))}
+                    {/* Much lighter gradient - just enough to ensure text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-neutral-80/90 via-neutral-50/65 to-neutral-80/90"></div>
+                </div>
 
-                                <h1
-                                    id="hero-heading"
-                                    className="text-4xl lg:text-6xl font-bold text-neutral-900 mb-6 leading-tight"
-                                    itemProp="name"
-                                >
-                                    Transform Your
-                                    <span className="block text-primary-500">Asian Wedding Celebrations</span>
-                                </h1>
+                {/* Decorative background elements */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-50/30 via-transparent to-accent-50/30 z-10" aria-hidden="true"></div>
+                <div className="absolute top-0 left-0 w-full h-full opacity-20 z-10" aria-hidden="true">
+                    <div className="absolute top-20 left-10 w-72 h-72 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+                    <div className="absolute top-40 right-10 w-72 h-72 bg-accent-200 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+                    <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-rose-200 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+                </div>
 
-                                <p
-                                    className="text-lg text-neutral-600 mb-8 leading-relaxed"
-                                    itemProp="description"
-                                >
-                                    Specializing in traditional Asian wedding ceremonies, baby showers, and corporate events.
-                                    Creating unforgettable moments with elegant balloon arch decorations across London and UK
-                                    that perfectly complement your cultural celebration and family traditions.
-                                </p>
+                <div className="relative max-w-7xl mx-auto p-6 min-h-[700px] flex items-center z-20">
+                    <div className="w-full text-center">
+                        {/* Main Heading */}
+                        <h1
+                            id="hero-heading"
+                            className="text-5xl font-bold text-neutral-900 mb-8 leading-tight max-w-5xl mx-auto"
+                            itemProp="name"
+                        >
+                            Transform Your Asian Wedding Celebrations
+                        </h1>
 
-                                <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                                    <Button
-                                        variant="primary"
-                                        size="lg"
-                                        icon={Calendar}
-                                        iconPosition="left"
-                                        onClick={() => window.location.href = '#contact'}
-                                        aria-label="Book free consultation for balloon decoration services"
-                                    >
-                                        Book Free Consultation
-                                    </Button>
-                                    <Button
-                                        variant="outline"
-                                        size="lg"
-                                        icon={Play}
-                                        iconPosition="left"
-                                        onClick={() => window.location.href = '#gallery'}
-                                        aria-label="View our portfolio of Asian wedding and event decorations"
-                                    >
-                                        View Our Portfolio
-                                    </Button>
-                                </div>
+                        {/* Description */}
+                        <p
+                            className="text-xl text-neutral-600 mb-12 leading-relaxed max-w-4xl mx-auto"
+                            itemProp="description"
+                        >
+                            Specializing in traditional Asian wedding ceremonies, baby showers, and corporate events.
+                            Creating unforgettable moments with elegant balloon arch decorations across London and UK
+                            that perfectly complement your cultural celebration and family traditions.
+                        </p>
 
-                                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6" role="region" aria-labelledby="trust-stats">
-                                    <h2 id="trust-stats" className="sr-only">Customer Trust Statistics</h2>
-                                    {trustStats.map((stat, index) => (
-                                        <div key={index} className="text-center lg:text-left" itemScope itemType="https://schema.org/Rating">
-                                            <div className="flex items-center justify-center lg:justify-start mb-2">
-                                                <stat.icon className="w-5 h-5 text-primary-500 mr-2" aria-hidden="true"/>
-                                                <span
-                                                    className="text-2xl font-bold text-neutral-900"
-                                                    itemProp="ratingValue"
-                                                    aria-label={stat.description}
-                                                >
-                                                    {stat.number}
-                                                </span>
-                                            </div>
-                                            <div className="text-sm text-neutral-600" itemProp="description">{stat.label}</div>
-                                        </div>
-                                    ))}
-                                </div>
-
-                                {/* Hidden SEO content */}
-                                <div className="sr-only">
-                                    <span itemProp="areaServed">London, Birmingham, Manchester, Leeds, Leicester, Bradford, Southall</span>
-                                    <span itemProp="serviceType">Balloon Decorations, Asian Wedding Styling, Event Decorations</span>
-                                    <span itemProp="priceRange">££-£££</span>
-                                    <span itemProp="telephone">+44-712-345-6789</span>
-                                    <span itemProp="email">{process.env.NEXT_PUBLIC_EMAIL_ADDRESS}</span>
-                                </div>
-                            </div>
+                        {/* CTA Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                            <Button
+                                variant="primary"
+                                size="xl"
+                                icon={Calendar}
+                                iconPosition="left"
+                                onClick={() => window.location.href = '#contact'}
+                                aria-label="Book free consultation for balloon decoration services"
+                            >
+                                Book Free Consultation
+                            </Button>
+                            <Button
+                                variant="outline"
+                                size="xl"
+                                icon={Play}
+                                iconPosition="left"
+                                onClick={() => window.location.href = '#gallery'}
+                                aria-label="View our portfolio of Asian wedding and event decorations"
+                            >
+                                View Our Portfolio
+                            </Button>
                         </div>
 
-                        <div className="relative bg-neutral-100 lg:bg-transparent">
-                            <div className="absolute inset-0">
-                                {heroImages.map((image, index) => (
-                                    <div
-                                        key={index}
-                                        className={`absolute inset-0 transition-opacity duration-1000 ${
-                                            index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-                                        }`}
-                                    >
-                                        <Image
-                                            src={image.url}
-                                            alt={image.alt}
-                                            width={1200}
-                                            height={800}
-                                            className="w-full h-full object-cover"
-                                            loading={index === 0 ? "eager" : "lazy"}
-                                            itemProp={index === currentImageIndex ? "image" : undefined}
-                                        />
-                                    </div>
-                                ))}
-
-                                <div
-                                    className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-primary-500/10"
-                                    aria-hidden="true">
-                                </div>
-                            </div>
-
-                            <div className="absolute bottom-6 right-6 flex space-x-2" role="group" aria-label="Image navigation">
-                                {heroImages.map((_, index) => (
-                                    <Button
-                                        key={index}
-                                        variant="ghost"
-                                        size="counter"
-                                        onClick={() => setCurrentImageIndex(index)}
-                                        className={`w-2 h-2 rounded-full transition-all duration-300 p-0 min-h-0 ${
-                                            index === currentImageIndex
-                                                ? 'bg-neutral-50 scale-125 shadow-lg w-8'
-                                                : 'bg-neutral-50/60 hover:bg-neutral-50/80'
-                                        }`}
-                                        aria-label={`View ${index === 0 ? 'wedding' : index === 1 ? 'baby shower' : 'corporate'} decoration image`}
-                                    />
-                                ))}
-                            </div>
-
-                            <div
-                                className="absolute bottom-8 left-8 bg-neutral-50 p-6 rounded-lg shadow-xl max-w-xs"
-                                itemScope
-                                itemType="https://schema.org/Review"
-                            >
-                                <div className="flex items-center space-x-3 mb-3">
-                                    <div className="flex" role="img" aria-label="5 star rating">
-                                        {[...Array(5)].map((_, i) => (
-                                            <Star key={i} className="w-4 h-4 text-gold-400 fill-current"/>
-                                        ))}
-                                    </div>
-                                    <span className="text-sm font-medium text-neutral-800" itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
-                                        <span itemProp="ratingValue">5.0</span>/<span itemProp="bestRating">5</span>
-                                    </span>
-                                </div>
-                                <p className="text-sm text-neutral-600 leading-relaxed" itemProp="reviewBody">
-                                    &quot;Finally found a decoration service that understands Asian wedding traditions.
-                                    Everything else feels basic now.&quot;
-                                </p>
-                                <div className="text-xs text-neutral-500 mt-2">
-                                    Based on <span itemProp="reviewCount">200+</span> customer reviews
-                                </div>
-                            </div>
+                        {/* Hidden SEO content */}
+                        <div className="sr-only">
+                            <span itemProp="areaServed">London, Birmingham, Manchester, Leeds, Leicester, Bradford, Southall</span>
+                            <span itemProp="serviceType">Balloon Decorations, Asian Wedding Styling, Event Decorations</span>
+                            <span itemProp="priceRange">££-£££</span>
+                            <span itemProp="email">{process.env.NEXT_PUBLIC_EMAIL_ADDRESS}</span>
                         </div>
                     </div>
                 </div>

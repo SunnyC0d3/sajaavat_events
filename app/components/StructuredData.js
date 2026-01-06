@@ -12,7 +12,6 @@ export default function StructuredData() {
         "url": siteUrl,
         "logo": siteUrl + "/images/logo.svg",
         "image": siteUrl + "/images/hero/balloon-arch-og.jpg",
-        "telephone": "+44-712-345-6789",
         "email": emailAddress,
         "priceRange": "££-£££",
 

@@ -296,7 +296,6 @@ export default function Privacy() {
                                 <div className="space-y-2 text-neutral-800">
                                     <p><strong>Data Controller:</strong> Sajaavat Events Balloon Decorations</p>
                                     <p><strong>Email:</strong> <a href={`mailto:${process.env.NEXT_PUBLIC_EMAIL_ADDRESS}`} className="text-primary-600 hover:text-primary-700">{process.env.NEXT_PUBLIC_EMAIL_ADDRESS}</a></p>
-                                    <p><strong>Phone:</strong> <a href="tel:+447123456789" className="text-primary-600 hover:text-primary-700">+44 712 345 6789</a></p>
                                     <p><strong>Address:</strong> London, United Kingdom</p>
                                     <p><strong>Response Time:</strong> Within 30 days of receiving your request</p>
                                 </div>

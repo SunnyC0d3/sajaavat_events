@@ -200,24 +200,6 @@ export default function Testimonials() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                    {[
-                        {number: '200+', label: 'Happy Clients', icon: Heart},
-                        {number: '500+', label: 'Events Decorated', icon: Calendar},
-                        {number: '5.0', label: 'Average Rating', icon: Star},
-                        {number: '100%', label: 'Satisfaction Rate', icon: Quote}
-                    ].map((stat, index) => (
-                        <div
-                            key={index}
-                            className="bg-neutral-50 rounded-lg p-6 text-center shadow-lg hover:shadow-xl transition-all duration-200"
-                        >
-                            <stat.icon className="w-8 h-8 text-primary-500 mx-auto mb-3"/>
-                            <div className="text-3xl font-bold text-neutral-900 mb-2">{stat.number}</div>
-                            <div className="text-neutral-600 text-sm">{stat.label}</div>
-                        </div>
-                    ))}
-                </div>
-
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                     {testimonials.slice(0, 3).map((testimonial, index) => (
                         <div key={testimonial.id}
@@ -244,22 +226,6 @@ export default function Testimonials() {
                             </div>
                         </div>
                     ))}
-                </div>
-
-                <div className="text-center bg-neutral-50 rounded-lg p-12">
-                    <h3 className="text-2xl lg:text-3xl font-bold text-neutral-900 mb-4">Join Our Happy Clients</h3>
-                    <p className="text-neutral-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-                        Ready to create your own unforgettable celebration? Let&apos;s make your event as special
-                        as the ones our clients are raving about.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button variant="primary" size="lg" icon={Calendar} iconPosition="left" onClick={() => window.location.href = '#contact'}>
-                            Book Your Consultation
-                        </Button>
-                        <Button variant="outline" size="lg" onClick={() => window.location.href = '#testimonials'}>
-                            Read More Reviews
-                        </Button>
-                    </div>
                 </div>
             </div>
         </section>

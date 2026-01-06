@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import {useState} from 'react'
 import {
-    Phone,
     Mail,
     MapPin,
     Clock,
@@ -11,9 +10,6 @@ import {
     CheckCircle,
     AlertCircle,
     Instagram,
-    Facebook,
-    Twitter,
-    MessageCircle,
     Heart,
     Baby,
     Building2,
@@ -112,22 +108,6 @@ export default function Footer({hasHeader = true}) {
 
     const contactInfo = [
         {
-            icon: Phone,
-            title: 'Phone Consultation',
-            details: '+44 712 345 6789',
-            action: 'tel:+447123456789',
-            description: 'Call us for immediate balloon decoration consultation',
-            structuredData: {telephone: '+44-712-345-6789'}
-        },
-        {
-            icon: MessageCircle,
-            title: 'WhatsApp Chat',
-            details: '+44 712 345 6789',
-            action: 'https://wa.me/447123456789',
-            description: 'Quick responses via WhatsApp for event planning',
-            structuredData: {sameAs: 'https://wa.me/447123456789'}
-        },
-        {
             icon: Mail,
             title: 'Email Enquiries',
             details: process.env.NEXT_PUBLIC_EMAIL_ADDRESS,
@@ -164,20 +144,6 @@ export default function Footer({hasHeader = true}) {
             url: 'https://instagram.com/sajaavat-events',
             color: 'hover:text-pink-500',
             description: 'Follow our balloon decoration portfolio on Instagram'
-        },
-        {
-            name: 'Facebook',
-            icon: Facebook,
-            url: 'https://facebook.com/sajaavat-events',
-            color: 'hover:text-blue-600',
-            description: 'Like our Facebook page for Asian wedding inspiration'
-        },
-        {
-            name: 'Twitter',
-            icon: Twitter,
-            url: 'https://twitter.com/sajaavat-events',
-            color: 'hover:text-blue-400',
-            description: 'Follow us on Twitter for balloon decoration tips'
         }
     ]
 
@@ -189,11 +155,6 @@ export default function Footer({hasHeader = true}) {
     ]
 
     const navigationLinks = [
-        {
-            label: 'Asian Wedding Services',
-            href: '/#services',
-            description: 'Balloon decorations for Sikh, Hindu, Pakistani weddings'
-        },
         {
             label: 'Portfolio Gallery',
             href: '/#gallery',
@@ -418,7 +379,7 @@ export default function Footer({hasHeader = true}) {
                                         aria-live="polite"
                                     >
                                         <AlertCircle className="w-5 h-5" aria-hidden="true"/>
-                                        <span>Something went wrong. Please try again or call us directly at +44 712 345 6789.</span>
+                                        <span>Something went wrong. Please try again.</span>
                                     </div>
                                 )}
                             </form>
@@ -474,7 +435,6 @@ export default function Footer({hasHeader = true}) {
                                 {/* Hidden structured data */}
                                 <div className="sr-only">
                                     <span itemProp="name">Sajaavat Events</span>
-                                    <span itemProp="telephone">+44-712-345-6789</span>
                                     <span itemProp="email">{process.env.NEXT_PUBLIC_EMAIL_ADDRESS}</span>
                                     <span
                                         itemProp="areaServed">London, Birmingham, Manchester, Leeds, Leicester, UK</span>
@@ -563,20 +523,6 @@ export default function Footer({hasHeader = true}) {
                             </p>
 
                             <div className="space-y-2">
-                                <a
-                                    href="tel:+447123456789"
-                                    className="flex items-center space-x-2 text-neutral-300 hover:text-neutral-50 transition-colors"
-                                    aria-label="Call Sajaavat Events for balloon decoration consultation"
-                                    itemProp="telephone"
-                                    onClick={() => gtag.event({
-                                        action: 'phone_click',
-                                        category: 'contact',
-                                        label: 'phone_footer_bottom'
-                                    })}
-                                >
-                                    <Phone className="w-4 h-4" aria-hidden="true"/>
-                                    <span>+44 712 345 6789</span>
-                                </a>
                                 <a
                                     href={`mailto:${process.env.NEXT_PUBLIC_EMAIL_ADDRESS}`}
                                     className="flex items-center space-x-2 text-neutral-300 hover:text-neutral-50 transition-colors"

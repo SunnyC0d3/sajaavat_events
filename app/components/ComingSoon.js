@@ -53,11 +53,6 @@ export default function ComingSoon() {
                                 We&apos;re crafting a beautiful new experience to showcase our stunning balloon decorations.
                                 Our team is working hard to bring you the perfect platform to plan your dream event.
                             </p>
-
-                            <div className="inline-flex items-center space-x-2 text-emerald-600 bg-emerald-50 px-4 py-2 rounded-full text-sm font-medium">
-                                <Clock className="w-4 h-4" />
-                                <span>Expected Launch: Mid September 2025</span>
-                            </div>
                         </div>
                     </div>
 
