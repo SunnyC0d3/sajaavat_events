@@ -25,7 +25,9 @@ export default function Header() {
     }
 
     const navigationLinks = [
+        {href: '#aboutus', label: 'About Us', ariaLabel: 'Find out more about us'},
         {href: '#gallery', label: 'Gallery', ariaLabel: 'Browse our portfolio of wedding and event decorations'},
+        {href: '#testimonials', label: 'Testimonials', ariaLabel: 'Hear what others have to say about us'},
         {href: '#contact', label: 'Contact Us', ariaLabel: 'Contact us for a free consultation and quote'},
     ]
 

@@ -1,7 +1,16 @@
 'use client'
 
 import {useState, useEffect, useMemo, useCallback} from 'react'
-import {X, ChevronLeft, ChevronRight, Heart, Baby, Building2, Grid3X3, Calendar} from 'lucide-react'
+import {
+    X,
+    ChevronLeft,
+    ChevronRight,
+    Heart,
+    Baby,
+    Building2,
+    Grid3x3,
+    Calendar
+} from 'lucide-react'
 import {Button} from '@/app/components/Button'
 import Image from 'next/image'
 
@@ -252,7 +261,7 @@ export default function Gallery() {
         {
             id: 'all',
             label: 'All Decorations',
-            icon: Grid3X3,
+            icon: Grid3x3,
             count: galleryImages.length,
             description: 'Browse our complete portfolio of balloon decorations',
             keywords: 'balloon decoration portfolio, event styling gallery'
@@ -479,36 +488,6 @@ export default function Gallery() {
                             </div>
                         </article>
                     ))}
-                </div>
-
-                <div className="text-center bg-neutral-100 rounded-lg p-8 sm:p-12">
-                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-neutral-900 mb-4">
-                        Ready to Create Your Perfect Asian Wedding or Event?
-                    </h3>
-                    <p className="text-neutral-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-                        Let&apos;s bring your cultural vision to life with beautiful balloon decorations that perfectly capture
-                        the essence of your Sikh, Hindu, Pakistani, or other special celebration.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button
-                            variant="primary"
-                            size="lg"
-                            icon={Calendar}
-                            iconPosition="left"
-                            onClick={() => window.location.href = '/#contact'}
-                            aria-label="Book free consultation for balloon decoration services"
-                        >
-                            Book Free Consultation
-                        </Button>
-                        <Button
-                            variant="outline"
-                            size="lg"
-                            onClick={() => window.location.href = '/#services'}
-                            aria-label="Learn more about our Asian wedding decoration services"
-                        >
-                            View More Services
-                        </Button>
-                    </div>
                 </div>
             </div>
 

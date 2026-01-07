@@ -4,7 +4,7 @@ import {getEmailSignature} from '@/lib/signatures/email-signature'
 
 export async function POST(request) {
     try {
-        const {name, email, phone, eventType, eventDate, message} = await request.json()
+        const {name, email, phone, eventType, eventDates, message} = await request.json()
 
         if (!name || !email || !phone || !eventType || !message) {
             return NextResponse.json(
@@ -21,17 +21,10 @@ export async function POST(request) {
             )
         }
 
-        const eventTypeMap = {
-            'asian-wedding': 'Asian Wedding Decoration',
-            'baby-shower': 'Baby Shower Styling',
-            'corporate': 'Corporate Event Decoration',
-            'other': 'Other Special Celebration'
-        }
-
         try {
             const notificationResult = await sendEmail({
                 to: process.env.BUSINESS_EMAIL_ADDRESS,
-                subject: `New ${eventTypeMap[eventType] || eventType} Enquiry from ${name}`,
+                subject: `New ${eventType} Enquiry from ${name}`,
                 html: `
                     <!DOCTYPE html>
                     <html lang="en">
@@ -43,7 +36,7 @@ export async function POST(request) {
                         <div style="max-width: 600px; margin: 0 auto;">
                             
                             <h2 style="color: #2b2020; margin: 0 0 10px; font-size: 20px; font-weight: 600;">
-                                New Enquiry: ${eventTypeMap[eventType] || eventType}
+                                New Enquiry: ${eventType}
                             </h2>
 
                             <p style="color: #6a2929; margin: 0 0 25px; font-size: 14px;">
@@ -55,8 +48,8 @@ export async function POST(request) {
                                 <strong>Name:</strong> ${name}<br>
                                 <strong>Email:</strong> <a href="mailto:${email}" style="color: #6a2929; text-decoration: none;">${email}</a><br>
                                 <strong>Phone:</strong> <a href="tel:${phone}" style="color: #6a2929; text-decoration: none;">${phone}</a><br>
-                                <strong>Event Type:</strong> ${eventTypeMap[eventType] || eventType}<br>
-                                ${eventDate ? `<strong>Event Date:</strong> ${eventDate}<br>` : ''}
+                                <strong>Event Type:</strong> ${eventType}<br>
+                                ${eventDates ? `<strong>Preferred Event Dates:</strong> ${eventDates}<br>` : ''}
                             </p>
 
                             <h3 style="color: #2b2020; margin: 0 0 10px; font-size: 16px; font-weight: 600;">Message</h3>
@@ -89,7 +82,7 @@ export async function POST(request) {
                                 Thank You, ${name}!
                             </h1>
                             <p style="margin: 0 0 25px; color: #5c4a4a;">
-                                We've received your enquiry for <strong>${eventTypeMap[eventType] || eventType}</strong>
+                                We've received your enquiry for <strong>${eventType}</strong>
                             </p>
 
                             <h2 style="color: #2b2020; margin: 0 0 10px; font-size: 18px; font-weight: 600;">
@@ -105,8 +98,8 @@ export async function POST(request) {
                                 Your Enquiry Summary
                             </h3>
                             <p style="margin: 0 0 20px; line-height: 1.8;">
-                                <strong>Event Type:</strong> ${eventTypeMap[eventType] || eventType}<br>
-                                ${eventDate ? `<strong>Event Date:</strong> ${eventDate}<br>` : ''}
+                                <strong>Event Type:</strong> ${eventType}<br>
+                                ${eventDates ? `<strong>Preferred Event Dates:</strong> ${eventDates}<br>` : ''}
                                 <strong>Contact:</strong> ${phone}
                             </p>
 
@@ -137,7 +130,6 @@ export async function POST(request) {
             success: true,
             message: "Thank you! We'll get back to you within 24 hours with your free balloon decoration quote."
         })
-
     } catch (error) {
         console.error('Contact form error:', error)
         return NextResponse.json(

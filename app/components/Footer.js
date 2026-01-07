@@ -9,11 +9,7 @@ import {
     Send,
     CheckCircle,
     AlertCircle,
-    Instagram,
-    Heart,
-    Baby,
-    Building2,
-    PartyPopper
+    Instagram
 } from 'lucide-react'
 import {Button} from '@/app/components/Button'
 import Image from 'next/image'
@@ -28,7 +24,7 @@ export default function Footer({hasHeader = true}) {
         email: '',
         phone: '',
         eventType: '',
-        eventDate: '',
+        eventDates: '',
         message: ''
     })
     const [errors, setErrors] = useState({})
@@ -47,7 +43,18 @@ export default function Footer({hasHeader = true}) {
         if (!formData.email.trim()) newErrors.email = 'Email is required'
         if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Invalid email address'
         if (!formData.phone.trim()) newErrors.phone = 'Phone number is required'
-        if (!formData.eventType) newErrors.eventType = 'Please select an event type'
+        if (!formData.eventType.trim()) newErrors.eventType = 'Event type is required'
+
+        if (formData.eventDates.trim()) {
+            const hasNumbers = /\d/.test(formData.eventDates)
+            const looksLikeDate = /\d{1,2}(\/|-|th|st|nd|rd|\s)/.test(formData.eventDates) ||
+                /(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)/i.test(formData.eventDates)
+
+            if (!hasNumbers || !looksLikeDate) {
+                newErrors.eventDates = 'Please enter dates in a valid format (e.g. 15th Jan 2025, 20/01/2025)'
+            }
+        }
+
         if (!formData.message.trim()) newErrors.message = 'Please describe your event vision'
 
         setErrors(newErrors)
@@ -87,7 +94,7 @@ export default function Footer({hasHeader = true}) {
                     email: '',
                     phone: '',
                     eventType: '',
-                    eventDate: '',
+                    eventDates: '',
                     message: ''
                 })
             } else {
@@ -145,13 +152,6 @@ export default function Footer({hasHeader = true}) {
             color: 'hover:text-pink-500',
             description: 'Follow our balloon decoration portfolio on Instagram'
         }
-    ]
-
-    const eventTypes = [
-        {value: 'asian-wedding', label: 'Asian Wedding Decoration', icon: Heart},
-        {value: 'baby-shower', label: 'Baby Shower Styling', icon: Baby},
-        {value: 'corporate', label: 'Corporate Event Decoration', icon: Building2},
-        {value: 'other', label: 'Other Special Celebration', icon: PartyPopper}
     ]
 
     const navigationLinks = [
@@ -274,23 +274,18 @@ export default function Footer({hasHeader = true}) {
                                         <label className="block text-sm font-medium text-neutral-900 mb-2">
                                             Event Type *
                                         </label>
-                                        <select
+                                        <input
+                                            type="text"
                                             name="eventType"
                                             value={formData.eventType}
                                             onChange={handleInputChange}
                                             className={`w-full px-4 py-3 border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 bg-neutral-50 ${
                                                 errors.eventType ? 'border-red-500' : 'border-neutral-300 focus:border-primary-500'
                                             }`}
+                                            placeholder="e.g. Asian Wedding, Baby Shower, Corporate Event"
                                             aria-describedby={errors.eventType ? 'eventType-error' : undefined}
                                             aria-required="true"
-                                        >
-                                            <option value="">Select your event type</option>
-                                            {eventTypes.map((type) => (
-                                                <option key={type.value} value={type.value}>
-                                                    {type.label}
-                                                </option>
-                                            ))}
-                                        </select>
+                                        />
                                         {errors.eventType && (
                                             <p id="eventType-error" className="mt-1 text-sm text-red-600"
                                                role="alert">{errors.eventType}</p>
@@ -299,16 +294,29 @@ export default function Footer({hasHeader = true}) {
 
                                     <div>
                                         <label className="block text-sm font-medium text-neutral-900 mb-2">
-                                            Preferred Event Date
+                                            Preferred Event Dates
                                         </label>
                                         <input
-                                            type="date"
-                                            name="eventDate"
-                                            value={formData.eventDate}
+                                            type="text"
+                                            name="eventDates"
+                                            value={formData.eventDates}
                                             onChange={handleInputChange}
-                                            className="w-full px-4 py-3 border border-neutral-300 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 bg-neutral-50"
-                                            aria-label="Select your preferred event date"
+                                            className={`w-full px-4 py-3 border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 bg-neutral-50 ${
+                                                errors.eventDates ? 'border-red-500' : 'border-neutral-300 focus:border-primary-500'
+                                            }`}
+                                            placeholder="e.g. 15th Jan 2025, 20th Jan 2025"
+                                            aria-label="Enter your preferred event dates"
+                                            aria-describedby={errors.eventDates ? 'eventDates-error' : 'eventDates-help'}
                                         />
+                                        {errors.eventDates ? (
+                                            <p id="eventDates-error" className="mt-1 text-sm text-red-600" role="alert">
+                                                {errors.eventDates}
+                                            </p>
+                                        ) : (
+                                            <p id="eventDates-help" className="mt-1 text-xs text-neutral-500">
+                                                Enter one or multiple dates in format: DD/MM/YYYY or 15th Jan 2025
+                                            </p>
+                                        )}
                                     </div>
                                 </div>
 
@@ -394,7 +402,7 @@ export default function Footer({hasHeader = true}) {
                                         <div key={index} className="flex items-start space-x-4">
                                             <div
                                                 className="w-12 h-12 bg-primary-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                                                <info.icon className="w-6 h-6 text-neutral-50" aria-hidden="true"/>
+                                                <info.icon className="w-6 h-6" aria-hidden="true"/>
                                             </div>
                                             <div>
                                                 <h4 className="font-semibold text-neutral-900">{info.title}</h4>
@@ -440,32 +448,6 @@ export default function Footer({hasHeader = true}) {
                                         itemProp="areaServed">London, Birmingham, Manchester, Leeds, Leicester, UK</span>
                                     <span itemProp="priceRange">££-£££</span>
                                 </div>
-                            </div>
-
-                            <div className="bg-neutral-100 rounded-lg p-6" itemScope
-                                 itemType="https://schema.org/LocalBusiness">
-                                <div className="flex items-center space-x-3 mb-4">
-                                    <Clock className="w-6 h-6 text-primary-500" aria-hidden="true"/>
-                                    <h4 className="font-semibold text-neutral-900">Business Hours for Consultations</h4>
-                                </div>
-                                <div className="space-y-2">
-                                    {businessHours.map((schedule, index) => (
-                                        <div key={index} className="flex justify-between items-center"
-                                             itemProp="openingHoursSpecification" itemScope
-                                             itemType="https://schema.org/OpeningHoursSpecification">
-                                            <span className="text-neutral-600"
-                                                  itemProp="dayOfWeek">{schedule.day}</span>
-                                            <span className="text-neutral-900 font-medium">
-                                                <span itemProp="opens" content={schedule.opens}></span>
-                                                <span itemProp="closes" content={schedule.closes}></span>
-                                                {schedule.hours}
-                                            </span>
-                                        </div>
-                                    ))}
-                                </div>
-                                <p className="text-xs text-neutral-500 mt-3">
-                                    Emergency consultations available for urgent event requirements
-                                </p>
                             </div>
 
                             <div>
