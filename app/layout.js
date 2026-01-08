@@ -11,37 +11,39 @@ const inter = Inter({
 export const metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
     title: {
-        default: 'Sajaavat Events - Premium Balloon Arch Decorations for Asian Weddings | London UK',
+        default: 'Sajaavat Events - Premium Balloon Arch Decorations for Asian Weddings | Coventry UK',
         template: '%s | Sajaavat Events'
     },
-    description: 'Transform your special day with stunning balloon artistry. Specializing in Asian wedding decorations, baby showers, corporate events and balloon arch installations across London and UK. Professional setup and cleanup included.',
+    description: 'Transform your special day with stunning balloon artistry. Specializing in Asian wedding decorations, baby showers, and corporate events. Based in Coventry, serving all of the UK with professional setup and cleanup included.',
     keywords: [
         // Primary Keywords
-        'balloon arch decorations London',
-        'Asian wedding balloon decorations',
-        'balloon decorations London',
-        'wedding balloon arch',
+        'balloon arch decorations Coventry',
+        'Asian wedding balloon decorations UK',
+        'balloon decorations Coventry',
+        'wedding balloon arch UK',
 
         // Service Keywords
-        'baby shower decorations London',
+        'baby shower decorations UK',
         'corporate event decorations',
-        'balloon installation services',
+        'balloon installation services UK',
         'event decorations UK',
 
         // Cultural Keywords
-        'Sikh wedding decorations',
+        'Sikh wedding decorations UK',
         'Hindu wedding balloon arch',
         'Pakistani wedding decorations',
         'Indian wedding balloon decorations',
 
         // Location Keywords
+        'balloon decorations Coventry',
         'balloon decorations Birmingham',
+        'balloon decorations London',
         'wedding decorations Manchester',
         'event styling Leeds',
         'balloon arch Leicester',
 
         // Long-tail Keywords
-        'professional balloon decorations London',
+        'professional balloon decorations UK',
         'custom balloon arch installation',
         'Asian wedding event styling',
         'premium balloon decorations UK'
@@ -57,7 +59,7 @@ export const metadata = {
         locale: 'en_GB',
         url: process.env.NEXT_PUBLIC_SITE_URL,
         title: 'Sajaavat Events - Premium Balloon Arch Decorations for Asian Weddings',
-        description: 'Transform your special day with stunning balloon artistry. Specializing in Asian wedding decorations, baby showers, and event styling across London and UK.',
+        description: 'Transform your special day with stunning balloon artistry. Specializing in Asian wedding decorations, baby showers, and event styling. Based in Coventry, serving all of the UK.',
         siteName: 'Sajaavat Events',
         images: [
             {
@@ -88,7 +90,7 @@ export const metadata = {
         site: '@sajaavat-events',
         creator: '@sajaavat-events',
         title: 'Sajaavat Events - Premium Balloon Arch Decorations',
-        description: 'Transform your special day with stunning balloon artistry. Specializing in Asian wedding decorations, baby showers, and event styling.',
+        description: 'Transform your special day with stunning balloon artistry. Specializing in Asian wedding decorations, baby showers, and event styling. Based in Coventry, serving all of the UK.',
         images: [
             {
                 url: '/images/hero/balloon-arch-og.jpg',
@@ -146,22 +148,22 @@ export default function RootLayout({children}) {
     return (
         <html lang="en-GB" className="scroll-smooth">
         <head>
-            {/* Additional SEO Meta Tags */}
-            <meta name="geo.region" content="GB-LND"/>
-            <meta name="geo.placename" content="London"/>
-            <meta name="geo.position" content="51.5074;-0.1278"/>
-            <meta name="ICBM" content="51.5074, -0.1278"/>
+            {/* Additional SEO Meta Tags - Coventry based, UK-wide service */}
+            <meta name="geo.region" content="GB-COV"/>
+            <meta name="geo.placename" content="Coventry"/>
+            <meta name="geo.position" content="52.4068;-1.5197"/>
+            <meta name="ICBM" content="52.4068, -1.5197"/>
 
             {/* Business/Service Specific Meta */}
-            <meta name="business:contact_data:street_address" content="London"/>
-            <meta name="business:contact_data:locality" content="London"/>
-            <meta name="business:contact_data:region" content="England"/>
-            <meta name="business:contact_data:postal_code" content="Greater London"/>
+            <meta name="business:contact_data:street_address" content="Coventry"/>
+            <meta name="business:contact_data:locality" content="Coventry"/>
+            <meta name="business:contact_data:region" content="West Midlands"/>
+            <meta name="business:contact_data:postal_code" content="West Midlands"/>
             <meta name="business:contact_data:country_name" content="United Kingdom"/>
             <meta name="business:contact_data:website" content={`${process.env.NEXT_PUBLIC_SITE_URL}`}/>
 
-            {/* Service Area Meta */}
-            <meta name="service-area" content="London, Birmingham, Manchester, Leeds, Leicester, UK"/>
+            {/* Service Area Meta - UK-wide with Coventry base */}
+            <meta name="service-area" content="Coventry, Birmingham, London, Manchester, Leeds, Leicester, UK"/>
             <meta name="service-type" content="Event Decoration, Balloon Arch Installation, Wedding Decorations"/>
 
             {/* Cultural/Language Meta */}

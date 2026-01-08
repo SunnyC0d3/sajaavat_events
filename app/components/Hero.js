@@ -42,8 +42,6 @@ export default function Hero() {
         <section
             id="home"
             className="bg-neutral-50"
-            itemScope
-            itemType="https://schema.org/LocalBusiness"
             aria-labelledby="hero-heading"
         >
             {/* Hero with elegant gradient background */}
@@ -89,7 +87,6 @@ export default function Hero() {
                         <h1
                             id="hero-heading"
                             className="text-5xl font-bold text-neutral-900 mb-8 leading-tight max-w-5xl mx-auto"
-                            itemProp="name"
                         >
                             Transform Your Asian Wedding Celebrations
                         </h1>
@@ -97,7 +94,6 @@ export default function Hero() {
                         {/* Description */}
                         <p
                             className="text-xl text-neutral-600 mb-12 leading-relaxed max-w-4xl mx-auto"
-                            itemProp="description"
                         >
                             Specializing in traditional Asian wedding ceremonies, baby showers, and corporate events.
                             Creating unforgettable moments with elegant balloon arch decorations across London and UK
@@ -126,14 +122,6 @@ export default function Hero() {
                             >
                                 View Our Portfolio
                             </Button>
-                        </div>
-
-                        {/* Hidden SEO content */}
-                        <div className="sr-only">
-                            <span itemProp="areaServed">London, Birmingham, Manchester, Leeds, Leicester, Bradford, Southall</span>
-                            <span itemProp="serviceType">Balloon Decorations, Asian Wedding Styling, Event Decorations</span>
-                            <span itemProp="priceRange">££-£££</span>
-                            <span itemProp="email">{process.env.NEXT_PUBLIC_EMAIL_ADDRESS}</span>
                         </div>
                     </div>
                 </div>
@@ -176,17 +164,14 @@ export default function Hero() {
                             <article
                                 key={index}
                                 className="text-center"
-                                itemScope
-                                itemType="https://schema.org/Service"
                             >
                                 <div className="text-4xl mb-4" aria-hidden="true">{feature.icon}</div>
-                                <h3 className="text-xl font-semibold text-neutral-900 mb-3" itemProp="name">
+                                <h3 className="text-xl font-semibold text-neutral-900 mb-3">
                                     {feature.title}
                                 </h3>
-                                <p className="text-neutral-600 leading-relaxed" itemProp="description">
+                                <p className="text-neutral-600 leading-relaxed">
                                     {feature.description}
                                 </p>
-                                <span className="sr-only" itemProp="keywords">{feature.keywords}</span>
                             </article>
                         ))}
                     </div>

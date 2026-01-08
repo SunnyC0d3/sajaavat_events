@@ -119,16 +119,14 @@ export default function Footer({hasHeader = true}) {
             title: 'Email Enquiries',
             details: process.env.NEXT_PUBLIC_EMAIL_ADDRESS,
             action: 'mailto:' + process.env.NEXT_PUBLIC_EMAIL_ADDRESS,
-            description: 'Send us your Asian wedding decoration requirements',
-            structuredData: {email: process.env.NEXT_PUBLIC_EMAIL_ADDRESS}
+            description: 'Send us your Asian wedding decoration requirements'
         },
         {
             icon: MapPin,
             title: 'Service Coverage',
-            details: 'London & Surrounding Areas',
+            details: 'Coventry & Nationwide UK',
             action: null,
-            description: 'We travel within 50 miles of London for balloon installations',
-            structuredData: {areaServed: 'London, Birmingham, Manchester, Leeds, UK'}
+            description: 'Based in Coventry, serving all of the UK'
         }
     ]
 
@@ -177,8 +175,6 @@ export default function Footer({hasHeader = true}) {
             <section
                 id="contact"
                 className="bg-neutral-50 py-16 lg:py-24"
-                itemScope
-                itemType="https://schema.org/ContactPage"
                 aria-labelledby="contact-heading"
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -190,7 +186,7 @@ export default function Footer({hasHeader = true}) {
                             <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
                                 Ready to transform your Asian wedding or special celebration? Let&apos;s discuss your
                                 cultural vision and create something
-                                beautiful together that honors your traditions. We&apos;re here to make your London event
+                                beautiful together that honors your traditions. We&apos;re here to make your event
                                 unforgettable.
                             </p>
                         </div>
@@ -199,8 +195,7 @@ export default function Footer({hasHeader = true}) {
                         <div className="bg-neutral-100 rounded-lg p-8">
                             <h3 className="text-2xl font-bold text-neutral-900 mb-6">Send Us Your Event Details</h3>
 
-                            <form onSubmit={handleSubmit} className="space-y-6" itemScope
-                                  itemType="https://schema.org/ContactPoint">
+                            <form onSubmit={handleSubmit} className="space-y-6">
                                 <div>
                                     <label className="block text-sm font-medium text-neutral-900 mb-2">
                                         Full Name *
@@ -394,7 +389,7 @@ export default function Footer({hasHeader = true}) {
                         </div>
 
                         <div className="space-y-8">
-                            <div itemScope itemType="https://schema.org/LocalBusiness">
+                            <div>
                                 <h3 className="text-2xl font-bold text-neutral-900 mb-6">Contact Our Balloon Decoration
                                     Experts</h3>
                                 <div className="space-y-6">
@@ -439,15 +434,6 @@ export default function Footer({hasHeader = true}) {
                                         </div>
                                     ))}
                                 </div>
-
-                                {/* Hidden structured data */}
-                                <div className="sr-only">
-                                    <span itemProp="name">Sajaavat Events</span>
-                                    <span itemProp="email">{process.env.NEXT_PUBLIC_EMAIL_ADDRESS}</span>
-                                    <span
-                                        itemProp="areaServed">London, Birmingham, Manchester, Leeds, Leicester, UK</span>
-                                    <span itemProp="priceRange">££-£££</span>
-                                </div>
                             </div>
 
                             <div>
@@ -477,7 +463,7 @@ export default function Footer({hasHeader = true}) {
                 </div>
             </section>
 
-            <footer className="bg-neutral-900 text-neutral-50" itemScope itemType="https://schema.org/LocalBusiness">
+            <footer className="bg-neutral-900 text-neutral-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div className="lg:col-span-2">
@@ -486,22 +472,20 @@ export default function Footer({hasHeader = true}) {
                                     href="/"
                                     className="flex items-center"
                                     aria-label="Sajaavat Events - Return to homepage"
-                                    itemProp="url"
                                 >
                                     <Image
                                         src={logo}
-                                        alt="Sajaavat Events - Professional balloon decorations for Asian weddings and events in London UK"
+                                        alt="Sajaavat Events - Professional balloon decorations for Asian weddings and events in UK"
                                         width={200}
                                         height={50}
-                                        itemProp="logo"
                                     />
                                 </Link>
                             </div>
-                            <p className="text-neutral-300 leading-relaxed mb-6 max-w-md" itemProp="description">
+                            <p className="text-neutral-300 leading-relaxed mb-6 max-w-md">
                                 Creating memorable Asian wedding celebrations and special events with stunning balloon
                                 artistry.
-                                Specializing in Sikh, Hindu, Pakistani, and Bengali wedding decorations across London
-                                and surrounding areas.
+                                Specializing in Sikh, Hindu, Pakistani, and Bengali wedding decorations. Based in Coventry,
+                                serving all of the UK.
                             </p>
 
                             <div className="space-y-2">
@@ -509,20 +493,10 @@ export default function Footer({hasHeader = true}) {
                                     href={`mailto:${process.env.NEXT_PUBLIC_EMAIL_ADDRESS}`}
                                     className="flex items-center space-x-2 text-neutral-300 hover:text-neutral-50 transition-colors"
                                     aria-label="Email Sajaavat Events for event enquiries"
-                                    itemProp="email"
                                 >
                                     <Mail className="w-4 h-4" aria-hidden="true"/>
                                     <span>{process.env.NEXT_PUBLIC_EMAIL_ADDRESS}</span>
                                 </a>
-                            </div>
-
-                            {/* Hidden structured data */}
-                            <div className="sr-only">
-                                <span itemProp="name">Sajaavat Events</span>
-                                <span itemProp="alternateName">Sajaavat Events Balloon Decorations</span>
-                                <span itemProp="areaServed">London, Birmingham, Manchester, Leeds, Leicester, Bradford, Southall, UK</span>
-                                <span itemProp="serviceType">Asian Wedding Decorations, Balloon Arch Installation, Event Styling</span>
-                                <span itemProp="priceRange">££-£££</span>
                             </div>
                         </div>
 
@@ -577,7 +551,6 @@ export default function Footer({hasHeader = true}) {
                                         className="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center text-neutral-300 hover:text-neutral-50 hover:bg-primary-500 transition-all duration-200"
                                         aria-label={social.description}
                                         title={social.description}
-                                        itemProp="sameAs"
                                     >
                                         <social.icon className="w-5 h-5" aria-hidden="true"/>
                                     </a>
@@ -588,14 +561,13 @@ export default function Footer({hasHeader = true}) {
 
                     <div className="border-t border-neutral-700 mt-8 pt-8 text-center">
                         <p className="text-neutral-400 text-sm">
-                            © {new Date().getFullYear()} Sajaavat. All rights reserved. |
-                            <span itemProp="description"> Professional balloon decoration services for Asian weddings, baby showers, and corporate events across London, Birmingham, Manchester, Leeds, and UK.</span>
+                            © {new Date().getFullYear()} Sajaavat Events. All rights reserved. |
+                            Professional balloon decoration services for Asian weddings, baby showers, and corporate events across the UK.
                         </p>
                         <p className="text-neutral-500 text-xs mt-2">
                             Specializing in Sikh wedding decorations, Hindu ceremony styling, Pakistani wedding
                             celebrations,
-                            baby shower balloon decorations, and corporate event styling throughout Greater London and
-                            surrounding areas.
+                            baby shower balloon decorations, and corporate event styling. Based in Coventry, serving all of the UK.
                         </p>
                     </div>
                 </div>
