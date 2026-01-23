@@ -11,7 +11,8 @@ export function middleware(request) {
         return NextResponse.next()
     }
 
-    return NextResponse.error();
+    return NextResponse.redirect(new URL('/', request.url))
+    //return NextResponse.error()
 }
 
 export const config = {
