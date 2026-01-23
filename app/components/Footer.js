@@ -5,7 +5,6 @@ import {useState} from 'react'
 import {
     Mail,
     MapPin,
-    Clock,
     Send,
     CheckCircle,
     AlertCircle,
@@ -14,7 +13,6 @@ import {
 import {Button} from '@/app/components/Button'
 import Image from 'next/image'
 import logo from '@/public/images/logo-3.svg'
-import * as gtag from '@/lib/gtag'
 
 export default function Footer({hasHeader = true}) {
     const [isSubmitting, setIsSubmitting] = useState(false)
@@ -55,7 +53,7 @@ export default function Footer({hasHeader = true}) {
             }
         }
 
-        if (!formData.message.trim()) newErrors.message = 'Please describe your event vision'
+        if (!formData.message.trim()) newErrors.message = 'Please describe your decor vision'
 
         setErrors(newErrors)
         return Object.keys(newErrors).length === 0
@@ -81,12 +79,13 @@ export default function Footer({hasHeader = true}) {
             const data = await response.json()
 
             if (response.ok) {
-                gtag.event({
-                    action: 'form_submit',
-                    category: 'contact',
-                    label: 'contact_form_success',
-                    value: 1
-                })
+                if (typeof window !== 'undefined' && window.gtag) {
+                    window.gtag('event', 'form_submit', {
+                        event_category: 'contact',
+                        event_label: 'contact_form_success',
+                        value: 1,
+                    })
+                }
 
                 setSubmitStatus('success')
                 setFormData({
@@ -101,11 +100,13 @@ export default function Footer({hasHeader = true}) {
                 throw new Error(data.error || 'Something went wrong')
             }
         } catch (error) {
-            gtag.event({
-                action: 'form_submit',
-                category: 'contact',
-                label: 'contact_form_error'
-            })
+            if (typeof window !== 'undefined' && window.gtag) {
+                window.gtag('event', 'form_submit', {
+                    event_category: 'contact',
+                    event_label: 'contact_form_error',
+                    value: 1,
+                })
+            }
 
             setSubmitStatus('error')
         } finally {
@@ -119,54 +120,42 @@ export default function Footer({hasHeader = true}) {
             title: 'Email Enquiries',
             details: process.env.NEXT_PUBLIC_EMAIL_ADDRESS,
             action: 'mailto:' + process.env.NEXT_PUBLIC_EMAIL_ADDRESS,
-            description: 'Send us your Asian wedding decoration requirements'
+            description: 'Send us your event details and decor vision'
         },
         {
             icon: MapPin,
             title: 'Service Coverage',
             details: 'Coventry & Nationwide UK',
             action: null,
-            description: 'Based in Coventry, serving all of the UK'
+            description: 'Based in Coventry, styling events across the UK'
         }
-    ]
-
-    const businessHours = [
-        {
-            day: 'Monday - Friday',
-            hours: '9:00 AM - 7:00 PM',
-            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-            opens: '09:00',
-            closes: '19:00'
-        },
-        {day: 'Saturday', hours: '10:00 AM - 6:00 PM', dayOfWeek: 'Saturday', opens: '10:00', closes: '18:00'},
-        {day: 'Sunday', hours: '12:00 PM - 5:00 PM', dayOfWeek: 'Sunday', opens: '12:00', closes: '17:00'}
     ]
 
     const socialLinks = [
         {
             name: 'Instagram',
             icon: Instagram,
-            url: 'https://instagram.com/sajaavat-events',
+            url: 'https://instagram.com/sajaavat.events',
             color: 'hover:text-pink-500',
-            description: 'Follow our balloon decoration portfolio on Instagram'
+            description: 'Follow our event decor portfolio on Instagram'
         }
     ]
 
     const navigationLinks = [
         {
-            label: 'Portfolio Gallery',
+            label: 'Decor Portfolio',
             href: '/#gallery',
-            description: 'Browse our balloon decoration portfolio'
+            description: 'Explore our wedding and event decor gallery'
         },
         {
-            label: 'Customer Reviews',
+            label: 'Client Reviews',
             href: '/#testimonials',
-            description: 'Read testimonials from satisfied clients'
+            description: 'Read testimonials from clients across the UK'
         },
         {
             label: 'Free Consultation',
             href: '/#contact',
-            description: 'Get a free quote for your event'
+            description: 'Request a free decor consultation and quote'
         }
     ]
 
@@ -181,13 +170,12 @@ export default function Footer({hasHeader = true}) {
                     {hasHeader && (
                         <div className="text-center mb-16">
                             <h2 id="contact-heading" className="text-3xl lg:text-5xl font-bold text-neutral-900 mb-6">
-                                Get Your Free Balloon Decoration Quote
+                                Request Your Free Decor Quote
                             </h2>
                             <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-                                Ready to transform your Asian wedding or special celebration? Let&apos;s discuss your
-                                cultural vision and create something
-                                beautiful together that honors your traditions. We&apos;re here to make your event
-                                unforgettable.
+                                Planning a wedding, celebration, or corporate event? Share your theme, venue, and vision — we’ll create a
+                                bespoke decor concept with statement backdrops and styling that elevates your space. Based in Coventry and
+                                available across the UK.
                             </p>
                         </div>
                     )}
@@ -277,7 +265,7 @@ export default function Footer({hasHeader = true}) {
                                             className={`w-full px-4 py-3 border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 bg-neutral-50 ${
                                                 errors.eventType ? 'border-red-500' : 'border-neutral-300 focus:border-primary-500'
                                             }`}
-                                            placeholder="e.g. Asian Wedding, Baby Shower, Corporate Event"
+                                            placeholder="e.g. Wedding, Reception, Birthday, Corporate Event"
                                             aria-describedby={errors.eventType ? 'eventType-error' : undefined}
                                             aria-required="true"
                                         />
@@ -299,7 +287,7 @@ export default function Footer({hasHeader = true}) {
                                             className={`w-full px-4 py-3 border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 bg-neutral-50 ${
                                                 errors.eventDates ? 'border-red-500' : 'border-neutral-300 focus:border-primary-500'
                                             }`}
-                                            placeholder="e.g. 15th Jan 2025, 20th Jan 2025"
+                                            placeholder="e.g. 15th Jan 2026, 20/01/2026"
                                             aria-label="Enter your preferred event dates"
                                             aria-describedby={errors.eventDates ? 'eventDates-error' : 'eventDates-help'}
                                         />
@@ -309,7 +297,7 @@ export default function Footer({hasHeader = true}) {
                                             </p>
                                         ) : (
                                             <p id="eventDates-help" className="mt-1 text-xs text-neutral-500">
-                                                Enter one or multiple dates in format: DD/MM/YYYY or 15th Jan 2025
+                                                Enter one or multiple dates in format: DD/MM/YYYY or 15th Jan 2026
                                             </p>
                                         )}
                                     </div>
@@ -317,7 +305,7 @@ export default function Footer({hasHeader = true}) {
 
                                 <div>
                                     <label className="block text-sm font-medium text-neutral-900 mb-2">
-                                        Tell us about your celebration vision *
+                                        Tell us about your decor vision *
                                     </label>
                                     <textarea
                                         name="message"
@@ -327,7 +315,7 @@ export default function Footer({hasHeader = true}) {
                                         className={`w-full px-4 py-3 border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none bg-neutral-50 ${
                                             errors.message ? 'border-red-500' : 'border-neutral-300 focus:border-primary-500'
                                         }`}
-                                        placeholder="Describe your event, cultural requirements, color preferences, venue details, and any special balloon decoration requirements..."
+                                        placeholder="Share your venue, theme, colours, guest count, and any inspiration photos or must-have decor moments (stage/backdrop, entrance, reception, photo area)..."
                                         aria-describedby={errors.message ? 'message-error' : undefined}
                                         aria-required="true"
                                     />
@@ -353,15 +341,14 @@ export default function Footer({hasHeader = true}) {
                                                 className="w-5 h-5 border-2 border-neutral-50 border-t-transparent rounded-full animate-spin"
                                                 role="status"
                                                 aria-label="Sending message"/>
-                                            <span>Sending Message...</span>
+                                            <span>Sending...</span>
                                         </div>
                                     ) : (
-                                        'Send Free Quote Request'
+                                        'Send Quote Request'
                                     )}
                                 </Button>
                                 <p id="submit-description" className="sr-only">
-                                    Click to send your balloon decoration enquiry and receive a free quote within 24
-                                    hours
+                                    Click to send your event decor enquiry and receive a response within 24 hours.
                                 </p>
 
                                 {submitStatus === 'success' && (
@@ -371,7 +358,7 @@ export default function Footer({hasHeader = true}) {
                                         aria-live="polite"
                                     >
                                         <CheckCircle className="w-5 h-5" aria-hidden="true"/>
-                                        <span>Thank you! We&apos;ll get back to you within 24 hours with your free balloon decoration quote.</span>
+                                        <span>Thank you! We&apos;ll get back to you within 24 hours with your free decor quote.</span>
                                     </div>
                                 )}
 
@@ -390,8 +377,9 @@ export default function Footer({hasHeader = true}) {
 
                         <div className="space-y-8">
                             <div>
-                                <h3 className="text-2xl font-bold text-neutral-900 mb-6">Contact Our Balloon Decoration
-                                    Experts</h3>
+                                <h3 className="text-2xl font-bold text-neutral-900 mb-6">
+                                    Contact Our Event Decor Team
+                                </h3>
                                 <div className="space-y-6">
                                     {contactInfo.map((info, index) => (
                                         <div key={index} className="flex items-start space-x-4">
@@ -404,11 +392,15 @@ export default function Footer({hasHeader = true}) {
                                                 {info.action && info.action.startsWith('tel:') ? (
                                                     <a
                                                         href={info.action}
-                                                        onClick={() => gtag.event({
-                                                            action: 'phone_click',
-                                                            category: 'contact',
-                                                            label: 'phone_footer_contact'
-                                                        })}
+                                                        onClick={() => {
+                                                            if (typeof window !== 'undefined' && window.gtag) {
+                                                                window.gtag('event', 'form_submit', {
+                                                                    event_category: 'contact',
+                                                                    event_label: 'contact_form_error',
+                                                                    value: 1,
+                                                                });
+                                                            }
+                                                        }}
                                                         className="text-primary-600 hover:text-primary-700 font-medium"
                                                         aria-label={`${info.title}: ${info.details}`}
                                                     >
@@ -437,8 +429,7 @@ export default function Footer({hasHeader = true}) {
                             </div>
 
                             <div>
-                                <h4 className="font-semibold text-neutral-900 mb-4">Follow Our Balloon Decoration
-                                    Work</h4>
+                                <h4 className="font-semibold text-neutral-900 mb-4">Follow Our Decor Work</h4>
                                 <div className="flex space-x-4">
                                     {socialLinks.map((social) => (
                                         <Link
@@ -455,7 +446,7 @@ export default function Footer({hasHeader = true}) {
                                     ))}
                                 </div>
                                 <p className="text-sm text-neutral-600 mt-2">
-                                    See our latest Asian wedding decorations and customer reviews
+                                    See our latest decor setups, venue styling, and client moments
                                 </p>
                             </div>
                         </div>
@@ -475,17 +466,16 @@ export default function Footer({hasHeader = true}) {
                                 >
                                     <Image
                                         src={logo}
-                                        alt="Sajaavat Events - Professional balloon decorations for Asian weddings and events in UK"
+                                        alt="Sajaavat Events - Bespoke wedding and event decor specialists in Coventry and across the UK"
                                         width={200}
                                         height={50}
                                     />
                                 </Link>
                             </div>
                             <p className="text-neutral-300 leading-relaxed mb-6 max-w-md">
-                                Creating memorable Asian wedding celebrations and special events with stunning balloon
-                                artistry.
-                                Specializing in Sikh, Hindu, Pakistani, and Bengali wedding decorations. Based in Coventry,
-                                serving all of the UK.
+                                Bespoke wedding and event decor, luxury backdrops, and venue styling designed around your celebration.
+                                From cultural ceremonies and receptions to birthdays and corporate events — based in Coventry and available
+                                across the UK.
                             </p>
 
                             <div className="space-y-2">
@@ -525,7 +515,7 @@ export default function Footer({hasHeader = true}) {
                                     <a
                                         href="/terms"
                                         className="text-neutral-300 hover:text-neutral-50 transition-colors"
-                                        aria-label="Read our terms and conditions for balloon decoration services"
+                                        aria-label="Read our terms and conditions for event decor services"
                                     >
                                         Terms & Conditions
                                     </a>
@@ -562,12 +552,11 @@ export default function Footer({hasHeader = true}) {
                     <div className="border-t border-neutral-700 mt-8 pt-8 text-center">
                         <p className="text-neutral-400 text-sm">
                             © {new Date().getFullYear()} Sajaavat Events. All rights reserved. |
-                            Professional balloon decoration services for Asian weddings, baby showers, and corporate events across the UK.
+                            Bespoke wedding and event decor, luxury backdrops, and venue styling across the UK.
                         </p>
                         <p className="text-neutral-500 text-xs mt-2">
-                            Specializing in Sikh wedding decorations, Hindu ceremony styling, Pakistani wedding
-                            celebrations,
-                            baby shower balloon decorations, and corporate event styling. Based in Coventry, serving all of the UK.
+                            Based in Coventry, serving the West Midlands and nationwide — styling weddings, cultural celebrations,
+                            corporate events, and private parties with tailored decor concepts.
                         </p>
                     </div>
                 </div>

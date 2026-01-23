@@ -35,9 +35,7 @@ export const Button = forwardRef(({
         counter: "px-1 py-1 text-base h-1 min-w-0",
     }
 
-    // Enhanced click handler for analytics tracking
     const handleClick = (e) => {
-        // Track button interactions for SEO analytics
         if (typeof window !== 'undefined' && window.gtag && children) {
             const buttonText = typeof children === 'string' ? children : 'Button Click'
             const buttonCategory = variant === 'primary' ? 'Primary Action' :
@@ -51,12 +49,12 @@ export const Button = forwardRef(({
                 custom_map: {
                     'dimension5': buttonText.toLowerCase().includes('contact') ||
                     buttonText.toLowerCase().includes('book') ||
-                    buttonText.toLowerCase().includes('quote') ? 'conversion_intent' : 'navigation'
+                    buttonText.toLowerCase().includes('quote') ||
+                    buttonText.toLowerCase().includes('consultation') ? 'conversion_intent' : 'navigation'
                 }
             })
         }
 
-        // Call the original onClick handler
         if (onClick) {
             onClick(e)
         }
@@ -64,7 +62,6 @@ export const Button = forwardRef(({
 
     const buttonClasses = `${baseClasses} ${variants[variant]} ${sizes[size]} ${fullWidth ? 'w-full' : ''} ${className}`
 
-    // Enhanced accessibility attributes
     const accessibilityProps = {
         type,
         disabled,
@@ -178,7 +175,6 @@ export const IconButton = forwardRef(({
 
 IconButton.displayName = 'IconButton'
 
-// Specialized CTA Button for high-conversion actions
 export const CTAButton = forwardRef(({
                                          children,
                                          variant = 'primary',
@@ -189,7 +185,6 @@ export const CTAButton = forwardRef(({
                                          ...props
                                      }, ref) => {
     const handleCTAClick = (e) => {
-        // Enhanced conversion tracking
         if (typeof window !== 'undefined' && window.gtag) {
             window.gtag('event', conversion ? 'conversion_action' : 'cta_click', {
                 event_category: 'High Intent Actions',
@@ -201,11 +196,10 @@ export const CTAButton = forwardRef(({
                 }
             })
 
-            // Track as conversion if specified
             if (conversion) {
                 window.gtag('event', 'generate_lead', {
                     currency: 'GBP',
-                    value: 500, // Average quote value
+                    value: 500,
                     event_category: 'Lead Generation',
                     event_label: trackingLabel || 'CTA Conversion'
                 })
@@ -236,7 +230,6 @@ export const CTAButton = forwardRef(({
 
 CTAButton.displayName = 'CTAButton'
 
-// Phone Call Button with enhanced tracking
 export const PhoneButton = forwardRef(({
                                            phoneNumber = '+447123456789',
                                            children = 'Call Now',
@@ -246,22 +239,19 @@ export const PhoneButton = forwardRef(({
                                            ...props
                                        }, ref) => {
     const handlePhoneClick = (e) => {
-        // Track phone call attempts
         if (typeof window !== 'undefined' && window.gtag) {
             window.gtag('event', 'phone_call_attempt', {
                 event_category: 'Lead Generation',
                 event_label: `Phone Click - ${trackingContext}`,
-                value: 20, // High value for phone calls
+                value: 20,
                 custom_map: {
                     'dimension8': 'phone_conversion',
                     'dimension9': trackingContext
                 }
             })
-
-            // Track as conversion event
             window.gtag('event', 'generate_lead', {
                 currency: 'GBP',
-                value: 800, // Higher value for phone leads
+                value: 800,
                 event_category: 'Phone Leads',
                 event_label: trackingContext
             })
@@ -283,7 +273,7 @@ export const PhoneButton = forwardRef(({
             <a
                 href={`tel:${phoneNumber}`}
                 className="flex items-center space-x-2 text-inherit no-underline"
-                aria-label={`Call Sajaavat Events at ${phoneNumber} for balloon decoration consultation`}
+                aria-label={`Call Sajaavat Events at ${phoneNumber} for event decor and backdrop styling consultation`}
             >
                 {children}
             </a>

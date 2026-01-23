@@ -16,78 +16,53 @@ export default function Home() {
 // import StructuredData from '@/app/components/StructuredData'
 //
 // export const metadata = {
-//     title: 'Sajaavat Events - Premium Balloon Arch Decorations for Asian Weddings | Coventry UK',
-//     description: 'Transform your special day with stunning balloon artistry. Specializing in Asian wedding decorations, baby showers, and corporate events. Based in Coventry, serving all of the UK with professional setup and cleanup included. Free consultations available.',
+//     title: 'Sajaavat Events | Bespoke Wedding & Event Decor Specialists in Coventry UK',
+//     description:
+//         'Sajaavat Events provides bespoke event decor, luxury backdrops, and wedding styling across Coventry and the UK. Specialising in weddings, cultural celebrations, and corporate events with full design, setup, and styling services.',
 //     keywords: [
-//         'balloon arch decorations Coventry',
-//         'Asian wedding balloon decorations UK',
-//         'Sikh wedding decorations Coventry',
-//         'Hindu wedding balloon arch UK',
-//         'baby shower decorations UK',
-//         'corporate event decorations Coventry',
-//         'balloon installation services UK',
-//         'wedding balloon arch Birmingham',
-//         'event decorations Manchester',
-//         'professional balloon decorations Coventry',
-//         'custom balloon arch installation UK',
-//         'Pakistani wedding decorations',
-//         'Indian wedding balloon decorations UK'
+//         'event decor Coventry',
+//         'wedding decor Coventry',
+//         'bespoke event backdrops UK',
+//         'wedding backdrops Coventry',
+//         'Asian wedding decor UK',
+//         'mandap and stage decor',
+//         'reception decor UK',
+//         'corporate event styling UK',
+//         'luxury event decor Midlands',
+//         'Coventry event decorator',
+//         'UK wedding styling services'
 //     ],
 //     openGraph: {
-//         title: 'Sajaavat Events - Premium Balloon Arch Decorations for Asian Weddings',
-//         description: 'Transform your special day with stunning balloon artistry. Specializing in Asian wedding decorations, baby showers, and event styling. Based in Coventry, serving all of the UK.',
+//         title: 'Sajaavat Events | Bespoke Wedding & Event Decor in the UK',
+//         description:
+//             'Luxury wedding and event decor specialists based in Coventry, delivering bespoke backdrops and styling across the UK.',
 //         url: process.env.NEXT_PUBLIC_SITE_URL,
 //         images: [
 //             {
-//                 url: '/images/hero/balloon-arch-main.jpg',
+//                 url: '/images/hero/event-decor-main.jpg',
 //                 width: 1200,
 //                 height: 630,
-//                 alt: 'Beautiful pink and gold balloon arch decoration for Asian wedding ceremony by Sajaavat Events'
+//                 alt: 'Elegant bespoke wedding and event decor by Sajaavat Events in the UK'
 //             }
 //         ],
 //         locale: 'en_GB',
-//         type: 'website',
-//     },
-//     twitter: {
-//         card: 'summary_large_image',
-//         title: 'Sajaavat Events - Premium Balloon Arch Decorations',
-//         description: 'Specializing in Asian wedding decorations, baby showers, and event styling. Based in Coventry, serving all of the UK.',
-//         images: ['/images/hero/balloon-arch-main.jpg'],
+//         type: 'website'
 //     },
 //     alternates: {
-//         canonical: process.env.NEXT_PUBLIC_SITE_URL,
-//     },
-//     other: {
-//         // Local Business Meta - Coventry based
-//         'geo.region': 'GB-COV',
-//         'geo.placename': 'Coventry',
-//         'geo.position': '52.4068;-1.5197',
-//         'ICBM': '52.4068, -1.5197',
-//
-//         // Service Specific - UK-wide
-//         'service-area': 'Coventry, Birmingham, London, Manchester, Leeds, Leicester, Bradford, UK',
-//         'service-type': 'Balloon Decorations, Event Styling, Wedding Decorations',
-//         'business-hours': 'Mon-Fri 9AM-7PM, Sat 10AM-6PM, Sun 12PM-5PM',
-//         'price-range': '££-£££',
-//         'payment-accepted': 'Cash, Card, Bank Transfer',
-//
-//         // Cultural Keywords
-//         'cultural-specialties': 'Asian Weddings, Sikh Ceremonies, Hindu Weddings, Pakistani Celebrations',
-//         'languages-spoken': 'English, Hindi, Punjabi',
+//         canonical: process.env.NEXT_PUBLIC_SITE_URL
 //     }
 // }
 //
 // export default function Home() {
 //     return (
 //         <div className="min-h-screen">
-//             {/* Structured Data for Rich Snippets */}
 //             <StructuredData />
 //
 //             <Header/>
 //
 //             <main role="main">
 //                 <h1 className="sr-only">
-//                     Sajaavat Events - Premium Balloon Arch Decorations for Asian Weddings, Baby Showers, and Corporate Events - Coventry UK
+//                     Sajaavat Events - Bespoke Wedding & Event Decor, Luxury Backdrops and Styling - Coventry & UK Wide
 //                 </h1>
 //
 //                 <Hero/>
@@ -97,59 +72,52 @@ export default function Home() {
 //
 //             <Footer/>
 //
-//             {/* Additional SEO Content - Hidden but crawlable */}
 //             <div className="sr-only" aria-hidden="true">
 //                 <h2>Service Areas</h2>
 //                 <p>
-//                     We provide professional balloon decoration services throughout the UK. Based in Coventry, West Midlands,
-//                     we serve Birmingham, London, Manchester, Leeds, Leicester, Bradford, Nottingham, Derby, Wolverhampton,
-//                     Warwick, Solihull, Rugby, Nuneaton, Leamington Spa, Stratford-upon-Avon, and all surrounding areas
-//                     across England, Scotland, Wales, and Northern Ireland.
+//                     We provide bespoke event decor, wedding styling, and statement backdrops throughout the UK. Based in Coventry,
+//                     West Midlands, we regularly work across Birmingham, Leicester, Warwick, Solihull, Rugby, Nuneaton and surrounding
+//                     areas — and also travel nationwide for weddings, celebrations, and corporate events across England, Scotland,
+//                     Wales, and Northern Ireland.
 //                 </p>
 //
 //                 <h2>Cultural Expertise</h2>
 //                 <p>
-//                     Specializing in Asian wedding traditions including Sikh wedding ceremonies and Gurdwara decorations,
-//                     Hindu wedding celebrations and mandap styling, Pakistani wedding festivities and Walima receptions,
-//                     Indian wedding decorations, Bengali wedding styling, Tamil wedding decor, Punjabi wedding celebrations,
-//                     Muslim Nikah ceremonies, and modern fusion wedding styles that blend traditional and contemporary elements.
+//                     We create decor that respects cultural traditions while delivering a modern, luxury finish. Our team has experience
+//                     styling Sikh and Hindu ceremonies, Nikah and Walima receptions, Mendhi and engagement events, as well as fusion
+//                     weddings that blend heritage elements with contemporary design. Whether your celebration is rooted in tradition or
+//                     fully modern, we tailor the backdrop, stage styling, draping, florals, and finishing details to your vision.
 //                 </p>
 //
 //                 <h2>Event Types</h2>
 //                 <p>
-//                     Asian weddings, Sikh wedding ceremonies, Hindu wedding celebrations, Muslim wedding receptions and Nikah ceremonies,
-//                     Pakistani Walima and Mehndi events, baby shower decorations and gender reveal parties, birthday party styling,
-//                     corporate event decorations and product launch events, anniversary celebrations, engagement parties,
-//                     graduation celebrations, religious festivals, community events, and special occasion styling for all celebrations.
+//                     Weddings and receptions, pre-wedding events (engagements, Mendhi, Sangeet), religious and community celebrations,
+//                     birthdays and milestone parties, baby celebrations, private dining setups, brand activations, product launches,
+//                     and corporate events. We design decor concepts for venues of all sizes — from intimate gatherings to large-scale halls.
 //                 </p>
 //
 //                 <h2>Services</h2>
 //                 <p>
-//                     Professional balloon arch installations, traditional mandap backdrop decorations, entrance styling and welcome displays,
-//                     photo booth backdrops for social media moments, elegant table centerpieces, dramatic ceiling installations,
-//                     organic balloon garlands and modern designs, balloon columns and pillars, custom color matching to wedding themes,
-//                     professional setup and cleanup services, free consultation and venue visits, event planning support,
-//                     delivery across the UK, and coordination with other vendors. We specialize in culturally authentic decorations
-//                     that honor your heritage while creating Instagram-worthy moments for your special day.
+//                     Bespoke event decor and styling including stage and backdrop design, mandap and entrance styling, aisle and walkway
+//                     decor, reception setup and head-table styling, custom signage moments, draping, lighting-led ambience, and photo-worthy
+//                     feature areas for guests. We offer full setup and on-the-day styling, with optional takedown and coordination support —
+//                     ensuring your venue looks cohesive, elevated, and beautifully finished from start to end.
 //                 </p>
 //
 //                 <h2>Why Choose Sajaavat Events</h2>
 //                 <p>
-//                     Based in the heart of Coventry, West Midlands, Sajaavat Events brings premium balloon decoration services
-//                     to clients across the entire UK. We understand the importance of cultural authenticity in Asian weddings
-//                     and special celebrations, combining traditional values with modern design aesthetics. Our team has years of
-//                     experience working with Sikh, Hindu, Muslim, and other Asian communities, ensuring your decorations perfectly
-//                     reflect your family traditions and personal style. From intimate gatherings to grand celebrations with hundreds
-//                     of guests, we provide the same level of dedication, creativity, and professionalism to every event.
+//                     Based in Coventry, Sajaavat Events delivers premium event decor across the UK with a focus on craftsmanship,
+//                     detail, and personalised design. We combine cultural understanding with modern styling to create bespoke backdrops
+//                     and thoughtfully curated event spaces that photograph beautifully. From venue walkthroughs and design planning to
+//                     professional setup on the day, we make the decor process smooth — so you can focus on your celebration.
 //                 </p>
 //
-//                 <h2>Coventry and West Midlands Specialist</h2>
+//                 <h2>Coventry and West Midlands Decor Specialists</h2>
 //                 <p>
-//                     As Coventry's premier balloon decoration specialists, we're proud to serve our local community in the West Midlands.
-//                     Our central location allows us to efficiently serve Birmingham, Leicester, Nottingham, Derby, and all surrounding
-//                     cities. We know the best venues in Coventry and the West Midlands, from traditional Gurdwaras and temples to modern
-//                     banquet halls and hotels. Our familiarity with local venues means faster setup, better planning, and stunning results
-//                     that transform any space into the celebration of your dreams.
+//                     As a Coventry-based event decor studio, we’re proud to support clients across the West Midlands and beyond. Our central
+//                     location allows efficient travel to Birmingham, Leicester, Warwickshire, Nottinghamshire, and nearby towns, with UK-wide
+//                     availability for larger events. We’re familiar with a wide range of venues — from temples, gurdwaras, and community halls
+//                     to hotels, banquet suites, and modern event spaces — helping you plan with confidence and achieve a polished finish on the day.
 //                 </p>
 //             </div>
 //         </div>

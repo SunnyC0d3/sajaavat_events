@@ -13,55 +13,55 @@ export default function Testimonials() {
         {
             id: 1,
             name: 'Priya & Raj Sharma',
-            event: 'Sikh Wedding Ceremony',
-            location: 'Gurdwara, London',
+            event: 'Wedding Stage & Backdrop Styling',
+            location: 'London',
             rating: 5,
             image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-            review: 'Sajaavat Events transformed our wedding mandap into something absolutely magical. The pink and gold balloon arch perfectly complemented our traditional ceremony, and every guest was amazed by the beautiful setup. The team understood our cultural requirements perfectly and delivered beyond our expectations.',
+            review: 'Sajaavat Events transformed our wedding stage into something absolutely magical. The backdrop styling complemented our ceremony perfectly, and every guest was amazed by the finished look. The team understood our requirements, guided us through the design, and delivered beyond our expectations.',
             eventType: 'wedding',
             date: 'September 2024'
         },
         {
             id: 3,
             name: 'David Chen',
-            event: 'Annual Awards Ceremony',
-            location: 'Manchester Conference Centre',
+            event: 'Corporate Event Styling',
+            location: 'Manchester',
             rating: 5,
             image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-            review: 'For our company\'s 10th anniversary celebration, Sajaavat Events delivered exceptional corporate styling that perfectly matched our brand colors. The balloon installations added elegance to our event without being overwhelming. Highly professional service and outstanding attention to detail.',
+            review: 'For our company’s anniversary celebration, Sajaavat Events delivered exceptional styling that matched our brand and elevated the whole venue. The stage and backdrop looked premium, the setup was seamless, and the attention to detail was outstanding. Highly professional service from start to finish.',
             eventType: 'corporate',
             date: 'November 2024'
         },
         {
             id: 4,
             name: 'Aisha & Mohammed Ali',
-            event: 'Nikah Reception',
-            location: 'Community Hall, Bradford',
+            event: 'Cultural Wedding Reception Styling',
+            location: 'Bradford',
             rating: 5,
             image: 'https://images.unsplash.com/photo-1567532900872-f4e906cbf06a?w=150&h=150&fit=crop&crop=face',
-            review: 'We wanted something that honored our Pakistani traditions while being modern and elegant. Sajaavat Events delivered exactly that! The burgundy and gold balloon arch was stunning, and they even incorporated some traditional patterns. Our families were so impressed, and the photos turned out beautifully.',
+            review: 'We wanted decor that honoured our traditions while still feeling modern and elegant. Sajaavat Events delivered exactly that — a stunning stage and reception setup with thoughtful details. Our families were so impressed, and the photos turned out beautifully.',
             eventType: 'wedding',
             date: 'August 2024'
         },
         {
             id: 5,
             name: 'Emma Thompson',
-            event: 'Gender Reveal Party',
-            location: 'Garden Party, Oxford',
+            event: 'Private Celebration Backdrop',
+            location: 'Oxford',
             rating: 5,
             image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
-            review: 'The surprise gender reveal setup was absolutely perfect! Sajaavat Events created a beautiful neutral backdrop that transformed into the most amazing pink explosion when we popped the balloon. The whole family was in tears of joy. Thank you for making our moment so special!',
+            review: 'The surprise celebration setup was absolutely perfect. Sajaavat Events created a beautiful backdrop and styled the whole area so it felt really special. The team were friendly, organised, and the final look exceeded what we imagined.',
             eventType: 'baby-shower',
             date: 'December 2024'
         },
         {
             id: 6,
             name: 'Krishnan Family',
-            event: 'Tamil Wedding Reception',
-            location: 'Banquet Hall, Leicester',
+            event: 'Reception Stage & Venue Styling',
+            location: 'Leicester',
             rating: 5,
             image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
-            review: 'The golden balloon arch for our Tamil wedding reception was absolutely breathtaking. Sajaavat Events understood the significance of our traditions and created decorations that perfectly honored our heritage. The setup was elegant, sophisticated, and photographed beautifully.',
+            review: 'The stage and backdrop styling for our reception was breathtaking. Sajaavat Events understood the significance of our traditions and created decor that felt elegant and meaningful. Everything was beautifully finished and photographed so well.',
             eventType: 'wedding',
             date: 'July 2024'
         }
@@ -126,8 +126,8 @@ export default function Testimonials() {
                 <div className="text-center mb-16">
                     <h2 className="text-3xl lg:text-5xl font-bold text-neutral-900 mb-6">What Our Clients Say</h2>
                     <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-                        Don&apos;t just take our word for it. Here&apos;s what families and businesses across the UK
-                        have to say about their Sajaavat Events experience.
+                        Here’s what couples, families, and businesses across the UK say about working with Sajaavat Events —
+                        from bespoke backdrops and venue styling to full event decor setups.
                     </p>
                 </div>
 
@@ -135,7 +135,7 @@ export default function Testimonials() {
                     <button
                         onClick={goToPrev}
                         className="hidden sm:block absolute left-0 lg:-left-16 top-1/2 transform -translate-y-1/2 z-10 p-2 sm:p-3 shadow-lg backdrop-blur-sm rounded-full bg-neutral-50 hover:text-neutral-900 text-neutral-600 transition-colors duration-200"
-                        aria-label="Previous image"
+                        aria-label="Previous testimonial"
                     >
                         <ChevronLeft className="cursor-pointer w-5 h-5 sm:w-6 sm:h-6" />
                     </button>
@@ -143,7 +143,7 @@ export default function Testimonials() {
                     <button
                         onClick={goToNext}
                         className="hidden sm:block absolute right-0 lg:-right-16 top-1/2 transform -translate-y-1/2 z-10 p-2 sm:p-3 shadow-lg backdrop-blur-sm rounded-full bg-neutral-50 hover:text-neutral-900 text-neutral-600 transition-colors duration-200"
-                        aria-label="Next image"
+                        aria-label="Next testimonial"
                     >
                         <ChevronRight className="cursor-pointer w-5 h-5 sm:w-6 sm:h-6" />
                     </button>
@@ -201,10 +201,11 @@ export default function Testimonials() {
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-                    {testimonials.slice(0, 3).map((testimonial, index) => (
-                        <div key={testimonial.id}
-                             className="bg-neutral-50 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-200">
-                            {/* Rating */}
+                    {testimonials.slice(0, 3).map((testimonial) => (
+                        <div
+                            key={testimonial.id}
+                            className="bg-neutral-50 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-200"
+                        >
                             <div className="flex items-center space-x-1 mb-4">
                                 {renderStars(testimonial.rating)}
                             </div>

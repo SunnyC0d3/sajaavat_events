@@ -7,34 +7,32 @@ import Image from 'next/image'
 
 export default function Hero() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
-
-    // Memoize heroImages to prevent recreation on every render
     const heroImages = useMemo(() => [
         {
             url: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1200&h=800&fit=crop',
-            alt: 'Elegant pink and gold balloon arch decoration for Asian wedding ceremony with traditional mandap styling by Sajaavat Events London'
+            alt: 'Elegant wedding backdrop and stage decor with mandap-inspired styling by Sajaavat Events in the UK'
         },
         {
             url: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=1200&h=800&fit=crop',
-            alt: 'Beautiful pastel blue balloon decorations for baby shower celebration with professional styling by Sajaavat Events'
+            alt: 'Bespoke event backdrop and celebration decor setup by Sajaavat Events in Coventry and across the UK'
         },
         {
             url: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1200&h=800&fit=crop',
-            alt: 'Professional corporate event balloon styling with sophisticated design for business celebration by Sajaavat Events'
+            alt: 'Corporate event styling with premium decor and branded backdrop by Sajaavat Events in the UK'
         }
     ], [])
 
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex((prev) => (prev + 1) % heroImages.length)
-        }, 7000) // Change every 7 seconds for smoother experience
+        }, 7000)
         return () => clearInterval(interval)
     }, [heroImages.length])
 
     const trustStats = [
-        {icon: Calendar, number: '3+', label: 'Years Experience', description: '3+ years creating beautiful balloon decorations'},
-        {icon: Users, number: '200+', label: 'Happy Clients', description: '200+ satisfied customers across London and UK'},
-        {icon: Award, number: '500+', label: 'Events Decorated', description: '500+ successful events including Asian weddings'},
+        {icon: Calendar, number: '3+', label: 'Years of Event Styling Experience', description: '3+ years creating bespoke decor and backdrops'},
+        {icon: Users, number: '200+', label: 'Happy Clients Nationwide', description: '200+ clients across Coventry, the Midlands, and the UK'},
+        {icon: Award, number: '500+', label: 'Events Styled Across the UK', description: '500+ weddings, celebrations, and corporate events styled'},
         {icon: Star, number: '5.0', label: 'Average Rating', description: '5.0 star rating from customer reviews'},
     ]
 
@@ -44,9 +42,7 @@ export default function Hero() {
             className="bg-neutral-50"
             aria-labelledby="hero-heading"
         >
-            {/* Hero with elegant gradient background */}
             <div className="relative overflow-hidden">
-                {/* Blurred Photo Carousel Background */}
                 <div className="absolute inset-0 z-0">
                     {heroImages.map((image, index) => (
                         <div
@@ -69,11 +65,8 @@ export default function Hero() {
                             />
                         </div>
                     ))}
-                    {/* Much lighter gradient - just enough to ensure text readability */}
                     <div className="absolute inset-0 bg-gradient-to-br from-neutral-80/90 via-neutral-50/65 to-neutral-80/90"></div>
                 </div>
-
-                {/* Decorative background elements */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-50/30 via-transparent to-accent-50/30 z-10" aria-hidden="true"></div>
                 <div className="absolute top-0 left-0 w-full h-full opacity-20 z-10" aria-hidden="true">
                     <div className="absolute top-20 left-10 w-72 h-72 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
@@ -83,24 +76,20 @@ export default function Hero() {
 
                 <div className="relative max-w-7xl mx-auto p-6 min-h-[700px] flex items-center z-20">
                     <div className="w-full text-center">
-                        {/* Main Heading */}
                         <h1
                             id="hero-heading"
                             className="text-5xl font-bold text-neutral-900 mb-8 leading-tight max-w-5xl mx-auto"
                         >
-                            Transform Your Asian Wedding Celebrations
+                            Bespoke Wedding & Event Decor That Transforms Your Celebration
                         </h1>
 
-                        {/* Description */}
                         <p
                             className="text-xl text-neutral-600 mb-12 leading-relaxed max-w-4xl mx-auto"
                         >
-                            Specializing in traditional Asian wedding ceremonies, baby showers, and corporate events.
-                            Creating unforgettable moments with elegant balloon arch decorations across London and UK
-                            that perfectly complement your cultural celebration and family traditions.
+                            At Sajaavat Events, we design and deliver bespoke event decor and statement backdrops for weddings,
+                            celebrations, and corporate events. From elegant stages and mandaps to modern reception styling and
+                            custom installations, we create beautifully curated spaces across Coventry and the UK.
                         </p>
-
-                        {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
                             <Button
                                 variant="primary"
@@ -108,9 +97,9 @@ export default function Hero() {
                                 icon={Calendar}
                                 iconPosition="left"
                                 onClick={() => window.location.href = '#contact'}
-                                aria-label="Book free consultation for balloon decoration services"
+                                aria-label="Book a free event decor consultation"
                             >
-                                Book Free Consultation
+                                Book a Free Decor Consultation
                             </Button>
                             <Button
                                 variant="outline"
@@ -118,10 +107,29 @@ export default function Hero() {
                                 icon={Play}
                                 iconPosition="left"
                                 onClick={() => window.location.href = '#gallery'}
-                                aria-label="View our portfolio of Asian wedding and event decorations"
+                                aria-label="Explore our portfolio of bespoke wedding and event decor"
                             >
-                                View Our Portfolio
+                                Explore Our Decor Portfolio
                             </Button>
+                        </div>
+                        <div
+                            className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto"
+                            role="region"
+                            aria-label="Sajaavat Events highlights"
+                        >
+                            {trustStats.map((stat, idx) => {
+                                const Icon = stat.icon
+                                return (
+                                    <div key={idx} className="bg-neutral-50/80 backdrop-blur-sm rounded-lg p-4 shadow-sm">
+                                        <div className="flex items-center justify-center mb-2">
+                                            <Icon className="w-5 h-5 text-neutral-700" aria-hidden="true" />
+                                        </div>
+                                        <div className="text-2xl font-bold text-neutral-900">{stat.number}</div>
+                                        <div className="text-sm font-semibold text-neutral-900 mt-1">{stat.label}</div>
+                                        <p className="text-xs text-neutral-600 mt-1">{stat.description}</p>
+                                    </div>
+                                )
+                            })}
                         </div>
                     </div>
                 </div>
@@ -131,34 +139,35 @@ export default function Hero() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl font-bold text-neutral-900 mb-4">
-                            Why Choose Sajaavat Events for Your Asian Wedding?
+                            Why Choose Sajaavat Events for Your Wedding or Event Decor?
                         </h2>
                         <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-                            We understand that every celebration is unique. Our personalized approach
-                            ensures your event reflects your cultural style and family traditions.
+                            Every venue, celebration, and guest experience is different. We take your vision and turn it into a
+                            cohesive decor plan — creating backdrops and styling moments that feel personal, elevated, and
+                            photo-ready.
                         </p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8" role="region" aria-labelledby="why-choose-us">
-                        <h3 id="why-choose-us" className="sr-only">Why Choose Our Balloon Decoration Services</h3>
+                        <h3 id="why-choose-us" className="sr-only">Why Choose Our Event Decor and Backdrop Services</h3>
                         {[
                             {
-                                title: 'Cultural Expertise',
-                                description: 'Specialized in Sikh, Hindu, Muslim, and Pakistani wedding traditions with authentic color schemes and cultural understanding.',
-                                icon: '🎨',
-                                keywords: 'Asian wedding expertise, cultural decorations'
+                                title: 'Bespoke Design & Backdrops',
+                                description: 'Custom backdrops, stages, entrances, and feature moments designed around your theme, venue, and budget — from elegant minimal to full luxury.',
+                                icon: '🪄',
+                                keywords: 'bespoke event decor, custom backdrops, stage styling'
                             },
                             {
-                                title: 'Premium Quality Materials',
-                                description: 'High-quality balloons and professional installation techniques for lasting beauty throughout your celebration.',
+                                title: 'Cultural & Modern Styling',
+                                description: 'Experience styling cultural ceremonies and modern events — including mandap-inspired stages and reception decor that blends heritage with contemporary design.',
                                 icon: '✨',
-                                keywords: 'premium balloon decorations, professional installation'
+                                keywords: 'Asian wedding decor UK, mandap styling, fusion wedding decor'
                             },
                             {
-                                title: 'Complete Service Package',
-                                description: 'From initial consultation to final cleanup, we handle every detail so you can focus on enjoying your special day.',
+                                title: 'Professional Setup & Finish',
+                                description: 'We plan, deliver, and style on the day with a focus on detail — ensuring everything looks polished, cohesive, and ready before guests arrive.',
                                 icon: '🎯',
-                                keywords: 'full service decorations, setup and cleanup'
+                                keywords: 'event styling service, venue setup, decor installation'
                             }
                         ].map((feature, index) => (
                             <article
@@ -182,10 +191,10 @@ export default function Hero() {
                             size="lg"
                             icon={ArrowRight}
                             iconPosition="right"
-                            onClick={() => window.location.href = '#services'}
-                            aria-label="Learn more about our Asian wedding decoration services"
+                            onClick={() => window.location.href = '#contact'}
+                            aria-label="Contact Sajaavat Events to discuss event decor and backdrop styling"
                         >
-                            Learn More About Our Services
+                            Request Your Free Decor Quote
                         </Button>
                     </div>
                 </div>

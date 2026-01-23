@@ -24,20 +24,17 @@ export default function Header() {
     }
 
     const navigationLinks = [
-        {href: '#aboutus', label: 'About Us', ariaLabel: 'Find out more about us'},
-        {href: '#gallery', label: 'Gallery', ariaLabel: 'Browse our portfolio of wedding and event decorations'},
-        {href: '#testimonials', label: 'Testimonials', ariaLabel: 'Hear what others have to say about us'},
-        {href: '#contact', label: 'Contact Us', ariaLabel: 'Contact us for a free consultation and quote'},
+        {href: '#aboutus', label: 'About Us', ariaLabel: 'Learn about Sajaavat Events and our bespoke decor approach'},
+        {href: '#gallery', label: 'Gallery', ariaLabel: 'Explore our wedding and event decor portfolio'},
+        {href: '#testimonials', label: 'Testimonials', ariaLabel: 'Read reviews from our wedding and event decor clients'},
+        {href: '#contact', label: 'Contact Us', ariaLabel: 'Request a free decor consultation and quote'},
     ]
 
     return (
         <>
-            {/* Top Banner */}
             <div className="bg-neutral-900 text-neutral-50 text-center py-2 text-sm font-medium" role="banner">
                 <div className="max-w-7xl mx-auto px-4 py-2"></div>
             </div>
-
-            {/* Main Header */}
             <header
                 className={`sticky top-0 z-50 bg-neutral-50 transition-all duration-300 ${
                     isScrolled ? 'shadow-sm border-b border-neutral-200' : ''
@@ -46,24 +43,21 @@ export default function Header() {
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16 overflow-hidden h-[90px]">
-                        {/* Logo - Left */}
                         <div className="flex-shrink-0 w-[90px]">
                             <Link
                                 href="/"
                                 className="flex items-center"
-                                aria-label="Sajaavat Events - Premium balloon decoration services for Asian weddings and events"
+                                aria-label="Sajaavat Events - Bespoke wedding and event decor specialists"
                             >
                                 <Image
                                     src={logo}
-                                    alt="Sajaavat Events logo - Premium balloon arch decorations for Asian weddings, baby showers and corporate events in UK"
+                                    alt="Sajaavat Events logo - Bespoke wedding and event decor specialists in Coventry and across the UK"
                                     width={200}
                                     height={50}
                                     priority
                                 />
                             </Link>
                         </div>
-
-                        {/* Desktop Navigation - Center */}
                         <nav
                             className="hidden lg:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2"
                             role="navigation"
@@ -80,8 +74,6 @@ export default function Header() {
                                 </a>
                             ))}
                         </nav>
-
-                        {/* Mobile Menu Button - Right */}
                         <div className="lg:hidden flex items-center space-x-2">
                             <IconButton
                                 variant="ghost"
@@ -93,12 +85,8 @@ export default function Header() {
                                 aria-controls="mobile-navigation"
                             />
                         </div>
-
-                        {/* Right side spacer - balances the logo on desktop */}
                         <div className="hidden lg:block w-[90px]"></div>
                     </div>
-
-                    {/* Mobile Menu */}
                     {isMenuOpen && (
                         <div
                             className="lg:hidden border-t border-neutral-200 py-4"

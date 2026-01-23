@@ -2,134 +2,113 @@ export async function GET() {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
     const currentDate = new Date().toISOString()
 
-    // Image data with SEO-optimized information
     const images = [
-        // Hero/Homepage Images
         {
             loc: `${baseUrl}/`,
-            imageUrl: `${baseUrl}/images/hero/asian-wedding-balloon-arch.jpg`,
-            caption: 'Beautiful pink and gold balloon arch decoration for Asian wedding ceremony by Sajaavat Events London',
-            title: 'Asian Wedding Balloon Arch - Sajaavat Events',
+            imageUrl: `${baseUrl}/images/hero/event-decor-main.jpg`,
+            caption: 'Bespoke wedding and event decor with luxury backdrop styling by Sajaavat Events in Coventry, UK',
+            title: 'Bespoke Wedding & Event Decor - Sajaavat Events',
             license: `${baseUrl}/terms`,
-            geoLocation: 'London, UK'
-        },
-        {
-            loc: `${baseUrl}/`,
-            imageUrl: `${baseUrl}/images/hero/baby-shower-decorations.jpg`,
-            caption: 'Elegant baby shower balloon decorations in pastel colors for celebration in London',
-            title: 'Baby Shower Balloon Decorations - Sajaavat Events',
-            license: `${baseUrl}/terms`,
-            geoLocation: 'London, UK'
+            geoLocation: 'Coventry, UK'
         },
         {
             loc: `${baseUrl}/`,
-            imageUrl: `${baseUrl}/images/hero/corporate-event-balloons.jpg`,
-            caption: 'Professional corporate event balloon styling with sophisticated design',
-            title: 'Corporate Event Balloon Styling - Sajaavat Events',
+            imageUrl: `${baseUrl}/images/hero/wedding-stage-backdrop.jpg`,
+            caption: 'Elegant wedding stage backdrop and venue styling designed by Sajaavat Events (UK-wide service)',
+            title: 'Wedding Stage Backdrop Styling - Sajaavat Events',
             license: `${baseUrl}/terms`,
-            geoLocation: 'London, UK'
-        },
-
-        // Service-specific Images
-        {
-            loc: `${baseUrl}/#services`,
-            imageUrl: `${baseUrl}/images/services/sikh-wedding-mandap.jpg`,
-            caption: 'Traditional Sikh wedding mandap with pink and gold balloon decoration backdrop',
-            title: 'Sikh Wedding Mandap Balloon Decorations',
-            license: `${baseUrl}/terms`,
-            geoLocation: 'London, UK'
+            geoLocation: 'Coventry, West Midlands, UK'
         },
         {
-            loc: `${baseUrl}/#services`,
-            imageUrl: `${baseUrl}/images/services/hindu-wedding-arch.jpg`,
-            caption: 'Hindu wedding ceremony balloon arch with traditional red and white colors',
-            title: 'Hindu Wedding Balloon Arch Installation',
+            loc: `${baseUrl}/`,
+            imageUrl: `${baseUrl}/images/hero/corporate-event-styling.jpg`,
+            caption: 'Professional corporate event styling with premium backdrop setup by Sajaavat Events',
+            title: 'Corporate Event Styling & Backdrops - Sajaavat Events',
             license: `${baseUrl}/terms`,
-            geoLocation: 'Birmingham, UK'
+            geoLocation: 'United Kingdom'
         },
         {
             loc: `${baseUrl}/#services`,
-            imageUrl: `${baseUrl}/images/services/pakistani-wedding-colors.jpg`,
-            caption: 'Pakistani wedding balloon decorations with vibrant cultural colors and patterns',
-            title: 'Pakistani Wedding Balloon Styling',
+            imageUrl: `${baseUrl}/images/services/wedding-stage-styling.jpg`,
+            caption: 'Bespoke wedding stage styling and luxury backdrop setup for ceremonies and receptions',
+            title: 'Wedding Stage Styling & Luxury Backdrops',
             license: `${baseUrl}/terms`,
-            geoLocation: 'Manchester, UK'
+            geoLocation: 'Coventry, UK'
         },
         {
             loc: `${baseUrl}/#services`,
-            imageUrl: `${baseUrl}/images/services/balloon-arch-installation.jpg`,
-            caption: 'Custom balloon arch installation for event entrance with professional styling',
-            title: 'Professional Balloon Arch Installation Services',
+            imageUrl: `${baseUrl}/images/services/cultural-ceremony-decor.jpg`,
+            caption: 'Culturally considerate ceremony decor with mandap-inspired staging and elegant venue styling',
+            title: 'Cultural Ceremony Decor & Mandap-Inspired Styling',
             license: `${baseUrl}/terms`,
-            geoLocation: 'London, UK'
+            geoLocation: 'West Midlands, UK'
         },
-
-        // Gallery Images
+        {
+            loc: `${baseUrl}/#services`,
+            imageUrl: `${baseUrl}/images/services/reception-backdrop.jpg`,
+            caption: 'Reception decor and statement backdrop styling designed for guest experience and photography',
+            title: 'Reception Decor & Statement Backdrops',
+            license: `${baseUrl}/terms`,
+            geoLocation: 'United Kingdom'
+        },
+        {
+            loc: `${baseUrl}/#services`,
+            imageUrl: `${baseUrl}/images/services/entrance-styling.jpg`,
+            caption: 'Event entrance styling and welcome display decor for weddings, celebrations, and corporate events',
+            title: 'Event Entrance Styling & Welcome Displays',
+            license: `${baseUrl}/terms`,
+            geoLocation: 'Coventry, UK'
+        },
         {
             loc: `${baseUrl}/#gallery`,
             imageUrl: `${baseUrl}/images/gallery/wedding-portfolio-1.jpg`,
-            caption: 'Asian wedding balloon decoration portfolio showing elegant mandap styling',
-            title: 'Asian Wedding Balloon Decoration Portfolio',
+            caption: 'Wedding decor portfolio featuring bespoke backdrops, stage styling, and venue transformation',
+            title: 'Wedding Decor Portfolio - Backdrops & Stage Styling',
             license: `${baseUrl}/terms`,
-            geoLocation: 'London, UK'
+            geoLocation: 'United Kingdom'
         },
         {
             loc: `${baseUrl}/#gallery`,
-            imageUrl: `${baseUrl}/images/gallery/baby-shower-portfolio.jpg`,
-            caption: 'Baby shower balloon decoration portfolio with gender reveal styling',
-            title: 'Baby Shower Balloon Decoration Examples',
+            imageUrl: `${baseUrl}/images/gallery/celebration-portfolio.jpg`,
+            caption: 'Celebration decor portfolio with themed backdrops and photo-ready styling',
+            title: 'Celebration Decor Portfolio - Backdrops & Styling',
             license: `${baseUrl}/terms`,
-            geoLocation: 'Leeds, UK'
+            geoLocation: 'United Kingdom'
         },
         {
             loc: `${baseUrl}/#gallery`,
             imageUrl: `${baseUrl}/images/gallery/corporate-portfolio.jpg`,
-            caption: 'Corporate event balloon decoration portfolio showing professional styling',
-            title: 'Corporate Event Balloon Decoration Portfolio',
+            caption: 'Corporate decor portfolio showcasing branded backdrops and professional event styling',
+            title: 'Corporate Event Decor Portfolio - Branded Backdrops',
             license: `${baseUrl}/terms`,
-            geoLocation: 'Manchester, UK'
-        },
-
-        // Cultural/Regional Images
-        {
-            loc: `${baseUrl}/`,
-            imageUrl: `${baseUrl}/images/cultural/punjabi-wedding-balloons.jpg`,
-            caption: 'Punjabi wedding balloon decorations with traditional vibrant colors and cultural authenticity',
-            title: 'Punjabi Wedding Balloon Decorations - Cultural Specialists',
-            license: `${baseUrl}/terms`,
-            geoLocation: 'Southall, London, UK'
+            geoLocation: 'United Kingdom'
         },
         {
             loc: `${baseUrl}/`,
-            imageUrl: `${baseUrl}/images/cultural/bengali-wedding-styling.jpg`,
-            caption: 'Bengali wedding balloon styling with traditional red and gold cultural theme',
-            title: 'Bengali Wedding Balloon Styling Services',
+            imageUrl: `${baseUrl}/images/regions/west-midlands-event-decor.jpg`,
+            caption: 'Event decor specialists based in Coventry serving the West Midlands and across the UK',
+            title: 'Coventry Event Decor Specialists - UK Wide Service',
             license: `${baseUrl}/terms`,
-            geoLocation: 'London, UK'
+            geoLocation: 'Coventry, West Midlands, UK'
         },
-
-        // Before/After Images
         {
             loc: `${baseUrl}/#gallery`,
             imageUrl: `${baseUrl}/images/process/venue-transformation.jpg`,
-            caption: 'Venue transformation showing before and after balloon decoration installation',
-            title: 'Venue Transformation with Balloon Decorations',
+            caption: 'Venue transformation showing before and after a bespoke decor and backdrop setup',
+            title: 'Venue Transformation - Bespoke Decor & Backdrops',
             license: `${baseUrl}/terms`,
-            geoLocation: 'Birmingham, UK'
+            geoLocation: 'United Kingdom'
         },
-
-        // Team/Behind the Scenes
         {
             loc: `${baseUrl}/`,
-            imageUrl: `${baseUrl}/images/team/balloon-installation-team.jpg`,
-            caption: 'Professional balloon decoration installation team setting up Asian wedding arch',
-            title: 'Professional Balloon Installation Team - Sajaavat Events',
+            imageUrl: `${baseUrl}/images/team/event-styling-team.jpg`,
+            caption: 'Sajaavat Events team preparing a bespoke backdrop and venue styling setup',
+            title: 'Event Styling Team - Sajaavat Events',
             license: `${baseUrl}/terms`,
-            geoLocation: 'London, UK'
+            geoLocation: 'Coventry, UK'
         }
     ]
 
-    // Generate XML content
     const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
@@ -152,7 +131,7 @@ ${images.map(image => `  <url>
         status: 200,
         headers: {
             'Content-Type': 'application/xml',
-            'Cache-Control': 'public, max-age=86400', // Cache for 1 day
+            'Cache-Control': 'public, max-age=86400',
         },
     })
 }

@@ -8,8 +8,7 @@ import {
     Heart,
     Baby,
     Building2,
-    Grid3x3,
-    Calendar
+    Grid3x3
 } from 'lucide-react'
 import {Button} from '@/app/components/Button'
 import Image from 'next/image'
@@ -24,234 +23,234 @@ export default function Gallery() {
         {
             id: 1,
             src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
-            alt: 'Elegant pink and gold balloon arch decoration for Sikh wedding ceremony with traditional mandap styling at London gurdwara by Sajaavat Events',
+            alt: 'Bespoke wedding stage backdrop and elegant venue styling by Sajaavat Events, Coventry and UK wide',
             category: 'wedding',
-            title: 'Romantic Pink & Gold Sikh Wedding Arch',
-            description: 'Beautiful mandap backdrop with traditional Punjabi colors honoring Sikh wedding traditions',
-            event: 'Sikh Wedding Ceremony',
-            location: 'Gurdwara, London',
-            culturalElements: 'Traditional Sikh colors, Mandap styling',
-            keywords: 'Sikh wedding decorations, mandap balloon arch, pink gold wedding',
+            title: 'Romantic Wedding Stage & Backdrop Styling',
+            description: 'A refined stage focal point designed to elevate the ceremony and create a photo-ready backdrop.',
+            event: 'Wedding Ceremony Styling',
+            location: 'UK Venue',
+            culturalElements: 'Bespoke staging, curated colour palette',
+            keywords: 'wedding decor Coventry, bespoke wedding backdrop, stage styling UK',
             images: [
                 {
                     src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
-                    alt: 'Main view of pink and gold balloon arch for Sikh wedding'
+                    alt: 'Main view of a bespoke wedding stage backdrop and decor styling'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&h=600&fit=crop',
-                    alt: 'Close-up detail of mandap balloon decoration'
+                    alt: 'Close-up detail of the backdrop styling and decor finish'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&h=600&fit=crop',
-                    alt: 'Full venue setup with balloon decorations'
+                    alt: 'Full venue setup showing coordinated wedding decor styling'
                 }
             ]
         },
         {
             id: 2,
             src: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop',
-            alt: 'Pastel blue baby shower balloon decorations with gender reveal theme and professional styling by Sajaavat Events London',
+            alt: 'Bespoke celebration backdrop and styling for a baby celebration by Sajaavat Events in the UK',
             category: 'baby-shower',
-            title: 'Sweet Blue Baby Boy Shower',
-            description: 'Soft pastel theme for baby boy celebration with modern balloon styling',
-            event: 'Gender Reveal Party',
-            location: 'Private Venue, Birmingham',
-            culturalElements: 'Contemporary styling, Gender reveal theme',
-            keywords: 'baby shower decorations, gender reveal balloons, blue baby shower',
+            title: 'Baby Celebration Backdrop & Styling',
+            description: 'A soft, modern setup designed for guest photos and a standout focal point.',
+            event: 'Baby Celebration Styling',
+            location: 'Private Venue, UK',
+            culturalElements: 'Modern styling, photo moment backdrop',
+            keywords: 'baby celebration decor, event backdrop UK, party styling Coventry',
             images: [
                 {
                     src: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop',
-                    alt: 'Main blue baby shower balloon setup'
+                    alt: 'Main backdrop styling for a baby celebration'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
-                    alt: 'Dessert table with balloon backdrop'
+                    alt: 'Coordinated dessert table and decor styling'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop',
-                    alt: 'Guest area with balloon decorations'
+                    alt: 'Guest area styled to match the event decor theme'
                 }
             ]
         },
         {
             id: 3,
             src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop',
-            alt: 'Professional corporate event balloon styling with sophisticated design and company branding by Sajaavat Events Manchester',
+            alt: 'Corporate event styling with a premium stage setup and branded backdrop by Sajaavat Events in the UK',
             category: 'corporate',
-            title: 'Corporate Achievement Awards Ceremony',
-            description: 'Sophisticated balloon styling for company milestone celebration with professional aesthetic',
-            event: 'Annual Awards Ceremony',
-            location: 'Conference Centre, Manchester',
-            culturalElements: 'Professional styling, Corporate branding',
-            keywords: 'corporate event decorations, professional balloon styling, awards ceremony',
+            title: 'Corporate Stage & Branded Backdrop Styling',
+            description: 'A polished event setup designed to align with branding and elevate the guest experience.',
+            event: 'Corporate Event Styling',
+            location: 'Conference Venue, UK',
+            culturalElements: 'Corporate aesthetic, brand-led styling',
+            keywords: 'corporate event decor UK, branded backdrop, venue styling',
             images: [
                 {
                     src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop',
-                    alt: 'Main stage with balloon arch'
+                    alt: 'Main corporate stage and backdrop styling'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop',
-                    alt: 'Awards ceremony backdrop with balloons'
+                    alt: 'Event focal point and branded setup styling'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
-                    alt: 'Corporate event entrance decorations'
+                    alt: 'Corporate venue entrance styling and decor details'
                 }
             ]
         },
         {
             id: 4,
             src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop',
-            alt: 'Traditional red and white balloon arch for Hindu wedding ceremony with authentic cultural colors and mandap styling by Sajaavat Events',
+            alt: 'Mandap-inspired wedding stage decor and elegant backdrop styling by Sajaavat Events, Coventry and UK wide',
             category: 'wedding',
-            title: 'Traditional Red & White Hindu Mandap',
-            description: 'Classic Hindu wedding colors honoring traditional ceremonies with authentic cultural elements',
-            event: 'Hindu Wedding Reception',
-            location: 'Banquet Hall, Leicester',
-            culturalElements: 'Hindu wedding traditions, Sacred color combinations',
-            keywords: 'Hindu wedding decorations, red white balloon arch, traditional Hindu colors',
+            title: 'Mandap-Inspired Stage & Reception Styling',
+            description: 'A luxury focal stage designed with cultural sensitivity and a modern, premium finish.',
+            event: 'Cultural Wedding Styling',
+            location: 'Banquet Hall, UK',
+            culturalElements: 'Mandap-inspired staging, modern luxury styling',
+            keywords: 'Asian wedding decor UK, mandap styling, stage decor Coventry',
             images: [
                 {
                     src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop',
-                    alt: 'Red and white Hindu wedding mandap'
+                    alt: 'Mandap-inspired stage setup and wedding decor styling'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop',
-                    alt: 'Traditional Hindu ceremony decorations'
+                    alt: 'Traditional ceremony styling details with a luxury finish'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
-                    alt: 'Reception hall balloon setup'
+                    alt: 'Reception hall setup showing cohesive decor styling'
                 }
             ]
         },
         {
             id: 5,
             src: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&h=600&fit=crop',
-            alt: 'Pink and gold baby shower balloon decorations with princess theme and luxury styling for baby girl celebration',
+            alt: 'Luxury celebration backdrop and themed styling for a baby celebration by Sajaavat Events in the UK',
             category: 'baby-shower',
-            title: 'Princess Theme Baby Girl Shower',
-            description: 'Luxurious pink and gold styling perfect for welcoming a little princess',
-            event: 'Baby Girl Celebration',
-            location: 'Family Home, Leeds',
-            culturalElements: 'Princess theme, Luxury styling',
-            keywords: 'baby girl shower decorations, princess theme balloons, pink gold baby shower',
+            title: 'Luxury Celebration Backdrop & Theme Styling',
+            description: 'A premium theme-led setup designed for photos, guest moments, and an elevated finish.',
+            event: 'Private Celebration Styling',
+            location: 'Family Venue, UK',
+            culturalElements: 'Luxury theme styling, photo-ready focal point',
+            keywords: 'luxury party decor, celebration backdrop, event styling UK',
             images: [
                 {
                     src: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&h=600&fit=crop',
-                    alt: 'Pink and gold princess theme setup'
+                    alt: 'Luxury themed celebration setup and backdrop styling'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop',
-                    alt: 'Baby girl shower gift table'
+                    alt: 'Styled gift and dessert area matching the decor theme'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop',
-                    alt: 'Princess themed photo backdrop'
+                    alt: 'Feature photo area styled for guest pictures'
                 }
             ]
         },
         {
             id: 6,
             src: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&h=600&fit=crop',
-            alt: 'Multi-colored vibrant balloon arch for Punjabi wedding celebration with traditional bright colors and cultural authenticity',
+            alt: 'Vibrant wedding decor and reception styling with a statement backdrop by Sajaavat Events in the UK',
             category: 'wedding',
-            title: 'Vibrant Punjabi Wedding Celebration Colors',
-            description: 'Colorful celebration of Punjabi culture with traditional bright color combinations',
-            event: 'Punjabi Wedding Sangam',
-            location: 'Community Centre, Southall London',
-            culturalElements: 'Punjabi traditions, Vibrant cultural colors',
-            keywords: 'Punjabi wedding decorations, colorful balloon arch, Southall wedding',
+            title: 'Vibrant Reception Styling & Statement Backdrop',
+            description: 'A bold, joyful colour story brought together with a cohesive stage and reception design.',
+            event: 'Reception Styling',
+            location: 'Community Venue, UK',
+            culturalElements: 'Bold colour palette, statement focal backdrop',
+            keywords: 'reception decor UK, statement backdrop, wedding styling Coventry',
             images: [
                 {
                     src: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&h=600&fit=crop',
-                    alt: 'Vibrant Punjabi wedding colors'
+                    alt: 'Vibrant wedding reception decor styling and backdrop'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&h=600&fit=crop',
-                    alt: 'Traditional Punjabi celebration setup'
+                    alt: 'Decor detail showing coordinated styling elements'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
-                    alt: 'Sangam ceremony balloon decorations'
+                    alt: 'Reception focal area designed for photography'
                 }
             ]
         },
         {
             id: 7,
             src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop',
-            alt: 'Blue and silver corporate event balloon styling with modern design for tech company product launch by Sajaavat Events',
+            alt: 'Modern corporate event decor with a premium stage setup and brand-led styling by Sajaavat Events in the UK',
             category: 'corporate',
-            title: 'Tech Company Product Launch Event',
-            description: 'Modern balloon styling for high-tech product unveiling with corporate sophistication',
-            event: 'Product Launch Event',
-            location: 'London Tech Hub',
-            culturalElements: 'Modern tech aesthetic, Corporate sophistication',
-            keywords: 'tech company event decorations, product launch balloons, corporate styling',
+            title: 'Modern Product Launch Styling',
+            description: 'A clean, modern setup designed for high-impact launches, photos, and guest flow.',
+            event: 'Product Launch Styling',
+            location: 'London, UK',
+            culturalElements: 'Modern design, brand-led styling',
+            keywords: 'product launch decor UK, corporate styling, event backdrop',
             images: [
                 {
                     src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop',
-                    alt: 'Tech product launch main stage'
+                    alt: 'Main product launch stage and backdrop styling'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop',
-                    alt: 'Corporate branding with balloons'
+                    alt: 'Brand-led decor styling for corporate event photography'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
-                    alt: 'Tech hub event space decorations'
+                    alt: 'Event space styling designed for guest experience'
                 }
             ]
         },
         {
             id: 8,
             src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
-            alt: 'Neutral theme baby shower with white and green balloon decorations for gender neutral celebration',
+            alt: 'Neutral celebration decor with a modern backdrop and venue styling by Sajaavat Events in the UK',
             category: 'baby-shower',
-            title: 'Garden Theme Gender Neutral Baby Shower',
-            description: 'Natural green and white styling perfect for gender-neutral celebrations',
-            event: 'Gender Neutral Celebration',
-            location: 'Garden Venue, Oxford',
-            culturalElements: 'Natural theme, Gender neutral styling',
-            keywords: 'gender neutral baby shower, green white decorations, garden theme',
+            title: 'Neutral Celebration Backdrop & Styling',
+            description: 'A calm, elegant setup with a natural palette, perfect for modern celebrations and photos.',
+            event: 'Celebration Styling',
+            location: 'Garden Venue, UK',
+            culturalElements: 'Neutral palette, modern styling',
+            keywords: 'neutral party decor, backdrop styling UK, venue styling',
             images: [
                 {
                     src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
-                    alt: 'Garden themed neutral baby shower'
+                    alt: 'Neutral decor setup with a photo-ready backdrop'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop',
-                    alt: 'Outdoor garden setup with balloons'
+                    alt: 'Outdoor venue styling details for celebration'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop',
-                    alt: 'Natural themed photo area'
+                    alt: 'Feature photo moment area styled in a natural theme'
                 }
             ]
         },
         {
             id: 9,
             src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop',
-            alt: 'Golden balloon arch for Tamil wedding ceremony with traditional South Indian colors and cultural elements',
+            alt: 'Elegant cultural wedding stage decor with luxury backdrop styling by Sajaavat Events in the UK',
             category: 'wedding',
-            title: 'Elegant Tamil Wedding Gold Styling',
-            description: 'Sophisticated gold theme with traditional Tamil wedding elements and cultural authenticity',
-            event: 'Tamil Wedding Ceremony',
-            location: 'Temple Hall, Bradford',
-            culturalElements: 'Tamil traditions, South Indian cultural elements',
-            keywords: 'Tamil wedding decorations, golden balloon arch, South Indian wedding',
+            title: 'Elegant Cultural Wedding Stage Styling',
+            description: 'A luxury stage and backdrop concept designed with cultural understanding and premium finishing.',
+            event: 'Cultural Ceremony Styling',
+            location: 'Temple/Community Venue, UK',
+            culturalElements: 'Cultural styling, luxury finish, stage focal point',
+            keywords: 'cultural wedding decor UK, stage styling, luxury wedding backdrop',
             images: [
                 {
                     src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop',
-                    alt: 'Golden Tamil wedding arch'
+                    alt: 'Elegant wedding stage decor and backdrop styling'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
-                    alt: 'South Indian ceremony decorations'
+                    alt: 'Ceremony area styled to match the decor concept'
                 },
                 {
                     src: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&h=600&fit=crop',
-                    alt: 'Temple hall balloon setup'
+                    alt: 'Venue-wide styling showing cohesive decor finish'
                 }
             ]
         }
@@ -260,35 +259,35 @@ export default function Gallery() {
     const filterCategories = useMemo(() => [
         {
             id: 'all',
-            label: 'All Decorations',
+            label: 'All Decor',
             icon: Grid3x3,
             count: galleryImages.length,
-            description: 'Browse our complete portfolio of balloon decorations',
-            keywords: 'balloon decoration portfolio, event styling gallery'
+            description: 'Browse our complete portfolio of event decor and backdrops',
+            keywords: 'event decor portfolio, backdrop styling gallery'
         },
         {
             id: 'wedding',
-            label: 'Asian Weddings',
+            label: 'Weddings',
             icon: Heart,
             count: galleryImages.filter(img => img.category === 'wedding').length,
-            description: 'Sikh, Hindu, Pakistani, Tamil wedding balloon decorations',
-            keywords: 'Asian wedding decorations, cultural wedding styling'
+            description: 'Wedding stages, backdrops, and reception styling',
+            keywords: 'wedding decor Coventry, wedding backdrop UK, stage decor'
         },
         {
             id: 'baby-shower',
-            label: 'Baby Celebrations',
+            label: 'Celebrations',
             icon: Baby,
             count: galleryImages.filter(img => img.category === 'baby-shower').length,
-            description: 'Baby shower and gender reveal balloon decorations',
-            keywords: 'baby shower balloons, gender reveal decorations'
+            description: 'Celebration styling and photo moment backdrops',
+            keywords: 'party decor UK, celebration backdrops, venue styling'
         },
         {
             id: 'corporate',
-            label: 'Corporate Events',
+            label: 'Corporate',
             icon: Building2,
             count: galleryImages.filter(img => img.category === 'corporate').length,
-            description: 'Professional corporate event balloon styling',
-            keywords: 'corporate event decorations, business celebration styling'
+            description: 'Corporate event styling and branded backdrops',
+            keywords: 'corporate event decor UK, branded backdrop, launch styling'
         }
     ], [galleryImages])
 
@@ -385,11 +384,11 @@ export default function Gallery() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h2 id="gallery-heading" className="text-3xl lg:text-5xl font-bold text-neutral-900 mb-6" itemProp="name">
-                        Our Asian Wedding & Event Decoration Portfolio
+                        Our Wedding & Event Decor Portfolio
                     </h2>
                     <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed" itemProp="description">
-                        Discover the beautiful moments we&apos;ve helped create across London and UK. From traditional Sikh and Hindu wedding ceremonies
-                        to modern baby celebrations and corporate events, each decoration tells a unique story of cultural celebration and joy.
+                        Explore a selection of our bespoke backdrops and event styling across Coventry and the UK. From wedding stages and
+                        reception setups to celebration photo moments and corporate branding, each concept is designed to elevate your venue.
                     </p>
                 </div>
 
@@ -474,12 +473,11 @@ export default function Gallery() {
                                             image.category === 'baby-shower' ? 'bg-pink-500' :
                                                 'bg-blue-500'
                                     }`}>
-                                        {image.category === 'baby-shower' ? 'Baby Celebration' :
-                                            image.category === 'wedding' ? 'Asian Wedding' : 'Corporate Event'}
+                                        {image.category === 'baby-shower' ? 'Celebration' :
+                                            image.category === 'wedding' ? 'Wedding' : 'Corporate'}
                                     </span>
                                 </div>
 
-                                {/* Photo count badge */}
                                 {image.images && image.images.length > 1 && (
                                     <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm text-white px-2 py-1 rounded-full text-xs font-medium">
                                         📸 {image.images.length} photos
@@ -491,7 +489,6 @@ export default function Gallery() {
                 </div>
             </div>
 
-            {/* Mobile-Friendly Lightbox Modal with Carousel */}
             {selectedImage && (
                 <div
                     className="fixed inset-0 z-50 bg-neutral-900/90 flex items-center justify-center p-2 sm:p-4"
@@ -501,7 +498,6 @@ export default function Gallery() {
                     aria-describedby="lightbox-description"
                     onClick={closeLightbox}
                 >
-                    {/* Close button */}
                     <button
                         onClick={(e) => {
                             e.stopPropagation();
@@ -513,12 +509,10 @@ export default function Gallery() {
                         <X className="w-5 h-5 sm:w-6 sm:h-6" />
                     </button>
 
-                    {/* Modal content */}
                     <div
                         className="w-full max-w-5xl h-full flex flex-col bg-neutral-50 rounded-lg overflow-y-auto mx-2 sm:mx-0"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        {/* Carousel Image container */}
                         <div className="relative flex-shrink-0 w-full bg-neutral-900">
                             <div className="relative flex-shrink-0 w-full bg-neutral-900 min-h-[400px] sm:min-h-[500px]">
                                 {selectedImage.images && selectedImage.images.map((img, index) => (
@@ -539,7 +533,6 @@ export default function Gallery() {
                                 ))}
                             </div>
 
-                            {/* Carousel Navigation - Desktop */}
                             {selectedImage.images && selectedImage.images.length > 1 && (
                                 <>
                                     <button
@@ -564,7 +557,6 @@ export default function Gallery() {
                                         <ChevronRight className="w-6 h-6" />
                                     </button>
 
-                                    {/* Carousel Indicators */}
                                     <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
                                         {selectedImage.images.map((_, index) => (
                                             <button
@@ -583,7 +575,6 @@ export default function Gallery() {
                                         ))}
                                     </div>
 
-                                    {/* Image counter */}
                                     <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium z-20">
                                         {currentCarouselIndex + 1} / {selectedImage.images.length}
                                     </div>
@@ -591,7 +582,6 @@ export default function Gallery() {
                             )}
                         </div>
 
-                        {/* Content section */}
                         <div className="flex-1 p-4 sm:p-6 lg:p-8">
                             <h3 id="lightbox-title" className="text-xl sm:text-2xl font-bold text-neutral-900 mb-3 sm:mb-4">
                                 {selectedImage.title}
@@ -610,12 +600,11 @@ export default function Gallery() {
                                     <span className="font-medium text-neutral-900 text-sm sm:text-base">{selectedImage.location}</span>
                                 </div>
                                 <div>
-                                    <span className="text-sm text-neutral-500 block">Cultural Elements</span>
+                                    <span className="text-sm text-neutral-500 block">Style Notes</span>
                                     <span className="font-medium text-neutral-900 text-sm sm:text-base">{selectedImage.culturalElements}</span>
                                 </div>
                             </div>
 
-                            {/* Mobile carousel navigation */}
                             {selectedImage.images && selectedImage.images.length > 1 && (
                                 <div className="flex sm:hidden gap-2 mb-4">
                                     <button
@@ -642,23 +631,22 @@ export default function Gallery() {
                                 size="md"
                                 fullWidth
                                 onClick={() => window.location.href = '/#contact'}
-                                aria-label={`Book similar decoration style for ${selectedImage.event.toLowerCase()}`}
+                                aria-label={`Request a quote for a similar decor style for ${selectedImage.event.toLowerCase()}`}
                                 className="text-sm sm:text-base"
                             >
-                                Book Similar Style
+                                Request This Style
                             </Button>
                         </div>
                     </div>
                 </div>
             )}
 
-            {/* Hidden SEO content */}
             <div className="sr-only" aria-hidden="true">
-                <h3>Asian Wedding Balloon Decoration Gallery</h3>
+                <h3>Wedding and Event Decor Gallery</h3>
                 <p>
-                    Professional balloon decorations for Sikh weddings, Hindu ceremonies, Pakistani celebrations, Tamil weddings,
-                    Bengali wedding styling, baby shower decorations, gender reveal parties, corporate events, product launches,
-                    and special celebrations across London, Birmingham, Manchester, Leeds, Leicester, and UK.
+                    Bespoke wedding and event decor portfolio featuring luxury backdrops, stage styling, mandap-inspired setups, reception decor,
+                    celebration styling, and corporate event backdrops. Based in Coventry, serving the West Midlands and across the UK including
+                    Birmingham, Leicester, Warwick, Solihull, London, Manchester, Leeds, and surrounding areas.
                 </p>
             </div>
         </section>

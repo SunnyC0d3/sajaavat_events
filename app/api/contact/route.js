@@ -24,7 +24,7 @@ export async function POST(request) {
         try {
             const notificationResult = await sendEmail({
                 to: process.env.BUSINESS_EMAIL_ADDRESS,
-                subject: `New ${eventType} Enquiry from ${name}`,
+                subject: `New ${eventType} Decor Enquiry from ${name}`,
                 html: `
                     <!DOCTYPE html>
                     <html lang="en">
@@ -34,7 +34,7 @@ export async function POST(request) {
                     </head>
                     <body style="margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; line-height: 1.6; color: #2b2020;">
                         <div style="max-width: 600px; margin: 0 auto;">
-                            
+
                             <h2 style="color: #2b2020; margin: 0 0 10px; font-size: 20px; font-weight: 600;">
                                 New Enquiry: ${eventType}
                             </h2>
@@ -52,7 +52,7 @@ export async function POST(request) {
                                 ${eventDates ? `<strong>Preferred Event Dates:</strong> ${eventDates}<br>` : ''}
                             </p>
 
-                            <h3 style="color: #2b2020; margin: 0 0 10px; font-size: 16px; font-weight: 600;">Message</h3>
+                            <h3 style="color: #2b2020; margin: 0 0 10px; font-size: 16px; font-weight: 600;">Vision & Requirements</h3>
                             <p style="margin: 0 0 20px; line-height: 1.6;">
                                 ${message.replace(/\n/g, '<br>')}
                             </p>
@@ -77,21 +77,21 @@ export async function POST(request) {
                     </head>
                     <body style="margin: 0; padding: 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; line-height: 1.6; color: #2b2020;">
                         <div style="max-width: 600px; margin: 0 auto;">
-                            
+
                             <h1 style="color: #2b2020; margin: 0 0 10px; font-size: 24px; font-weight: 600;">
                                 Thank You, ${name}!
                             </h1>
                             <p style="margin: 0 0 25px; color: #5c4a4a;">
-                                We've received your enquiry for <strong>${eventType}</strong>
+                                We’ve received your enquiry for <strong>${eventType}</strong> decor.
                             </p>
 
                             <h2 style="color: #2b2020; margin: 0 0 10px; font-size: 18px; font-weight: 600;">
                                 What Happens Next?
                             </h2>
                             <ul style="margin: 0 0 25px; padding-left: 20px; line-height: 1.8;">
-                                <li><strong>Within 24 hours:</strong> We'll contact you with a personalized quote</li>
-                                <li><strong>Free consultation:</strong> Discuss your vision and requirements</li>
-                                <li><strong>Venue visit:</strong> If needed, we'll arrange a complimentary site visit</li>
+                                <li><strong>Within 24 hours:</strong> We’ll respond with next steps and a tailored estimate</li>
+                                <li><strong>Free consultation:</strong> We’ll discuss your vision, theme, colours, and venue</li>
+                                <li><strong>Site visit (if needed):</strong> We can arrange a complimentary walkthrough for larger setups</li>
                             </ul>
 
                             <h3 style="color: #2b2020; margin: 0 0 10px; font-size: 16px; font-weight: 600;">
@@ -101,6 +101,10 @@ export async function POST(request) {
                                 <strong>Event Type:</strong> ${eventType}<br>
                                 ${eventDates ? `<strong>Preferred Event Dates:</strong> ${eventDates}<br>` : ''}
                                 <strong>Contact:</strong> ${phone}
+                            </p>
+
+                            <p style="margin: 0 0 20px; color: #5c4a4a;">
+                                If you have inspiration photos or venue details, feel free to reply to this email — we’ll use them to shape your decor concept.
                             </p>
 
                             ${getEmailSignature()}
@@ -128,7 +132,7 @@ export async function POST(request) {
 
         return NextResponse.json({
             success: true,
-            message: "Thank you! We'll get back to you within 24 hours with your free balloon decoration quote."
+            message: "Thank you! We’ll get back to you within 24 hours with your free decor quote."
         })
     } catch (error) {
         console.error('Contact form error:', error)

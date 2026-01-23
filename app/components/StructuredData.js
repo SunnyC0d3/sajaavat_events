@@ -1,75 +1,39 @@
 export default function StructuredData() {
     const siteUrl = "https://sajaavat-events.com";
     const emailAddress = "enquiry@sajaavat-events.com";
-
-    // SINGLE LocalBusiness schema - the ONLY business schema on the entire site
     const localBusinessSchema = {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Sajaavat Events",
-        "alternateName": "Sajaavat Events Balloon Decorations",
-        "description": "Professional balloon decoration services specializing in Asian weddings, baby showers, and corporate events. Based in Coventry, serving all of the UK.",
+        "alternateName": "Sajaavat Events | Bespoke Wedding & Event Decor",
+        "description":
+            "Bespoke wedding and event decor specialists providing luxury backdrops, stage styling, and venue transformation services. Based in Coventry, serving clients across the UK with full design, setup, and styling.",
         "url": siteUrl,
         "logo": siteUrl + "/images/logo.svg",
-        "image": siteUrl + "/images/hero/balloon-arch-og.jpg",
+        "image": siteUrl + "/images/hero/event-decor-main.jpg",
         "email": emailAddress,
         "telephone": "+44XXXXXXXXXX",
         "priceRange": "££-£££",
-
-        // Mobile-based business address - Coventry location
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Coventry",
             "addressRegion": "West Midlands",
             "addressCountry": "GB"
         },
-
-        // Coventry coordinates
         "geo": {
             "@type": "GeoCoordinates",
             "latitude": "52.4068",
             "longitude": "-1.5197"
         },
-
-        // UK-wide service area with Coventry as base
         "areaServed": [
-            {
-                "@type": "City",
-                "name": "Coventry",
-                "addressCountry": "GB"
-            },
-            {
-                "@type": "City",
-                "name": "Birmingham",
-                "addressCountry": "GB"
-            },
-            {
-                "@type": "City",
-                "name": "London",
-                "addressCountry": "GB"
-            },
-            {
-                "@type": "City",
-                "name": "Manchester",
-                "addressCountry": "GB"
-            },
-            {
-                "@type": "City",
-                "name": "Leeds",
-                "addressCountry": "GB"
-            },
-            {
-                "@type": "City",
-                "name": "Leicester",
-                "addressCountry": "GB"
-            },
-            {
-                "@type": "Country",
-                "name": "United Kingdom"
-            }
+            {"@type": "City", "name": "Coventry", "addressCountry": "GB"},
+            {"@type": "City", "name": "Birmingham", "addressCountry": "GB"},
+            {"@type": "City", "name": "London", "addressCountry": "GB"},
+            {"@type": "City", "name": "Manchester", "addressCountry": "GB"},
+            {"@type": "City", "name": "Leeds", "addressCountry": "GB"},
+            {"@type": "City", "name": "Leicester", "addressCountry": "GB"},
+            {"@type": "Country", "name": "United Kingdom"}
         ],
-
-        // Business hours
         "openingHoursSpecification": [
             {
                 "@type": "OpeningHoursSpecification",
@@ -90,12 +54,8 @@ export default function StructuredData() {
                 "closes": "17:00"
             }
         ],
-
-        // Payment and pricing info
         "currenciesAccepted": "GBP",
-        "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer", "PayPal"],
-
-        // Real aggregate rating from 5 testimonials (all 5 stars)
+        "paymentAccepted": ["Cash", "Credit Card"],
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5.0",
@@ -103,56 +63,62 @@ export default function StructuredData() {
             "bestRating": "5",
             "worstRating": "5"
         },
-
-        // Real social media
         "sameAs": [
             "https://instagram.com/sajaavat.events"
         ],
-
-        // Additional business info
         "foundingDate": "2021",
         "numberOfEmployees": "1-3",
-
-        // Service catalog
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
-            "name": "Wedding & Event Decoration Services",
+            "name": "Wedding & Event Decor Services",
             "itemListElement": [
                 {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "Asian Wedding Decorations",
-                        "description": "Traditional balloon decorations for Sikh, Hindu, Pakistani, and Bengali weddings"
+                        "name": "Wedding Stage & Backdrop Styling",
+                        "description":
+                            "Bespoke wedding decor including luxury backdrops, stage focal points, entrance styling, and reception setup designed around your theme."
                     }
                 },
                 {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "Baby Shower Decorations",
-                        "description": "Elegant balloon arrangements for baby shower celebrations and gender reveals"
+                        "name": "Cultural Ceremony & Reception Decor",
+                        "description":
+                            "Culturally considerate decor for traditional and fusion celebrations, including mandap-inspired staging and elegant venue styling."
                     }
                 },
                 {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "Corporate Event Styling",
-                        "description": "Professional balloon decorations for business events and product launches"
+                        "name": "Celebration & Private Event Styling",
+                        "description":
+                            "Bespoke decor for birthdays, engagements, baby celebrations, and special occasions with statement backdrops and photo moments."
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Corporate Event & Brand Styling",
+                        "description":
+                            "Professional corporate event decor including branded backdrops, stage styling, and setup for launches, awards, and business events."
                     }
                 }
             ]
         }
     }
 
-    // Website schema
     const websiteSchema = {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Sajaavat Events - Asian Wedding Balloon Decorations",
+        "name": "Sajaavat Events | Bespoke Wedding & Event Decor",
         "url": siteUrl,
-        "description": "Professional balloon decoration services for Asian weddings, baby showers, and special events. Based in Coventry, serving all of the UK.",
+        "description":
+            "Bespoke wedding and event decor specialists providing luxury backdrops and venue styling. Based in Coventry, serving clients across the UK.",
         "inLanguage": "en-GB",
         "copyrightYear": "2025",
         "copyrightHolder": {
@@ -161,7 +127,6 @@ export default function StructuredData() {
         }
     }
 
-    // Real customer reviews from your testimonials
     const reviewSchemas = [
         {
             "@context": "https://schema.org",
@@ -179,7 +144,8 @@ export default function StructuredData() {
                 "ratingValue": "5",
                 "bestRating": "5"
             },
-            "reviewBody": "Sajaavat Events transformed our wedding mandap into something absolutely magical. The pink and gold balloon arch perfectly complemented our traditional ceremony, and every guest was amazed by the beautiful setup. The team understood our cultural requirements perfectly and delivered beyond our expectations.",
+            "reviewBody":
+                "Sajaavat Events transformed our wedding stage into something absolutely magical. The backdrop styling complemented our ceremony perfectly and every guest was amazed. The team understood our requirements, guided us through the design, and delivered beyond expectations.",
             "datePublished": "2024-09-15"
         },
         {
@@ -198,7 +164,8 @@ export default function StructuredData() {
                 "ratingValue": "5",
                 "bestRating": "5"
             },
-            "reviewBody": "For our company's 10th anniversary celebration, Sajaavat Events delivered exceptional corporate styling that perfectly matched our brand colors. The balloon installations added elegance to our event without being overwhelming. Highly professional service and outstanding attention to detail.",
+            "reviewBody":
+                "For our company’s anniversary event, Sajaavat Events delivered exceptional styling that matched our brand. The stage and backdrop looked premium, the setup was seamless, and the attention to detail was outstanding. Highly professional from start to finish.",
             "datePublished": "2024-11-20"
         },
         {
@@ -217,7 +184,8 @@ export default function StructuredData() {
                 "ratingValue": "5",
                 "bestRating": "5"
             },
-            "reviewBody": "We wanted something that honored our Pakistani traditions while being modern and elegant. Sajaavat Events delivered exactly that! The burgundy and gold balloon arch was stunning, and they even incorporated some traditional patterns. Our families were so impressed, and the photos turned out beautifully.",
+            "reviewBody":
+                "We wanted decor that honoured our traditions while still feeling modern and elegant. Sajaavat Events delivered exactly that — a stunning stage and reception setup with thoughtful details. Our families were so impressed and the photos turned out beautifully.",
             "datePublished": "2024-08-10"
         },
         {
@@ -236,7 +204,8 @@ export default function StructuredData() {
                 "ratingValue": "5",
                 "bestRating": "5"
             },
-            "reviewBody": "The surprise gender reveal setup was absolutely perfect! Sajaavat Events created a beautiful neutral backdrop that transformed into the most amazing pink explosion when we popped the balloon. The whole family was in tears of joy. Thank you for making our moment so special!",
+            "reviewBody":
+                "The surprise celebration setup was absolutely perfect. Sajaavat Events created a beautiful backdrop and styled the whole area so it felt really special. The team were friendly, organised, and the final look exceeded what we imagined.",
             "datePublished": "2024-12-05"
         },
         {
@@ -255,30 +224,26 @@ export default function StructuredData() {
                 "ratingValue": "5",
                 "bestRating": "5"
             },
-            "reviewBody": "The golden balloon arch for our Tamil wedding reception was absolutely breathtaking. Sajaavat Events understood the significance of our traditions and created decorations that perfectly honored our heritage. The setup was elegant, sophisticated, and photographed beautifully.",
+            "reviewBody":
+                "The stage and backdrop styling for our reception was breathtaking. Sajaavat Events understood the significance of our traditions and created decor that felt elegant and meaningful. Everything was beautifully finished and photographed so well.",
             "datePublished": "2024-07-18"
         }
     ]
 
     return (
         <>
-            {/* Main LocalBusiness schema - THE ONLY business schema on the site */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify(localBusinessSchema)
                 }}
             />
-
-            {/* Website info */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify(websiteSchema)
                 }}
             />
-
-            {/* Real customer reviews */}
             {reviewSchemas.map((review, index) => (
                 <script
                     key={index}
