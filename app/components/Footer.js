@@ -250,7 +250,7 @@ export default function Footer({hasHeader = true}) {
                                 Request Your Free Decor Quote
                             </h2>
                             <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-                                Planning pre-wedding events, weddings or parties? Share your theme, venue, and vision — we'll create a
+                                Planning pre-wedding events, weddings or parties? Share your theme, venue, and vision — we&apos;ll create a
                                 bespoke decor concept with statement backdrops and styling that elevates your space. Based in the Midlands and
                                 available across the UK.
                             </p>
@@ -455,9 +455,12 @@ export default function Footer({hasHeader = true}) {
                                             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                                                 {imagePreviewUrls.map((url, index) => (
                                                     <div key={index} className="relative group">
-                                                        <img
+                                                        <Image
                                                             src={url}
                                                             alt={`Inspiration ${index + 1}`}
+                                                            width={400}
+                                                            height={96}
+                                                            unoptimized
                                                             className="w-full h-24 object-cover rounded-lg border-2 border-neutral-200"
                                                         />
                                                         <button
