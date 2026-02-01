@@ -8,7 +8,10 @@ import {
     Send,
     CheckCircle,
     AlertCircle,
-    Instagram
+    Instagram,
+    Upload,
+    X,
+    Image as ImageIcon
 } from 'lucide-react'
 import {Button} from '@/app/components/Button'
 import Image from 'next/image'
@@ -26,6 +29,8 @@ export default function Footer({hasHeader = true}) {
         message: ''
     })
     const [errors, setErrors] = useState({})
+    const [selectedImages, setSelectedImages] = useState([])
+    const [imagePreviewUrls, setImagePreviewUrls] = useState([])
 
     const handleInputChange = (e) => {
         const {name, value} = e.target
@@ -33,6 +38,58 @@ export default function Footer({hasHeader = true}) {
         if (errors[name]) {
             setErrors(prev => ({...prev, [name]: ''}))
         }
+    }
+
+    const handleImageSelect = (e) => {
+        const files = Array.from(e.target.files)
+
+        if (files.length + selectedImages.length > 5) {
+            setErrors(prev => ({...prev, images: 'Maximum 5 images allowed'}))
+            return
+        }
+
+        const validFiles = []
+        const validPreviews = []
+        let hasError = false
+
+        for (const file of files) {
+            const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp']
+            if (!validTypes.includes(file.type)) {
+                setErrors(prev => ({...prev, images: 'Only JPG, PNG, and WebP images are allowed'}))
+                hasError = true
+                break
+            }
+
+            if (file.size > 5 * 1024 * 1024) {
+                setErrors(prev => ({...prev, images: 'Each image must be under 5MB'}))
+                hasError = true
+                break
+            }
+
+            validFiles.push(file)
+
+            const reader = new FileReader()
+            reader.onloadend = () => {
+                validPreviews.push(reader.result)
+                if (validPreviews.length === validFiles.length) {
+                    setImagePreviewUrls(prev => [...prev, ...validPreviews])
+                }
+            }
+            reader.readAsDataURL(file)
+        }
+
+        if (!hasError) {
+            setSelectedImages(prev => [...prev, ...validFiles])
+            setErrors(prev => ({...prev, images: ''}))
+        }
+
+        e.target.value = ''
+    }
+
+    const removeImage = (index) => {
+        setSelectedImages(prev => prev.filter((_, i) => i !== index))
+        setImagePreviewUrls(prev => prev.filter((_, i) => i !== index))
+        setErrors(prev => ({...prev, images: ''}))
     }
 
     const validateForm = () => {
@@ -68,12 +125,30 @@ export default function Footer({hasHeader = true}) {
         setSubmitStatus(null)
 
         try {
+            const imagePromises = selectedImages.map(file => {
+                return new Promise((resolve, reject) => {
+                    const reader = new FileReader()
+                    reader.onloadend = () => resolve({
+                        data: reader.result,
+                        name: file.name,
+                        type: file.type
+                    })
+                    reader.onerror = reject
+                    reader.readAsDataURL(file)
+                })
+            })
+
+            const images = await Promise.all(imagePromises)
+
             const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify({
+                    ...formData,
+                    images
+                })
             })
 
             const data = await response.json()
@@ -96,6 +171,8 @@ export default function Footer({hasHeader = true}) {
                     eventDates: '',
                     message: ''
                 })
+                setSelectedImages([])
+                setImagePreviewUrls([])
             } else {
                 throw new Error(data.error || 'Something went wrong')
             }
@@ -173,7 +250,7 @@ export default function Footer({hasHeader = true}) {
                                 Request Your Free Decor Quote
                             </h2>
                             <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-                                Planning pre-wedding events, weddings or parties? Share your theme, venue, and vision — we’ll create a
+                                Planning pre-wedding events, weddings or parties? Share your theme, venue, and vision — we'll create a
                                 bespoke decor concept with statement backdrops and styling that elevates your space. Based in the Midlands and
                                 available across the UK.
                             </p>
@@ -323,6 +400,92 @@ export default function Footer({hasHeader = true}) {
                                         <p id="message-error" className="mt-1 text-sm text-red-600"
                                            role="alert">{errors.message}</p>
                                     )}
+                                </div>
+
+                                {/* Image Upload Section */}
+                                <div>
+                                    <label className="block text-sm font-medium text-neutral-900 mb-2">
+                                        Inspiration Photos (Optional)
+                                    </label>
+                                    <div className="space-y-3">
+                                        <div className="flex items-center justify-center w-full">
+                                            <label
+                                                htmlFor="image-upload"
+                                                className={`flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer transition-colors ${
+                                                    errors.images
+                                                        ? 'border-red-500 bg-red-50 hover:bg-red-100'
+                                                        : 'border-neutral-300 bg-neutral-50 hover:bg-neutral-100'
+                                                }`}
+                                            >
+                                                <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                                    <Upload className={`w-8 h-8 mb-2 ${errors.images ? 'text-red-500' : 'text-neutral-400'}`} />
+                                                    <p className="mb-2 text-sm text-neutral-600">
+                                                        <span className="font-semibold">Click to upload</span> or drag and drop
+                                                    </p>
+                                                    <p className="text-xs text-neutral-500">
+                                                        JPG, PNG, or WebP (max 5MB each, up to 5 images)
+                                                    </p>
+                                                </div>
+                                                <input
+                                                    id="image-upload"
+                                                    type="file"
+                                                    multiple
+                                                    accept="image/jpeg,image/jpg,image/png,image/webp"
+                                                    onChange={handleImageSelect}
+                                                    className="hidden"
+                                                    aria-describedby={errors.images ? 'images-error' : 'images-help'}
+                                                />
+                                            </label>
+                                        </div>
+
+                                        {errors.images && (
+                                            <p id="images-error" className="text-sm text-red-600" role="alert">
+                                                {errors.images}
+                                            </p>
+                                        )}
+
+                                        {!errors.images && selectedImages.length === 0 && (
+                                            <p id="images-help" className="text-xs text-neutral-500">
+                                                Upload photos of decor styles you love to help us understand your vision
+                                            </p>
+                                        )}
+
+                                        {/* Image Previews */}
+                                        {imagePreviewUrls.length > 0 && (
+                                            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                                {imagePreviewUrls.map((url, index) => (
+                                                    <div key={index} className="relative group">
+                                                        <img
+                                                            src={url}
+                                                            alt={`Inspiration ${index + 1}`}
+                                                            className="w-full h-24 object-cover rounded-lg border-2 border-neutral-200"
+                                                        />
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => removeImage(index)}
+                                                            className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                            aria-label={`Remove image ${index + 1}`}
+                                                        >
+                                                            <X className="w-4 h-4" />
+                                                        </button>
+                                                        {selectedImages[index]?.size != null && (
+                                                            <div className="absolute bottom-1 left-1 bg-black bg-opacity-50 text-white text-xs px-2 py-1 rounded">
+                                                                {(selectedImages[index].size / 1024 / 1024).toFixed(1)}MB
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+
+                                        {selectedImages.length > 0 && (
+                                            <p className="text-xs text-neutral-600 flex items-center gap-1">
+                                                <ImageIcon className="w-3 h-3" />
+                                                {selectedImages.length} image{selectedImages.length > 1 ? 's' : ''} selected
+                                                {selectedImages.length < 5 && ` (${5 - selectedImages.length} more allowed)`}
+                                            </p>
+                                        )}
+                                    </div>
                                 </div>
 
                                 <Button
