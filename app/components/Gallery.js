@@ -7,7 +7,6 @@ import {
     ChevronRight,
     Heart,
     Baby,
-    Building2,
     Grid3x3
 } from 'lucide-react'
 import {Button} from '@/app/components/Button'
@@ -22,273 +21,91 @@ export default function Gallery() {
     const galleryImages = useMemo(() => [
         {
             id: 1,
-            src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
-            alt: 'Bespoke wedding stage backdrop and elegant venue styling by Sajaavat Events, Coventry and UK wide',
-            category: 'wedding',
-            title: 'Romantic Wedding Stage & Backdrop Styling',
-            description: 'A refined stage focal point designed to elevate the ceremony and create a photo-ready backdrop.',
-            event: 'Wedding Ceremony Styling',
-            location: 'UK Venue',
-            culturalElements: 'Bespoke staging, curated colour palette',
-            keywords: 'wedding decor Coventry, bespoke wedding backdrop, stage styling UK',
+            src: '/images/gallery/ss-event/SS-Chunni-Landscape-2.jpg',
+            alt: 'Chunni decor for Sukhkaran and Simrans chunni event',
+            category: 'pre-wedding',
+            title: 'Blush Meets Blue Theme - Sukhkaran and Simran',
+            description: 'A soft and intimate pre-wedding setup designed for a Chunni ceremony, featuring a neutral velvet seating area framed with delicate florals and gold accents. The styling creates a warm, welcoming atmosphere that feels elegant yet personal — perfect for meaningful family moments and timeless photographs.',
+            event: 'Chunni ceremony event',
+            location: 'Coventry',
+            culturalElements: 'Elegant, intimate, and emotionally warm — perfect for meaningful pre-wedding rituals.',
+            keywords: 'event decor, bespoke pre-wedding backdrop, chunni, coventry',
             images: [
                 {
-                    src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
-                    alt: 'Main view of a bespoke wedding stage backdrop and decor styling'
+                    src: '/images/gallery/ss-event/SS-Chunni-Landscape-1.jpg',
+                    alt: 'Before the decoration for chunni event'
                 },
                 {
-                    src: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&h=600&fit=crop',
-                    alt: 'Close-up detail of the backdrop styling and decor finish'
+                    src: '/images/gallery/ss-event/SS-Chunni-Landscape-2.jpg',
+                    alt: 'After the decoration for chunni event'
                 },
                 {
-                    src: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&h=600&fit=crop',
-                    alt: 'Full venue setup showing coordinated wedding decor styling'
+                    src: '/images/gallery/ss-event/SS-Chunni-Landscape-3.jpg',
+                    alt: 'Chunni decor event'
+                },
+                {
+                    src: '/images/gallery/ss-event/SS-Chunni-Landscape-5.jpg',
+                    alt: 'Centrepiece chunni event'
                 }
             ]
         },
         {
             id: 2,
-            src: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop',
-            alt: 'Bespoke celebration backdrop and styling for a baby celebration by Sajaavat Events in the UK',
-            category: 'baby-shower',
-            title: 'Baby Celebration Backdrop & Styling',
-            description: 'A soft, modern setup designed for guest photos and a standout focal point.',
-            event: 'Baby Celebration Styling',
-            location: 'Private Venue, UK',
-            culturalElements: 'Modern styling, photo moment backdrop',
-            keywords: 'baby celebration decor, event backdrop UK, party styling Coventry',
-            images: [
-                {
-                    src: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop',
-                    alt: 'Main backdrop styling for a baby celebration'
-                },
-                {
-                    src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
-                    alt: 'Coordinated dessert table and decor styling'
-                },
-                {
-                    src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop',
-                    alt: 'Guest area styled to match the event decor theme'
-                }
-            ]
-        },
-        {
-            id: 3,
-            src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop',
-            alt: 'Corporate event styling with a premium stage setup and branded backdrop by Sajaavat Events in the UK',
-            category: 'corporate',
-            title: 'Corporate Stage & Branded Backdrop Styling',
-            description: 'A polished event setup designed to align with branding and elevate the guest experience.',
-            event: 'Corporate Event Styling',
-            location: 'Conference Venue, UK',
-            culturalElements: 'Corporate aesthetic, brand-led styling',
-            keywords: 'corporate event decor UK, branded backdrop, venue styling',
-            images: [
-                {
-                    src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop',
-                    alt: 'Main corporate stage and backdrop styling'
-                },
-                {
-                    src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop',
-                    alt: 'Event focal point and branded setup styling'
-                },
-                {
-                    src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
-                    alt: 'Corporate venue entrance styling and decor details'
-                }
-            ]
-        },
-        {
-            id: 4,
-            src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop',
-            alt: 'Mandap-inspired wedding stage decor and elegant backdrop styling by Sajaavat Events, Coventry and UK wide',
+            src: '/images/gallery/ss-event/SS-Wedding-Landscape-2.JPG',
+            alt: 'Wedding day decor for Sukhkaran and Simrans big day',
             category: 'wedding',
-            title: 'Mandap-Inspired Stage & Reception Styling',
-            description: 'A luxury focal stage designed with cultural sensitivity and a modern, premium finish.',
-            event: 'Cultural Wedding Styling',
-            location: 'Banquet Hall, UK',
-            culturalElements: 'Mandap-inspired staging, modern luxury styling',
-            keywords: 'Asian wedding decor UK, mandap styling, stage decor Coventry',
+            title: 'The Maharaja Theme - Sukhkaran and Simran',
+            description: 'A refined wedding stage designed with layered textures, draped fabrics, and muted neutral tones to create a calm yet luxurious focal point. The setup balances tradition with modern elegance, offering a timeless backdrop that photographs beautifully from every angle.',
+            event: 'Wedding day ceremony',
+            location: 'Coventry',
+            culturalElements: 'Calm, luxurious, and timeless — a sophisticated stage that elevates the ceremony without distraction.',
+            keywords: 'event decor, bespoke wedding backdrop, wedding, coventry',
             images: [
                 {
-                    src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop',
-                    alt: 'Mandap-inspired stage setup and wedding decor styling'
+                    src: '/images/gallery/ss-event/SS-Wedding-Landscape-1.JPG',
+                    alt: 'The Maharaja theme styled backdrop'
                 },
                 {
-                    src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop',
-                    alt: 'Traditional ceremony styling details with a luxury finish'
-                },
-                {
-                    src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
-                    alt: 'Reception hall setup showing cohesive decor styling'
+                    src: '/images/gallery/ss-event/SS-Wedding-Portrait-2.JPG',
+                    alt: 'Simran on her special day with the Maharaja theme backdrop'
                 }
             ]
         },
-        {
-            id: 5,
-            src: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&h=600&fit=crop',
-            alt: 'Luxury celebration backdrop and themed styling for a baby celebration by Sajaavat Events in the UK',
-            category: 'baby-shower',
-            title: 'Luxury Celebration Backdrop & Theme Styling',
-            description: 'A premium theme-led setup designed for photos, guest moments, and an elevated finish.',
-            event: 'Private Celebration Styling',
-            location: 'Family Venue, UK',
-            culturalElements: 'Luxury theme styling, photo-ready focal point',
-            keywords: 'luxury party decor, celebration backdrop, event styling UK',
-            images: [
-                {
-                    src: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=800&h=600&fit=crop',
-                    alt: 'Luxury themed celebration setup and backdrop styling'
-                },
-                {
-                    src: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop',
-                    alt: 'Styled gift and dessert area matching the decor theme'
-                },
-                {
-                    src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop',
-                    alt: 'Feature photo area styled for guest pictures'
-                }
-            ]
-        },
-        {
-            id: 6,
-            src: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&h=600&fit=crop',
-            alt: 'Vibrant wedding decor and reception styling with a statement backdrop by Sajaavat Events in the UK',
-            category: 'wedding',
-            title: 'Vibrant Reception Styling & Statement Backdrop',
-            description: 'A bold, joyful colour story brought together with a cohesive stage and reception design.',
-            event: 'Reception Styling',
-            location: 'Community Venue, UK',
-            culturalElements: 'Bold colour palette, statement focal backdrop',
-            keywords: 'reception decor UK, statement backdrop, wedding styling Coventry',
-            images: [
-                {
-                    src: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&h=600&fit=crop',
-                    alt: 'Vibrant wedding reception decor styling and backdrop'
-                },
-                {
-                    src: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&h=600&fit=crop',
-                    alt: 'Decor detail showing coordinated styling elements'
-                },
-                {
-                    src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
-                    alt: 'Reception focal area designed for photography'
-                }
-            ]
-        },
-        {
-            id: 7,
-            src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop',
-            alt: 'Modern corporate event decor with a premium stage setup and brand-led styling by Sajaavat Events in the UK',
-            category: 'corporate',
-            title: 'Modern Product Launch Styling',
-            description: 'A clean, modern setup designed for high-impact launches, photos, and guest flow.',
-            event: 'Product Launch Styling',
-            location: 'London, UK',
-            culturalElements: 'Modern design, brand-led styling',
-            keywords: 'product launch decor UK, corporate styling, event backdrop',
-            images: [
-                {
-                    src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&h=600&fit=crop',
-                    alt: 'Main product launch stage and backdrop styling'
-                },
-                {
-                    src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop',
-                    alt: 'Brand-led decor styling for corporate event photography'
-                },
-                {
-                    src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
-                    alt: 'Event space styling designed for guest experience'
-                }
-            ]
-        },
-        {
-            id: 8,
-            src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
-            alt: 'Neutral celebration decor with a modern backdrop and venue styling by Sajaavat Events in the UK',
-            category: 'baby-shower',
-            title: 'Neutral Celebration Backdrop & Styling',
-            description: 'A calm, elegant setup with a natural palette, perfect for modern celebrations and photos.',
-            event: 'Celebration Styling',
-            location: 'Garden Venue, UK',
-            culturalElements: 'Neutral palette, modern styling',
-            keywords: 'neutral party decor, backdrop styling UK, venue styling',
-            images: [
-                {
-                    src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
-                    alt: 'Neutral decor setup with a photo-ready backdrop'
-                },
-                {
-                    src: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&h=600&fit=crop',
-                    alt: 'Outdoor venue styling details for celebration'
-                },
-                {
-                    src: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop',
-                    alt: 'Feature photo moment area styled in a natural theme'
-                }
-            ]
-        },
-        {
-            id: 9,
-            src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop',
-            alt: 'Elegant cultural wedding stage decor with luxury backdrop styling by Sajaavat Events in the UK',
-            category: 'wedding',
-            title: 'Elegant Cultural Wedding Stage Styling',
-            description: 'A luxury stage and backdrop concept designed with cultural understanding and premium finishing.',
-            event: 'Cultural Ceremony Styling',
-            location: 'Temple/Community Venue, UK',
-            culturalElements: 'Cultural styling, luxury finish, stage focal point',
-            keywords: 'cultural wedding decor UK, stage styling, luxury wedding backdrop',
-            images: [
-                {
-                    src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop',
-                    alt: 'Elegant wedding stage decor and backdrop styling'
-                },
-                {
-                    src: 'https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=800&h=600&fit=crop',
-                    alt: 'Ceremony area styled to match the decor concept'
-                },
-                {
-                    src: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&h=600&fit=crop',
-                    alt: 'Venue-wide styling showing cohesive decor finish'
-                }
-            ]
-        }
     ], [])
 
     const filterCategories = useMemo(() => [
         {
             id: 'all',
-            label: 'All Decor',
+            label: 'All Decor Events',
             icon: Grid3x3,
             count: galleryImages.length,
             description: 'Browse our complete portfolio of event decor and backdrops',
             keywords: 'event decor portfolio, backdrop styling gallery'
         },
         {
+            id: 'pre-wedding',
+            label: 'Pre-Wedding',
+            icon: Heart,
+            count: galleryImages.filter(img => img.category === 'pre-wedding').length,
+            description: 'Pre-wedding stages, backdrops styling',
+            keywords: 'pre-wedding decor Midlands and across the UK'
+        },
+        {
             id: 'wedding',
-            label: 'Weddings',
+            label: 'Wedding',
             icon: Heart,
             count: galleryImages.filter(img => img.category === 'wedding').length,
-            description: 'Wedding stages, backdrops, and reception styling',
-            keywords: 'wedding decor Coventry, wedding backdrop UK, stage decor'
+            description: 'Wedding stages, backdrops styling',
+            keywords: 'wedding decor Midlands and across the UK'
         },
         {
-            id: 'baby-shower',
-            label: 'Celebrations',
+            id: 'parties',
+            label: 'Parties',
             icon: Baby,
-            count: galleryImages.filter(img => img.category === 'baby-shower').length,
-            description: 'Celebration styling and photo moment backdrops',
-            keywords: 'party decor UK, celebration backdrops, venue styling'
+            count: galleryImages.filter(img => img.category === 'parties').length,
+            description: 'Party styling and photo moment backdrops',
+            keywords: 'party decor UK backdrops and venue styling'
         },
-        {
-            id: 'corporate',
-            label: 'Corporate',
-            icon: Building2,
-            count: galleryImages.filter(img => img.category === 'corporate').length,
-            description: 'Corporate event styling and branded backdrops',
-            keywords: 'corporate event decor UK, branded backdrop, launch styling'
-        }
     ], [galleryImages])
 
     useEffect(() => {
@@ -384,11 +201,10 @@ export default function Gallery() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h2 id="gallery-heading" className="text-3xl lg:text-5xl font-bold text-neutral-900 mb-6" itemProp="name">
-                        Our Wedding & Event Decor Portfolio
+                        Our Event Decor Portfolio
                     </h2>
                     <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed" itemProp="description">
-                        Explore a selection of our bespoke backdrops and event styling across Coventry and the UK. From wedding stages and
-                        reception setups to celebration photo moments and corporate branding, each concept is designed to elevate your venue.
+                        Explore a selection of our bespoke backdrops and event styling across the Midlands and the UK. From pre-wedding and wedding stages to party photo moments, each concept is designed to elevate your vision.
                     </p>
                 </div>
 
@@ -469,12 +285,12 @@ export default function Gallery() {
 
                                 <div className="absolute top-4 left-4">
                                     <span className={`px-3 py-1 rounded-full text-xs font-medium text-neutral-50 ${
-                                        image.category === 'wedding' ? 'bg-primary-500' :
-                                            image.category === 'baby-shower' ? 'bg-pink-500' :
+                                        image.category === 'pre-wedding' ? 'bg-blue-500' :
+                                            image.category === 'wedding' ? 'bg-pink-500' :
                                                 'bg-blue-500'
                                     }`}>
-                                        {image.category === 'baby-shower' ? 'Celebration' :
-                                            image.category === 'wedding' ? 'Wedding' : 'Corporate'}
+                                        {image.category === 'parties' ? 'Parties' :
+                                            image.category === 'pre-wedding' ? 'Pre-Wedding' : 'Wedding'}
                                     </span>
                                 </div>
 
@@ -642,11 +458,10 @@ export default function Gallery() {
             )}
 
             <div className="sr-only" aria-hidden="true">
-                <h3>Wedding and Event Decor Gallery</h3>
+                <h3>Event Decor Gallery</h3>
                 <p>
-                    Bespoke wedding and event decor portfolio featuring luxury backdrops, stage styling, mandap-inspired setups, reception decor,
-                    celebration styling, and corporate event backdrops. Based in Coventry, serving the West Midlands and across the UK including
-                    Birmingham, Leicester, Warwick, Solihull, London, Manchester, Leeds, and surrounding areas.
+                    Bespoke event decor portfolio featuring luxury backdrops, stage styling, party styling, and pre-wedding and wedding backdrops. Based in the Midlands, and serving across the UK including
+                    Coventry, Birmingham, Leicester, Warwick, Solihull, London, Manchester, Leeds, and surrounding areas.
                 </p>
             </div>
         </section>

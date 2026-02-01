@@ -1,136 +1,107 @@
 export async function GET() {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
-    const currentDate = new Date().toISOString()
+    const rawBaseUrl = process.env.NEXT_PUBLIC_SITE_URL
+
+    if (!rawBaseUrl) {
+        return new Response('Missing NEXT_PUBLIC_SITE_URL', { status: 500 })
+    }
+
+    const baseUrl = rawBaseUrl.replace(/\/$/, '')
+
+    const LASTMOD_CHUNNI = '2025-08-01T00:00:00.000Z'
+    const LASTMOD_WEDDING = '2025-09-01T00:00:00.000Z'
+
+    const escapeXml = (value = '') =>
+        String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&apos;')
 
     const images = [
         {
             loc: `${baseUrl}/`,
-            imageUrl: `${baseUrl}/images/hero/event-decor-main.jpg`,
-            caption: 'Bespoke wedding and event decor with luxury backdrop styling by Sajaavat Events in Coventry, UK',
-            title: 'Bespoke Wedding & Event Decor - Sajaavat Events',
-            license: `${baseUrl}/terms`,
-            geoLocation: 'Coventry, UK'
+            imageUrl: `${baseUrl}/images/gallery/ss-event/SS-Chunni-Landscape-2.jpg`,
+            caption:
+                "Blush and powder-blue chunni event decor with a styled stage moment and floral finishing — designed by Sajaavat Events in Coventry.",
+            title: "Chunni Event Decor - Sajaavat Events",
+            geoLocation: 'Coventry, UK',
+            lastmod: LASTMOD_CHUNNI,
         },
         {
             loc: `${baseUrl}/`,
-            imageUrl: `${baseUrl}/images/hero/wedding-stage-backdrop.jpg`,
-            caption: 'Elegant wedding stage backdrop and venue styling designed by Sajaavat Events (UK-wide service)',
-            title: 'Wedding Stage Backdrop Styling - Sajaavat Events',
-            license: `${baseUrl}/terms`,
-            geoLocation: 'Coventry, West Midlands, UK'
+            imageUrl: `${baseUrl}/images/gallery/ss-event/SS-Wedding-Landscape-1.JPG`,
+            caption:
+                "Wedding day stage styling with a regal, premium finish and photo-ready details — created by Sajaavat Events (Coventry, UK-wide).",
+            title: "Wedding Day Stage Styling - Sajaavat Events",
+            geoLocation: 'Coventry, West Midlands, UK',
+            lastmod: LASTMOD_WEDDING,
         },
         {
             loc: `${baseUrl}/`,
-            imageUrl: `${baseUrl}/images/hero/corporate-event-styling.jpg`,
-            caption: 'Professional corporate event styling with premium backdrop setup by Sajaavat Events',
-            title: 'Corporate Event Styling & Backdrops - Sajaavat Events',
-            license: `${baseUrl}/terms`,
-            geoLocation: 'United Kingdom'
+            imageUrl: `${baseUrl}/images/gallery/ss-event/SS-Wedding-Landscape-2.JPG`,
+            caption:
+                "Wedding reception decor featuring a luxury stage setup with clean lines, layered textures, and a polished, modern finish — by Sajaavat Events.",
+            title: "Wedding Reception Decor - Sajaavat Events",
+            geoLocation: 'Coventry, UK',
+            lastmod: LASTMOD_WEDDING,
         },
         {
-            loc: `${baseUrl}/#services`,
-            imageUrl: `${baseUrl}/images/services/wedding-stage-styling.jpg`,
-            caption: 'Bespoke wedding stage styling and luxury backdrop setup for ceremonies and receptions',
-            title: 'Wedding Stage Styling & Luxury Backdrops',
-            license: `${baseUrl}/terms`,
-            geoLocation: 'Coventry, UK'
+            loc: `${baseUrl}/#testimonials`,
+            imageUrl: `${baseUrl}/images/gallery/ss-event/SS-Chunni-Landscape-4.jpg`,
+            caption:
+                "Chunni event decor featuring a styled stage setup with coordinated florals and a soft, elegant colour palette by Sajaavat Events in Coventry.",
+            title: "Chunni Event Decor & Styling - Sajaavat Events",
+            geoLocation: 'Coventry, UK',
+            lastmod: LASTMOD_CHUNNI,
         },
         {
-            loc: `${baseUrl}/#services`,
-            imageUrl: `${baseUrl}/images/services/cultural-ceremony-decor.jpg`,
-            caption: 'Culturally considerate ceremony decor with mandap-inspired staging and elegant venue styling',
-            title: 'Cultural Ceremony Decor & Mandap-Inspired Styling',
-            license: `${baseUrl}/terms`,
-            geoLocation: 'West Midlands, UK'
+            loc: `${baseUrl}/#testimonials`,
+            imageUrl: `${baseUrl}/images/gallery/ss-event/SS-Wedding-Portrait-4.JPG`,
+            caption:
+                "Wedding day portrait styling with a premium, photo-ready backdrop setup created by Sajaavat Events in Coventry (UK-wide service).",
+            title: "Wedding Day Backdrop Styling - Sajaavat Events",
+            geoLocation: 'Coventry, West Midlands, UK',
+            lastmod: LASTMOD_WEDDING,
         },
         {
-            loc: `${baseUrl}/#services`,
-            imageUrl: `${baseUrl}/images/services/reception-backdrop.jpg`,
-            caption: 'Reception decor and statement backdrop styling designed for guest experience and photography',
-            title: 'Reception Decor & Statement Backdrops',
-            license: `${baseUrl}/terms`,
-            geoLocation: 'United Kingdom'
+            loc: `${baseUrl}/#testimonials`,
+            imageUrl: `${baseUrl}/images/gallery/ss-event/SS-Wedding-Portrait-1.JPG`,
+            caption:
+                "Elegant wedding styling detail shot featuring curated textures and a clean finish for photography by Sajaavat Events.",
+            title: "Wedding Styling Details - Sajaavat Events",
+            geoLocation: 'Coventry, UK',
+            lastmod: LASTMOD_WEDDING,
         },
-        {
-            loc: `${baseUrl}/#services`,
-            imageUrl: `${baseUrl}/images/services/entrance-styling.jpg`,
-            caption: 'Event entrance styling and welcome display decor for weddings, celebrations, and corporate events',
-            title: 'Event Entrance Styling & Welcome Displays',
-            license: `${baseUrl}/terms`,
-            geoLocation: 'Coventry, UK'
-        },
-        {
-            loc: `${baseUrl}/#gallery`,
-            imageUrl: `${baseUrl}/images/gallery/wedding-portfolio-1.jpg`,
-            caption: 'Wedding decor portfolio featuring bespoke backdrops, stage styling, and venue transformation',
-            title: 'Wedding Decor Portfolio - Backdrops & Stage Styling',
-            license: `${baseUrl}/terms`,
-            geoLocation: 'United Kingdom'
-        },
-        {
-            loc: `${baseUrl}/#gallery`,
-            imageUrl: `${baseUrl}/images/gallery/celebration-portfolio.jpg`,
-            caption: 'Celebration decor portfolio with themed backdrops and photo-ready styling',
-            title: 'Celebration Decor Portfolio - Backdrops & Styling',
-            license: `${baseUrl}/terms`,
-            geoLocation: 'United Kingdom'
-        },
-        {
-            loc: `${baseUrl}/#gallery`,
-            imageUrl: `${baseUrl}/images/gallery/corporate-portfolio.jpg`,
-            caption: 'Corporate decor portfolio showcasing branded backdrops and professional event styling',
-            title: 'Corporate Event Decor Portfolio - Branded Backdrops',
-            license: `${baseUrl}/terms`,
-            geoLocation: 'United Kingdom'
-        },
-        {
-            loc: `${baseUrl}/`,
-            imageUrl: `${baseUrl}/images/regions/west-midlands-event-decor.jpg`,
-            caption: 'Event decor specialists based in Coventry serving the West Midlands and across the UK',
-            title: 'Coventry Event Decor Specialists - UK Wide Service',
-            license: `${baseUrl}/terms`,
-            geoLocation: 'Coventry, West Midlands, UK'
-        },
-        {
-            loc: `${baseUrl}/#gallery`,
-            imageUrl: `${baseUrl}/images/process/venue-transformation.jpg`,
-            caption: 'Venue transformation showing before and after a bespoke decor and backdrop setup',
-            title: 'Venue Transformation - Bespoke Decor & Backdrops',
-            license: `${baseUrl}/terms`,
-            geoLocation: 'United Kingdom'
-        },
-        {
-            loc: `${baseUrl}/`,
-            imageUrl: `${baseUrl}/images/team/event-styling-team.jpg`,
-            caption: 'Sajaavat Events team preparing a bespoke backdrop and venue styling setup',
-            title: 'Event Styling Team - Sajaavat Events',
-            license: `${baseUrl}/terms`,
-            geoLocation: 'Coventry, UK'
-        }
     ]
 
     const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-${images.map(image => `  <url>
-    <loc>${image.loc}</loc>
-    <image:image>
-      <image:loc>${image.imageUrl}</image:loc>
-      <image:caption>${image.caption}</image:caption>
-      <image:title>${image.title}</image:title>
-      <image:license>${image.license}</image:license>
-      <image:geo_location>${image.geoLocation}</image:geo_location>
-    </image:image>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>`).join('\n')}
-</urlset>`
+        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+                xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        ${images
+                .map(
+                    (img) => `  
+                    <url>
+                        <loc>${escapeXml(img.loc)}</loc>
+                        <image:image>
+                          <image:loc>${escapeXml(img.imageUrl)}</image:loc>
+                          <image:caption>${escapeXml(img.caption)}</image:caption>
+                          <image:title>${escapeXml(img.title)}</image:title>
+                          <image:license>${escapeXml(img.license)}</image:license>
+                          <image:geo_location>${escapeXml(img.geoLocation)}</image:geo_location>
+                        </image:image>
+                        <lastmod>${escapeXml(img.lastmod)}</lastmod>
+                        <changefreq>monthly</changefreq>
+                        <priority>0.8</priority>
+                      </url>`
+                )
+                .join('\n')}
+        </urlset>`
 
     return new Response(xmlContent, {
         status: 200,
         headers: {
-            'Content-Type': 'application/xml',
+            'Content-Type': 'application/xml; charset=utf-8',
             'Cache-Control': 'public, max-age=86400',
         },
     })

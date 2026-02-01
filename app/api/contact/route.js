@@ -89,9 +89,7 @@ export async function POST(request) {
                                 What Happens Next?
                             </h2>
                             <ul style="margin: 0 0 25px; padding-left: 20px; line-height: 1.8;">
-                                <li><strong>Within 24 hours:</strong> We’ll respond with next steps and a tailored estimate</li>
-                                <li><strong>Free consultation:</strong> We’ll discuss your vision, theme, colours, and venue</li>
-                                <li><strong>Site visit (if needed):</strong> We can arrange a complimentary walkthrough for larger setups</li>
+                                <li><strong>We've recieved your enquiry,</strong> we will aim to respond within 48 hours. Thank you for enquiring.</li>
                             </ul>
 
                             <h3 style="color: #2b2020; margin: 0 0 10px; font-size: 16px; font-weight: 600;">

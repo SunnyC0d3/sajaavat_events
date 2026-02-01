@@ -3,22 +3,18 @@ Allow: /
 
 # Disallow admin and private areas
 Disallow: /admin/
-Disallow: /api/
-Disallow: /_next/
+Disallow: /_next/cache/
 Disallow: /private/
 
 # Allow important directories
 Allow: /images/
-Allow: /public/
+Allow: /_next/static/
+Allow: /api/
 
 # Block common bot paths
 Disallow: /cgi-bin/
 Disallow: /wp-admin/
 Disallow: /wp-content/
-Disallow: /.well-known/
-
-# Crawl delay (be respectful)
-Crawl-delay: 1
 
 # Sitemaps - single page focus
 Sitemap: https://sajaavat-events.com/sitemap.xml

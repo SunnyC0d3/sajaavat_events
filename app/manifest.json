@@ -1,7 +1,7 @@
 {
-  "name": "Sajavaat Events - Premium Balloon Arch Decorations",
+  "name": "Sajavaat Events",
   "short_name": "Sajavaat Events",
-  "description": "Transform your special day with stunning balloon artistry. Specializing in Asian wedding decorations, baby showers, and event styling in London.",
+  "description": "At Sajaavat Events, we design and deliver bespoke event decor and statement backdrops for pre-wedding events, weddings and parties across the UK.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#fdfcfc",
@@ -11,10 +11,8 @@
   "lang": "en-GB",
   "dir": "ltr",
   "categories": [
-    "lifestyle",
-    "entertainment",
     "events",
-    "business"
+    "decor"
   ],
   "icons": [
     {
@@ -22,44 +20,6 @@
       "sizes": "72x72",
       "type": "image/png",
       "purpose": "any"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Book Consultation",
-      "short_name": "Book Now",
-      "description": "Book a free consultation for your event",
-      "url": "/#contact",
-      "icons": [
-        {
-          "src": "/images/icons/calendar-icon.png",
-          "sizes": "96x96"
-        }
-      ]
-    },
-    {
-      "name": "View Gallery",
-      "short_name": "Gallery",
-      "description": "Browse our portfolio of beautiful decorations",
-      "url": "/#gallery",
-      "icons": [
-        {
-          "src": "/images/icons/gallery-icon.png",
-          "sizes": "96x96"
-        }
-      ]
-    },
-    {
-      "name": "Contact Us",
-      "short_name": "Contact",
-      "description": "Get in touch via phone or WhatsApp",
-      "url": "/#contact",
-      "icons": [
-        {
-          "src": "/images/icons/phone-icon.png",
-          "sizes": "96x96"
-        }
-      ]
     }
   ],
   "related_applications": [],

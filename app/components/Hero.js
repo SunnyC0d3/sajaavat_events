@@ -1,201 +1,223 @@
 'use client'
 
-import {useState, useEffect, useMemo} from 'react'
-import {ArrowRight, Play, Star, Calendar, Users, Award} from 'lucide-react'
-import {Button} from '@/app/components/Button'
+import { useEffect, useMemo, useRef, useState, useCallback } from 'react'
 import Image from 'next/image'
+import {ChevronLeft, ChevronRight} from "lucide-react";
 
 export default function Hero() {
-    const [currentImageIndex, setCurrentImageIndex] = useState(0)
-    const heroImages = useMemo(() => [
-        {
-            url: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1200&h=800&fit=crop',
-            alt: 'Elegant wedding backdrop and stage decor with mandap-inspired styling by Sajaavat Events in the UK'
+    const slides = useMemo(
+        () => [
+            {
+                id: 'pre-wedding',
+                image: '/images/gallery/ss-event/SS-Chunni-Landscape-2.jpg',
+                alt: 'Sukhkaran and Simran\'s chunni event - Blush Meets Blue'
+            },
+            {
+                id: 'wedding',
+                image: '/images/gallery/ss-event/SS-Wedding-Landscape-1.JPG',
+                alt: 'Sukhkaran and Simran\'s wedding day - The Maharaja'
+            }
+        ],
+        []
+    )
+
+    const [index, setIndex] = useState(0)
+    const [isPaused, setIsPaused] = useState(false)
+    const trackRef = useRef(null)
+    const autoplayMs = 6000
+
+    const goTo = useCallback(
+        (next) => {
+            const clamped = (next + slides.length) % slides.length
+            setIndex(clamped)
         },
-        {
-            url: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=1200&h=800&fit=crop',
-            alt: 'Bespoke event backdrop and celebration decor setup by Sajaavat Events in Coventry and across the UK'
-        },
-        {
-            url: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1200&h=800&fit=crop',
-            alt: 'Corporate event styling with premium decor and branded backdrop by Sajaavat Events in the UK'
-        }
-    ], [])
+        [slides.length]
+    )
+
+    const next = useCallback(() => goTo(index + 1), [goTo, index])
+    const prev = useCallback(() => goTo(index - 1), [goTo, index])
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentImageIndex((prev) => (prev + 1) % heroImages.length)
-        }, 7000)
-        return () => clearInterval(interval)
-    }, [heroImages.length])
+        if (isPaused) return
+        const t = setInterval(() => next(), autoplayMs)
+        return () => clearInterval(t)
+    }, [isPaused, next])
 
-    const trustStats = [
-        {icon: Calendar, number: '3+', label: 'Years of Event Styling Experience', description: '3+ years creating bespoke decor and backdrops'},
-        {icon: Users, number: '200+', label: 'Happy Clients Nationwide', description: '200+ clients across Coventry, the Midlands, and the UK'},
-        {icon: Award, number: '500+', label: 'Events Styled Across the UK', description: '500+ weddings, celebrations, and corporate events styled'},
-        {icon: Star, number: '5.0', label: 'Average Rating', description: '5.0 star rating from customer reviews'},
-    ]
+    useEffect(() => {
+        const onKey = (e) => {
+            if (e.key === 'ArrowLeft') prev()
+            if (e.key === 'ArrowRight') next()
+        }
+        window.addEventListener('keydown', onKey)
+        return () => window.removeEventListener('keydown', onKey)
+    }, [next, prev])
+
+    useEffect(() => {
+        const el = trackRef.current
+        if (!el) return
+
+        let startX = 0
+        let startY = 0
+        let isTouching = false
+
+        const onTouchStart = (e) => {
+            isTouching = true
+            startX = e.touches[0].clientX
+            startY = e.touches[0].clientY
+        }
+
+        const onTouchEnd = (e) => {
+            if (!isTouching) return
+            isTouching = false
+            const endX = e.changedTouches[0].clientX
+            const endY = e.changedTouches[0].clientY
+            const dx = endX - startX
+            const dy = endY - startY
+
+            if (Math.abs(dy) > Math.abs(dx)) return
+
+            if (dx > 40) prev()
+            if (dx < -40) next()
+        }
+
+        el.addEventListener('touchstart', onTouchStart, { passive: true })
+        el.addEventListener('touchend', onTouchEnd, { passive: true })
+
+        return () => {
+            el.removeEventListener('touchstart', onTouchStart)
+            el.removeEventListener('touchend', onTouchEnd)
+        }
+    }, [next, prev])
 
     return (
-        <section
-            id="home"
-            className="bg-neutral-50"
-            aria-labelledby="hero-heading"
-        >
-            <div className="relative overflow-hidden">
-                <div className="absolute inset-0 z-0">
-                    {heroImages.map((image, index) => (
-                        <div
-                            key={index}
-                            className={`absolute inset-0 transition-opacity duration-2000 ${
-                                index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-                            }`}
-                        >
-                            <Image
-                                src={image.url}
-                                alt={image.alt}
-                                className="w-full h-full object-cover scale-110"
-                                style={{
-                                    opacity: 0.5
-                                }}
-                                width={1920}
-                                height={1080}
-                                loading={index === 0 ? "eager" : "lazy"}
-                                priority={index === 0}
-                            />
-                        </div>
-                    ))}
-                    <div className="absolute inset-0 bg-gradient-to-br from-neutral-80/90 via-neutral-50/65 to-neutral-80/90"></div>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-50/30 via-transparent to-accent-50/30 z-10" aria-hidden="true"></div>
-                <div className="absolute top-0 left-0 w-full h-full opacity-20 z-10" aria-hidden="true">
-                    <div className="absolute top-20 left-10 w-72 h-72 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-                    <div className="absolute top-40 right-10 w-72 h-72 bg-accent-200 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-                    <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-rose-200 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
-                </div>
-
-                <div className="relative max-w-7xl mx-auto p-6 min-h-[700px] flex items-center z-20">
-                    <div className="w-full text-center">
-                        <h1
-                            id="hero-heading"
-                            className="text-5xl font-bold text-neutral-900 mb-8 leading-tight max-w-5xl mx-auto"
-                        >
-                            Bespoke Wedding & Event Decor That Transforms Your Celebration
-                        </h1>
-
-                        <p
-                            className="text-xl text-neutral-600 mb-12 leading-relaxed max-w-4xl mx-auto"
-                        >
-                            At Sajaavat Events, we design and deliver bespoke event decor and statement backdrops for weddings,
-                            celebrations, and corporate events. From elegant stages and mandaps to modern reception styling and
-                            custom installations, we create beautifully curated spaces across Coventry and the UK.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-                            <Button
-                                variant="primary"
-                                size="xl"
-                                icon={Calendar}
-                                iconPosition="left"
-                                onClick={() => window.location.href = '#contact'}
-                                aria-label="Book a free event decor consultation"
+        <section id="home" className="bg-neutral-50">
+            <div
+                className="relative w-full"
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+                aria-roledescription="carousel"
+                aria-label="Homepage banners"
+            >
+                <div className="overflow-hidden">
+                    <div
+                        ref={trackRef}
+                        className="flex transition-transform duration-700 ease-out"
+                        style={{ transform: `translate3d(-${index * 100}%, 0, 0)` }}
+                    >
+                        {slides.map((slide) => (
+                            <div
+                                key={slide.id}
+                                className="relative min-w-full h-[520px] sm:h-[620px] lg:h-[720px]"
+                                role="group"
+                                aria-roledescription="slide"
+                                aria-label={slide.alt}
                             >
-                                Book a Free Decor Consultation
-                            </Button>
-                            <Button
-                                variant="outline"
-                                size="xl"
-                                icon={Play}
-                                iconPosition="left"
-                                onClick={() => window.location.href = '#gallery'}
-                                aria-label="Explore our portfolio of bespoke wedding and event decor"
-                            >
-                                Explore Our Decor Portfolio
-                            </Button>
-                        </div>
-                        <div
-                            className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto"
-                            role="region"
-                            aria-label="Sajaavat Events highlights"
-                        >
-                            {trustStats.map((stat, idx) => {
-                                const Icon = stat.icon
-                                return (
-                                    <div key={idx} className="bg-neutral-50/80 backdrop-blur-sm rounded-lg p-4 shadow-sm">
-                                        <div className="flex items-center justify-center mb-2">
-                                            <Icon className="w-5 h-5 text-neutral-700" aria-hidden="true" />
-                                        </div>
-                                        <div className="text-2xl font-bold text-neutral-900">{stat.number}</div>
-                                        <div className="text-sm font-semibold text-neutral-900 mt-1">{stat.label}</div>
-                                        <p className="text-xs text-neutral-600 mt-1">{stat.description}</p>
-                                    </div>
-                                )
-                            })}
-                        </div>
+                                <Image
+                                    src={slide.image}
+                                    alt={slide.alt}
+                                    fill
+                                    priority={slide.id === slides[0].id}
+                                    className="object-cover"
+                                />
+                                <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+                            </div>
+                        ))}
                     </div>
+                </div>
+                <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-2">
+                    {slides.map((s, i) => (
+                        <button
+                            key={s.id}
+                            type="button"
+                            onClick={() => goTo(i)}
+                            className={`h-2 rounded-full transition-all ${
+                                i === index ? 'w-8 bg-white' : 'w-2 bg-white/60 hover:bg-white/80'
+                            }`}
+                            aria-label={`Go to slide ${i + 1} of ${slides.length}`}
+                            aria-current={i === index ? 'true' : undefined}
+                        />
+                    ))}
+                </div>
+                <div className="pointer-events-none absolute inset-0 z-20 hidden md:block">
+                    <button
+                        onClick={prev}
+                        className="pointer-events-auto absolute left-4 lg:left-12 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-white/80 shadow-lg hover:bg-white transition"
+                        aria-label="Previous slide"
+                    >
+                        <ChevronLeft className="w-6 h-6 text-neutral-700" />
+                    </button>
+
+                    <button
+                        onClick={next}
+                        className="pointer-events-auto absolute right-4 lg:right-12 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-white/80 shadow-lg hover:bg-white transition"
+                        aria-label="Next slide"
+                    >
+                        <ChevronRight className="w-6 h-6 text-neutral-700" />
+                    </button>
                 </div>
             </div>
 
-            <div id="aboutus" className="bg-neutral-100 py-16">
+            <div id="aboutus" className="bg-neutral-900 py-16 lg:py-24">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-neutral-900 mb-4">
-                            Why Choose Sajaavat Events for Your Wedding or Event Decor?
-                        </h2>
-                        <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-                            Every venue, celebration, and guest experience is different. We take your vision and turn it into a
-                            cohesive decor plan — creating backdrops and styling moments that feel personal, elevated, and
-                            photo-ready.
-                        </p>
+                    <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+                        <div>
+                            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-neutral-50 leading-tight">
+                                WHY CHOOSE
+                                <br />
+                                SAJAAVAT EVENTS
+                                <br />
+                                FOR YOUR EVENT DECOR?
+                            </h2>
+                        </div>
+                        <div className="lg:pt-1">
+                            <p className="mt-6 text-neutral-300 text-lg">
+                                Bespoke styling, thoughtful design, and a premium finish — built around your celebration.
+                            </p>
+                            <br />
+                            <p className="text-neutral-200 text-base sm:text-lg leading-relaxed">
+                                We understand every client’s vision is different. We take the time to listen, plan, and design a
+                                setup that feels personal to you — with a focus on aesthetic balance, clean finishing, and
+                                photo-ready details from every angle.
+                            </p>
+                        </div>
                     </div>
-
-                    <div className="grid md:grid-cols-3 gap-8" role="region" aria-labelledby="why-choose-us">
-                        <h3 id="why-choose-us" className="sr-only">Why Choose Our Event Decor and Backdrop Services</h3>
-                        {[
-                            {
-                                title: 'Bespoke Design & Backdrops',
-                                description: 'Custom backdrops, stages, entrances, and feature moments designed around your theme, venue, and budget — from elegant minimal to full luxury.',
-                                icon: '🪄',
-                                keywords: 'bespoke event decor, custom backdrops, stage styling'
-                            },
-                            {
-                                title: 'Cultural & Modern Styling',
-                                description: 'Experience styling cultural ceremonies and modern events — including mandap-inspired stages and reception decor that blends heritage with contemporary design.',
-                                icon: '✨',
-                                keywords: 'Asian wedding decor UK, mandap styling, fusion wedding decor'
-                            },
-                            {
-                                title: 'Professional Setup & Finish',
-                                description: 'We plan, deliver, and style on the day with a focus on detail — ensuring everything looks polished, cohesive, and ready before guests arrive.',
-                                icon: '🎯',
-                                keywords: 'event styling service, venue setup, decor installation'
-                            }
-                        ].map((feature, index) => (
-                            <article
-                                key={index}
-                                className="text-center"
-                            >
-                                <div className="text-4xl mb-4" aria-hidden="true">{feature.icon}</div>
-                                <h3 className="text-xl font-semibold text-neutral-900 mb-3">
-                                    {feature.title}
-                                </h3>
-                                <p className="text-neutral-600 leading-relaxed">
-                                    {feature.description}
-                                </p>
-                            </article>
-                        ))}
-                    </div>
-
-                    <div className="text-center mt-12">
-                        <Button
-                            variant="primary"
-                            size="lg"
-                            icon={ArrowRight}
-                            iconPosition="right"
-                            onClick={() => window.location.href = '#contact'}
-                            aria-label="Contact Sajaavat Events to discuss event decor and backdrop styling"
-                        >
-                            Request Your Free Decor Quote
-                        </Button>
+                    <div className="mt-14 lg:mt-16">
+                        <h3 id="why-choose-us" className="sr-only">
+                            Why Choose Our Event Decor and Backdrop Services
+                        </h3>
+                        <div className="grid md:grid-cols-3 gap-10 md:gap-0">
+                            {[
+                                {
+                                    title: 'Bespoke Design & Backdrops',
+                                    description:
+                                        'Custom backdrops, decor and signage designed around your theme — from minimal to full luxury.',
+                                },
+                                {
+                                    title: 'Cultural & Modern Styling',
+                                    description:
+                                        'Styling that respects tradition while still feeling clean, modern and elevated for today’s celebrations.',
+                                },
+                                {
+                                    title: 'Professional Setup & Finish',
+                                    description:
+                                        'Planned delivery, clean installation, and detailed finishing so everything looks premium and photo-ready.',
+                                },
+                            ].map((feature, index) => (
+                                <div
+                                    key={feature.title}
+                                    className={`md:px-10 ${
+                                        index !== 0 ? 'md:border-l md:border-neutral-700' : ''
+                                    }`}
+                                >
+                                    <div className="text-neutral-50 text-lg font-semibold">
+                                        {feature.title}
+                                    </div>
+                                    <p className="mt-3 text-neutral-300 leading-relaxed">
+                                        {feature.description}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

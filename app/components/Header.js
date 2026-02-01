@@ -24,10 +24,10 @@ export default function Header() {
     }
 
     const navigationLinks = [
-        {href: '#aboutus', label: 'About Us', ariaLabel: 'Learn about Sajaavat Events and our bespoke decor approach'},
-        {href: '#gallery', label: 'Gallery', ariaLabel: 'Explore our wedding and event decor portfolio'},
-        {href: '#testimonials', label: 'Testimonials', ariaLabel: 'Read reviews from our wedding and event decor clients'},
-        {href: '#contact', label: 'Contact Us', ariaLabel: 'Request a free decor consultation and quote'},
+        {href: '/#aboutus', label: 'About Us', ariaLabel: 'Learn about Sajaavat Events and our bespoke decor approach'},
+        {href: '/#gallery', label: 'Gallery', ariaLabel: 'Explore our event decor portfolio'},
+        {href: '/#testimonials', label: 'Testimonials', ariaLabel: 'Read reviews from our clients'},
+        {href: '/#contact', label: 'Contact Us', ariaLabel: 'Request a free decor consultation and quote'},
     ]
 
     return (
@@ -47,11 +47,11 @@ export default function Header() {
                             <Link
                                 href="/"
                                 className="flex items-center"
-                                aria-label="Sajaavat Events - Bespoke wedding and event decor specialists"
+                                aria-label="Sajaavat Events - Bespoke event decor specialists"
                             >
                                 <Image
                                     src={logo}
-                                    alt="Sajaavat Events logo - Bespoke wedding and event decor specialists in Coventry and across the UK"
+                                    alt="Sajaavat Events logo - Bespoke event decor specialists in the Midlands and across the UK"
                                     width={200}
                                     height={50}
                                     priority

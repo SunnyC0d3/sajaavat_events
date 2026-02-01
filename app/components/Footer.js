@@ -125,9 +125,9 @@ export default function Footer({hasHeader = true}) {
         {
             icon: MapPin,
             title: 'Service Coverage',
-            details: 'Coventry & Nationwide UK',
+            details: 'Midlands & Nationwide UK',
             action: null,
-            description: 'Based in Coventry, styling events across the UK'
+            description: 'Based in the Midlands, styling events across the UK'
         }
     ]
 
@@ -173,8 +173,8 @@ export default function Footer({hasHeader = true}) {
                                 Request Your Free Decor Quote
                             </h2>
                             <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-                                Planning a wedding, celebration, or corporate event? Share your theme, venue, and vision — we’ll create a
-                                bespoke decor concept with statement backdrops and styling that elevates your space. Based in Coventry and
+                                Planning pre-wedding events, weddings or parties? Share your theme, venue, and vision — we’ll create a
+                                bespoke decor concept with statement backdrops and styling that elevates your space. Based in the Midlands and
                                 available across the UK.
                             </p>
                         </div>
@@ -265,7 +265,7 @@ export default function Footer({hasHeader = true}) {
                                             className={`w-full px-4 py-3 border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 bg-neutral-50 ${
                                                 errors.eventType ? 'border-red-500' : 'border-neutral-300 focus:border-primary-500'
                                             }`}
-                                            placeholder="e.g. Wedding, Reception, Birthday, Corporate Event"
+                                            placeholder="e.g. Pre-Wedding, Wedding and Parties"
                                             aria-describedby={errors.eventType ? 'eventType-error' : undefined}
                                             aria-required="true"
                                         />
@@ -315,7 +315,7 @@ export default function Footer({hasHeader = true}) {
                                         className={`w-full px-4 py-3 border rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 resize-none bg-neutral-50 ${
                                             errors.message ? 'border-red-500' : 'border-neutral-300 focus:border-primary-500'
                                         }`}
-                                        placeholder="Share your venue, theme, colours, guest count, and any inspiration photos or must-have decor moments (stage/backdrop, entrance, reception, photo area)..."
+                                        placeholder="Share your venue, theme, colours, guest count, and any inspiration photos or must-have decor moments (stage/backdrop, signage, photo area)..."
                                         aria-describedby={errors.message ? 'message-error' : undefined}
                                         aria-required="true"
                                     />
@@ -466,7 +466,7 @@ export default function Footer({hasHeader = true}) {
                                 >
                                     <Image
                                         src={logo}
-                                        alt="Sajaavat Events - Bespoke wedding and event decor specialists in Coventry and across the UK"
+                                        alt="Sajaavat Events - Bespoke wedding and event decor specialists in the Midlands and across the UK"
                                         width={200}
                                         height={50}
                                     />
@@ -474,7 +474,7 @@ export default function Footer({hasHeader = true}) {
                             </div>
                             <p className="text-neutral-300 leading-relaxed mb-6 max-w-md">
                                 Bespoke wedding and event decor, luxury backdrops, and venue styling designed around your celebration.
-                                From cultural ceremonies and receptions to birthdays and corporate events — based in Coventry and available
+                                From pre-wedding events, weddings and parties across the UK — based in the Midlands and available
                                 across the UK.
                             </p>
 
@@ -489,6 +489,8 @@ export default function Footer({hasHeader = true}) {
                                 </a>
                             </div>
                         </div>
+
+                        <div className="space-y-4"></div>
 
                         <nav className="space-y-4" aria-labelledby="footer-navigation">
                             <h4 id="footer-navigation" className="font-semibold text-neutral-50 mb-4">Quick Links</h4>
@@ -505,58 +507,32 @@ export default function Footer({hasHeader = true}) {
                                         </Link>
                                     </li>
                                 ))}
+                                <div className="flex space-x-3 mt-4">
+                                    {socialLinks.map((social) => (
+                                        <a
+                                            key={social.name}
+                                            href={social.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center text-neutral-300 hover:text-neutral-50 hover:bg-primary-500 transition-all duration-200"
+                                            aria-label={social.description}
+                                            title={social.description}
+                                        >
+                                            <social.icon className="w-5 h-5" aria-hidden="true"/>
+                                        </a>
+                                    ))}
+                                </div>
                             </ul>
                         </nav>
-
-                        <div className="space-y-4">
-                            <h4 className="font-semibold text-neutral-50 mb-4">Legal & Social</h4>
-                            <ul className="space-y-2 mb-6" role="list">
-                                <li>
-                                    <a
-                                        href="/terms"
-                                        className="text-neutral-300 hover:text-neutral-50 transition-colors"
-                                        aria-label="Read our terms and conditions for event decor services"
-                                    >
-                                        Terms & Conditions
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="/privacy"
-                                        className="text-neutral-300 hover:text-neutral-50 transition-colors"
-                                        aria-label="Read our privacy policy and data protection information"
-                                    >
-                                        Privacy Policy
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <div className="flex space-x-3">
-                                {socialLinks.map((social) => (
-                                    <a
-                                        key={social.name}
-                                        href={social.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="w-10 h-10 bg-neutral-800 rounded-lg flex items-center justify-center text-neutral-300 hover:text-neutral-50 hover:bg-primary-500 transition-all duration-200"
-                                        aria-label={social.description}
-                                        title={social.description}
-                                    >
-                                        <social.icon className="w-5 h-5" aria-hidden="true"/>
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
                     </div>
 
                     <div className="border-t border-neutral-700 mt-8 pt-8 text-center">
                         <p className="text-neutral-400 text-sm">
                             © {new Date().getFullYear()} Sajaavat Events. All rights reserved. |
-                            Bespoke wedding and event decor, luxury backdrops, and venue styling across the UK.
+                            Bespoke event decor, luxury backdrops, and venue styling across the UK.
                         </p>
                         <p className="text-neutral-500 text-xs mt-2">
-                            Based in Coventry, serving the West Midlands and nationwide — styling weddings, cultural celebrations,
-                            corporate events, and private parties with tailored decor concepts.
+                            Based in the Midlands, and serving across the UK — styling pre-wedding events, weddings and parties with tailored decor concepts.
                         </p>
                     </div>
                 </div>

@@ -7,7 +7,6 @@ import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
 
 export default function NotFoundPage() {
-    const [searchQuery] = useState('')
     const [mounted, setMounted] = useState(false)
 
     useEffect(() => {
@@ -36,56 +35,7 @@ export default function NotFoundPage() {
         }
     }
 
-    const handleSearch = (e) => {
-        e.preventDefault()
-        if (searchQuery.trim()) {
-            const searchTerm = searchQuery.toLowerCase()
-
-            if (
-                searchTerm.includes('wedding') ||
-                searchTerm.includes('decor') ||
-                searchTerm.includes('décor') ||
-                searchTerm.includes('backdrop') ||
-                searchTerm.includes('stage') ||
-                searchTerm.includes('mandap') ||
-                searchTerm.includes('reception')
-            ) {
-                window.location.href = '/#gallery'
-            } else if (
-                searchTerm.includes('corporate') ||
-                searchTerm.includes('business') ||
-                searchTerm.includes('brand') ||
-                searchTerm.includes('launch')
-            ) {
-                window.location.href = '/#gallery'
-            } else if (
-                searchTerm.includes('gallery') ||
-                searchTerm.includes('portfolio') ||
-                searchTerm.includes('photos') ||
-                searchTerm.includes('images')
-            ) {
-                window.location.href = '/#gallery'
-            } else if (
-                searchTerm.includes('contact') ||
-                searchTerm.includes('quote') ||
-                searchTerm.includes('book') ||
-                searchTerm.includes('enquiry') ||
-                searchTerm.includes('consultation')
-            ) {
-                window.location.href = '/#contact'
-            } else {
-                window.location.href = '/'
-            }
-        }
-    }
-
     const quickLinks = [
-        {
-            label: 'Wedding & Event Decor',
-            href: '/#gallery',
-            icon: Calendar,
-            description: 'Bespoke backdrops, stages, and venue styling'
-        },
         {
             label: 'Decor Portfolio',
             href: '/#gallery',
@@ -99,10 +49,10 @@ export default function NotFoundPage() {
             description: 'Tell us your vision and get a decor quote'
         },
         {
-            label: 'Coventry & UK Coverage',
+            label: 'Midlands & UK Coverage',
             href: '/',
             icon: MapPin,
-            description: 'Based in Coventry, available across the UK'
+            description: 'Based in the Midlands, available across the UK'
         }
     ]
 
@@ -128,11 +78,6 @@ export default function NotFoundPage() {
                             <h2 className="text-3xl lg:text-5xl font-bold text-neutral-900 mb-4">
                                 Oops! We Can’t Find That Page
                             </h2>
-                            <p className="text-lg text-neutral-600 max-w-2xl mx-auto leading-relaxed">
-                                The page you’re looking for isn’t available right now. If you’re planning a wedding, celebration,
-                                or corporate event, you can still explore our decor portfolio or request a free quote — we’re
-                                based in Coventry and work across the UK.
-                            </p>
                         </div>
                     </div>
 
@@ -181,15 +126,6 @@ export default function NotFoundPage() {
                             )
                         })}
                     </div>
-                </div>
-                <div className="sr-only" aria-hidden="true">
-                    <h2>Event Decor & Backdrop Services</h2>
-                    <p>
-                        Sajaavat Events provides bespoke wedding and event decor in Coventry and across the UK. Services include luxury
-                        backdrops, stage and mandap-inspired styling, entrance decor, reception decor, venue styling, and corporate event
-                        setups. We work throughout the West Midlands and nationwide including Birmingham, Leicester, Warwick, Solihull,
-                        London, Manchester, Leeds, and surrounding areas.
-                    </p>
                 </div>
             </main>
 
