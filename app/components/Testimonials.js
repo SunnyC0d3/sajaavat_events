@@ -114,7 +114,7 @@ export default function Testimonials() {
                         <div className="p-8 md:p-10 lg:p-12 flex flex-col justify-center">
                             <blockquote className="text-neutral-700 leading-relaxed text-[15px] md:text-base">
                 <span className="block italic">
-                  "{current.review}"
+                  &quot;{current.review}&quot;
                 </span>
                             </blockquote>
 
