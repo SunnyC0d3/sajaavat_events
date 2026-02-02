@@ -354,7 +354,7 @@ export default function Footer({hasHeader = true}) {
 
                                     <div>
                                         <label className="block text-sm font-medium text-neutral-900 mb-2">
-                                            Preferred Event Dates
+                                            Event Date(s)
                                         </label>
                                         <input
                                             type="text"
@@ -365,7 +365,7 @@ export default function Footer({hasHeader = true}) {
                                                 errors.eventDates ? 'border-red-500' : 'border-neutral-300 focus:border-primary-500'
                                             }`}
                                             placeholder="e.g. 15th Jan 2026, 20/01/2026"
-                                            aria-label="Enter your preferred event dates"
+                                            aria-label="Enter your event date(s)"
                                             aria-describedby={errors.eventDates ? 'eventDates-error' : 'eventDates-help'}
                                         />
                                         {errors.eventDates ? (
@@ -640,7 +640,7 @@ export default function Footer({hasHeader = true}) {
                             </div>
                             <p className="text-neutral-300 leading-relaxed mb-6 max-w-md">
                                 Bespoke wedding and event decor, luxury backdrops, and venue styling designed around your celebration.
-                                From pre-wedding events, weddings and parties across the UK — based in the Midlands and available
+                                From pre-wedding events, weddings and parties — based in the Midlands and available
                                 across the UK.
                             </p>
 

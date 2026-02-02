@@ -8,15 +8,15 @@ export default function Hero() {
     const slides = useMemo(
         () => [
             {
+                id: 'wedding',
+                image: '/images/gallery/ss-event/SS-Wedding-Landscape-1.JPG',
+                alt: 'Sukhkaran and Simran\'s wedding day - The Maharaja'
+            },
+            {
                 id: 'pre-wedding',
                 image: '/images/gallery/ss-event/SS-Chunni-Landscape-2.jpg',
                 alt: 'Sukhkaran and Simran\'s chunni event - Blush Meets Blue'
             },
-            {
-                id: 'wedding',
-                image: '/images/gallery/ss-event/SS-Wedding-Landscape-1.JPG',
-                alt: 'Sukhkaran and Simran\'s wedding day - The Maharaja'
-            }
         ],
         []
     )

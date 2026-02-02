@@ -140,7 +140,7 @@ export async function POST(request) {
                                 <strong>Email:</strong> <a href="mailto:${email}" style="color: #6a2929; text-decoration: none;">${email}</a><br>
                                 <strong>Phone:</strong> <a href="tel:${phone}" style="color: #6a2929; text-decoration: none;">${phone}</a><br>
                                 <strong>Event Type:</strong> ${eventType}<br>
-                                ${eventDates ? `<strong>Preferred Event Dates:</strong> ${eventDates}<br>` : ''}
+                                ${eventDates ? `<strong>Event Date(s):</strong> ${eventDates}<br>` : ''}
                             </p>
 
                             <h3 style="color: #2b2020; margin: 0 0 10px; font-size: 16px; font-weight: 600;">Vision & Requirements</h3>
@@ -191,7 +191,7 @@ export async function POST(request) {
                             </h3>
                             <p style="margin: 0 0 20px; line-height: 1.8;">
                                 <strong>Event Type:</strong> ${eventType}<br>
-                                ${eventDates ? `<strong>Preferred Event Dates:</strong> ${eventDates}<br>` : ''}
+                                ${eventDates ? `<strong>Event Date(s):</strong> ${eventDates}<br>` : ''}
                                 <strong>Contact:</strong> ${phone}${images.length > 0 ? `<br><strong>Inspiration Photos:</strong> ${images.length} image${images.length > 1 ? 's' : ''} sent` : ''}
                             </p>
 
