@@ -77,7 +77,7 @@ export default function Testimonials() {
                         Client Testimonials
                     </h2>
                     <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-                        What it’s like working with Sajaavat Events.
+                        What it's like working with Sajaavat Events.
                     </p>
                 </div>
 
@@ -102,18 +102,19 @@ export default function Testimonials() {
                         <div className="relative aspect-[3/4] md:aspect-[4/5] lg:aspect-[2/3] overflow-hidden">
                             <Image
                                 src={current.image}
-                                alt={`${current.name} testimonial`}
+                                alt={`${current.name} testimonial from ${current.event} in ${current.location}`}
                                 fill
                                 sizes="(max-width: 768px) 100vw, 50vw"
                                 className="object-cover object-center md:object-top"
-                                priority
+                                priority={currentTestimonial === 0}
+                                quality={85}
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
                         </div>
                         <div className="p-8 md:p-10 lg:p-12 flex flex-col justify-center">
                             <blockquote className="text-neutral-700 leading-relaxed text-[15px] md:text-base">
                 <span className="block italic">
-                  “{current.review}”
+                  "{current.review}"
                 </span>
                             </blockquote>
 

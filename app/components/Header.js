@@ -19,6 +19,17 @@ export default function Header() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'unset'
+        }
+        return () => {
+            document.body.style.overflow = 'unset'
+        }
+    }, [isMenuOpen])
+
     const handleLinkClick = () => {
         setIsMenuOpen(false)
     }
@@ -47,14 +58,15 @@ export default function Header() {
                             <Link
                                 href="/"
                                 className="flex items-center"
-                                aria-label="Sajaavat Events - Bespoke event decor specialists"
+                                aria-label="Sajaavat Events - Bespoke event decor specialists - Return to homepage"
                             >
                                 <Image
                                     src={logo}
-                                    alt="Sajaavat Events logo - Bespoke event decor specialists in the Midlands and across the UK"
+                                    alt="Sajaavat Events logo"
                                     width={200}
                                     height={50}
                                     priority
+                                    quality={90}
                                 />
                             </Link>
                         </div>
@@ -67,7 +79,7 @@ export default function Header() {
                                 <a
                                     key={link.href}
                                     href={link.href}
-                                    className="text-neutral-700 hover:text-neutral-900 font-medium text-md transition-colors duration-200"
+                                    className="text-neutral-700 hover:text-neutral-900 font-medium text-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2 rounded px-2 py-1"
                                     aria-label={link.ariaLabel}
                                 >
                                     {link.label}
@@ -85,7 +97,7 @@ export default function Header() {
                                 aria-controls="mobile-navigation"
                             />
                         </div>
-                        <div className="hidden lg:block w-[90px]"></div>
+                        <div className="hidden lg:block w-[90px]" aria-hidden="true"></div>
                     </div>
                     {isMenuOpen && (
                         <div
@@ -100,7 +112,7 @@ export default function Header() {
                                         key={link.href}
                                         href={link.href}
                                         onClick={handleLinkClick}
-                                        className="block py-3 px-3 text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 font-medium transition-colors duration-200 rounded-lg"
+                                        className="block py-3 px-3 text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 font-medium transition-colors duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-neutral-500"
                                         aria-label={link.ariaLabel}
                                     >
                                         {link.label}

@@ -104,7 +104,7 @@ export default function Hero() {
                         className="flex transition-transform duration-700 ease-out"
                         style={{ transform: `translate3d(-${index * 100}%, 0, 0)` }}
                     >
-                        {slides.map((slide) => (
+                        {slides.map((slide, slideIndex) => (
                             <div
                                 key={slide.id}
                                 className="relative min-w-full h-[520px] sm:h-[620px] lg:h-[720px]"
@@ -116,7 +116,10 @@ export default function Hero() {
                                     src={slide.image}
                                     alt={slide.alt}
                                     fill
-                                    priority={slide.id === slides[0].id}
+                                    priority={slideIndex === 0}
+                                    loading={slideIndex === 0 ? 'eager' : 'lazy'}
+                                    quality={90}
+                                    sizes="100vw"
                                     className="object-cover"
                                 />
                                 <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
@@ -175,7 +178,7 @@ export default function Hero() {
                             </p>
                             <br />
                             <p className="text-neutral-200 text-base sm:text-lg leading-relaxed">
-                                We understand every client’s vision is different. We take the time to listen, plan, and design a
+                                We understand every client's vision is different. We take the time to listen, plan, and design a
                                 setup that feels personal to you — with a focus on aesthetic balance, clean finishing, and
                                 photo-ready details from every angle.
                             </p>
@@ -195,7 +198,7 @@ export default function Hero() {
                                 {
                                     title: 'Cultural & Modern Styling',
                                     description:
-                                        'Styling that respects tradition while still feeling clean, modern and elevated for today’s celebrations.',
+                                        'Styling that respects tradition while still feeling clean, modern and elevated for today&apos;s celebrations.',
                                 },
                                 {
                                     title: 'Professional Setup & Finish',

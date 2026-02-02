@@ -274,10 +274,13 @@ export default function Gallery() {
                                         src={image.src}
                                         alt={image.alt}
                                         className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
-                                        loading={index < 6 ? 'eager' : 'lazy'}
+                                        loading={index < 3 ? 'eager' : 'lazy'}
+                                        priority={index < 3}
                                         itemProp="image"
                                         width={1200}
                                         height={800}
+                                        quality={85}
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     />
                                 </div>
 
@@ -361,6 +364,8 @@ export default function Gallery() {
                                             className="w-full h-full object-contain"
                                             width={1200}
                                             height={800}
+                                            quality={90}
+                                            sizes="(max-width: 1280px) 100vw, 1280px"
                                         />
                                     </div>
                                 ))}
