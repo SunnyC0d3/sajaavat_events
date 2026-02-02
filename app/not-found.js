@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowLeft, Search, Phone, MapPin, Home } from "lucide-react"
+import { Search, Phone, MapPin } from "lucide-react"
 import Footer from "@/app/components/Footer"
 import Header from "@/app/components/Header"
 
@@ -51,7 +51,7 @@ export default function NotFoundPage() {
                         {quickLinks.map((link) => {
                             const Icon = link.icon
                             return (
-                                <a
+                                <Link
                                     key={link.label}
                                     href={link.href}
                                     className="bg-neutral-50 rounded-lg shadow-sm border border-neutral-200 p-5 hover:shadow-md transition-shadow"
@@ -66,7 +66,7 @@ export default function NotFoundPage() {
                                             <div className="text-sm text-neutral-600">{link.description}</div>
                                         </div>
                                     </div>
-                                </a>
+                                </Link>
                             )
                         })}
                     </div>
