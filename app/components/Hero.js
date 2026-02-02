@@ -178,7 +178,7 @@ export default function Hero() {
                             </p>
                             <br />
                             <p className="text-neutral-200 text-base sm:text-lg leading-relaxed">
-                                We understand every client's vision is different. We take the time to listen, plan, and design a
+                                We understand every client&apos;s vision is different. We take the time to listen, plan, and design a
                                 setup that feels personal to you — with a focus on aesthetic balance, clean finishing, and
                                 photo-ready details from every angle.
                             </p>

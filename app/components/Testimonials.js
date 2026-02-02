@@ -77,7 +77,7 @@ export default function Testimonials() {
                         Client Testimonials
                     </h2>
                     <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-                        What it's like working with Sajaavat Events.
+                        What it&apos;s like working with Sajaavat Events.
                     </p>
                 </div>
 
