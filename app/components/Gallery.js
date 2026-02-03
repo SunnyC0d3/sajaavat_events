@@ -39,7 +39,7 @@ export default function Gallery() {
             },
             {
                 id: 2,
-                src: '/images/gallery/ss-event/SS-Wedding-Landscape-2.JPG',
+                src: '/images/gallery/ss-event/SS-Wedding-Landscape-2.jpg',
                 alt: "Wedding day decor for Sukhkaran and Simrans big day",
                 category: 'wedding',
                 title: 'The Maharaja',
@@ -51,8 +51,8 @@ export default function Gallery() {
                     'Calm, luxurious, and timeless — a sophisticated stage that elevates the ceremony without distraction.',
                 keywords: 'event decor, bespoke wedding backdrop, wedding, coventry',
                 images: [
-                    { src: '/images/gallery/ss-event/SS-Wedding-Landscape-1.JPG', alt: 'The Maharaja theme styled backdrop' },
-                    { src: '/images/gallery/ss-event/SS-Wedding-Portrait-2.JPG', alt: 'Simran on her special day with the Maharaja theme backdrop' }
+                    { src: '/images/gallery/ss-event/SS-Wedding-Landscape-1.JPG', alt: 'The Maharaja theme styled backdrop - side angle' },
+                    { src: '/images/gallery/ss-event/SS-Wedding-Landscape-2.jpg', alt: 'The Maharaja theme styled backdrop - front angle' }
                 ]
             }
         ],

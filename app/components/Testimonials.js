@@ -26,7 +26,7 @@ export default function Testimonials() {
             event: 'Wedding Day',
             location: 'Coventry',
             image:
-                '/images/gallery/ss-event/SS-Wedding-Portrait-4.JPG',
+                '/images/gallery/ss-event/SS-Wedding-Portrait-4.jpg',
             review:
                 'Saajavat created the wedding morning backdrop at my home and it completely elevated the space. The colour platte was carefully chosen and worked perfectly with the surroundings, giving everything a clean, elegant, and premium feel. It made such a big difference to the atmosphere of the morning and looked incredible in photos and videos. The team were professional, efficient, and clearly took pride in their work. I could not have been happier with the final result and would definitely recommend Sajaavat.',
             date: 'September 2025',

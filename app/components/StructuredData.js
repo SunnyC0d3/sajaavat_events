@@ -20,7 +20,7 @@ export default function StructuredData() {
         "image": [
             `${siteUrl}/images/gallery/ss-event/SS-Chunni-Landscape-2.jpg`,
             `${siteUrl}/images/gallery/ss-event/SS-Wedding-Landscape-1.JPG`,
-            `${siteUrl}/images/gallery/ss-event/SS-Wedding-Landscape-2.JPG`
+            `${siteUrl}/images/gallery/ss-event/SS-Wedding-Landscape-2.jpg`
         ],
         "email": emailAddress,
         ...(telephone ? { telephone } : {}),

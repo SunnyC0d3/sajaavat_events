@@ -39,7 +39,7 @@ export async function GET() {
         },
         {
             loc: `${baseUrl}/`,
-            imageUrl: `${baseUrl}/images/gallery/ss-event/SS-Wedding-Landscape-2.JPG`,
+            imageUrl: `${baseUrl}/images/gallery/ss-event/SS-Wedding-Landscape-2.jpg`,
             caption:
                 "Wedding reception decor featuring a luxury stage setup with clean lines, layered textures, and a polished, modern finish — by Sajaavat Events.",
             title: "Wedding Reception Decor - Sajaavat Events",
@@ -57,7 +57,7 @@ export async function GET() {
         },
         {
             loc: `${baseUrl}/#testimonials`,
-            imageUrl: `${baseUrl}/images/gallery/ss-event/SS-Wedding-Portrait-4.JPG`,
+            imageUrl: `${baseUrl}/images/gallery/ss-event/SS-Wedding-Portrait-4.jpg`,
             caption:
                 "Wedding day portrait styling with a premium, photo-ready backdrop setup created by Sajaavat Events in Coventry (UK-wide service).",
             title: "Wedding Day Backdrop Styling - Sajaavat Events",
