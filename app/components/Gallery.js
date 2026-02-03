@@ -22,7 +22,7 @@ export default function Gallery() {
                 src: '/images/gallery/ss-event/SS-Chunni-Landscape-2.jpg',
                 alt: "Chunni decor for Sukhkaran and Simrans chunni event",
                 category: 'pre-wedding',
-                title: 'Blush Meets Blue Theme',
+                title: 'Blush Meets Blue',
                 description:
                     'A soft and intimate pre-wedding setup designed for a Chunni ceremony, featuring a neutral velvet seating area framed with delicate florals and gold accents. The styling creates a warm, welcoming atmosphere that feels elegant yet personal — perfect for meaningful family moments and timeless photographs.',
                 event: 'Chunni ceremony event',
@@ -42,7 +42,7 @@ export default function Gallery() {
                 src: '/images/gallery/ss-event/SS-Wedding-Landscape-2.JPG',
                 alt: "Wedding day decor for Sukhkaran and Simrans big day",
                 category: 'wedding',
-                title: 'The Maharaja Theme',
+                title: 'The Maharaja',
                 description:
                     'A refined wedding stage designed with layered textures, draped fabrics, and muted neutral tones to create a calm yet luxurious focal point. The setup balances tradition with modern elegance, offering a timeless backdrop that photographs beautifully from every angle.',
                 event: 'Wedding day ceremony',
