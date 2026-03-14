@@ -10,12 +10,12 @@ export default function Hero() {
             {
                 id: 'wedding',
                 image: '/images/gallery/ss-event/SS-Wedding-Landscape-1.JPG',
-                alt: 'Sukhkaran and Simran\'s wedding day - The Maharaja'
+                alt: 'Luxury Asian wedding backdrop and stage decor by Sajaavat Events, Midlands UK'
             },
             {
                 id: 'pre-wedding',
                 image: '/images/gallery/ss-event/SS-Chunni-Landscape-2.jpg',
-                alt: 'Sukhkaran and Simran\'s chunni event - Blush Meets Blue'
+                alt: 'Bespoke pre-wedding chunni ceremony decor with custom backdrop by Sajaavat Events, Coventry'
             },
         ],
         []
@@ -127,6 +127,21 @@ export default function Hero() {
                         ))}
                     </div>
                 </div>
+                <div className="absolute inset-0 z-10 pointer-events-none flex flex-col items-center justify-center text-center px-4">
+                    <h1 className="text-white">
+                        <span className="block text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase text-white/70 mb-2">
+                            Sajaavat Events
+                        </span>
+                        <span className="block text-2xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight drop-shadow-lg">
+                            Bespoke Event Decor
+                            <br />&amp; Wedding Styling
+                        </span>
+                        <span className="block text-xs sm:text-sm text-white/80 mt-3 font-normal drop-shadow tracking-wide">
+                            Based in the Midlands &middot; Styling Events Across the UK
+                        </span>
+                    </h1>
+                </div>
+
                 <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-2">
                     {slides.map((s, i) => (
                         <button

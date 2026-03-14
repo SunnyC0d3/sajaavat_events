@@ -53,7 +53,8 @@ export default function StructuredData() {
         "currenciesAccepted": "GBP",
         "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
         "sameAs": [
-            "https://instagram.com/sajaavat.events"
+            "https://instagram.com/sajaavat.events",
+            "https://share.google/5ck6TiBMpT52ju9hB"
         ],
         "foundingDate": "2025",
         "aggregateRating": {
@@ -248,7 +249,7 @@ export default function StructuredData() {
             "itemReviewed": { "@id": businessId },
             "author": {
                 "@type": "Person",
-                "name": "Sukhkaran S."
+                "name": "Sukhkaran & Simran"
             },
             "reviewRating": {
                 "@type": "Rating",
