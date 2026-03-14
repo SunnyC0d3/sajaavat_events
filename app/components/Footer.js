@@ -230,6 +230,11 @@ export default function Footer({hasHeader = true}) {
             description: 'Read testimonials from clients across the UK'
         },
         {
+            label: 'Frequently Asked Questions',
+            href: '/#faq',
+            description: 'Get answers from our frequently asked questions'
+        },
+        {
             label: 'Free Consultation',
             href: '/#contact',
             description: 'Request a free decor consultation and quote'

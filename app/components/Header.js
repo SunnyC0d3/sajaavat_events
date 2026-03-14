@@ -38,6 +38,7 @@ export default function Header() {
         {href: '/#aboutus', label: 'About Us', ariaLabel: 'Learn about Sajaavat Events and our bespoke decor approach'},
         {href: '/#gallery', label: 'Gallery', ariaLabel: 'Explore our event decor portfolio'},
         {href: '/#testimonials', label: 'Testimonials', ariaLabel: 'Read reviews from our clients'},
+        {href: '/#faq', label: 'FAQs', ariaLabel: 'Get answers from our frequently asked questions'},
         {href: '/#contact', label: 'Contact Us', ariaLabel: 'Request a free decor consultation and quote'},
     ]
 
